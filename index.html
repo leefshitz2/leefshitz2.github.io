@@ -3,275 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">KSN MULTI TOOL (KMT) - Ваш Инструмент №1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>KomorOS - Лёгкий и быстрый AOSP-ROM</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --primary: #2c5aa0;
+            --primary-dark: #1e3d72;
+            --secondary: #34c759;
+            --secondary-dark: #2aa64a;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0124;
-            color: #d1d8e0;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
         }
-        .neon-text {
-            text-shadow: 0 0 5px #a78bfa, 0 0 10px #a78bfa;
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-        .cta-button {
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 10px #5e00f5;
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        img.logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
             position: relative;
-            overflow: hidden;
-            z-index: 10;
         }
-        .cta-button:hover {
-            box-shadow: 0 0 20px #7c3aed, 0 0 40px #7c3aed;
-            transform: translateY(-2px);
+        
+        .nav-links a:hover {
+            color: var(--primary);
         }
-        .cyber-card {
-            border: 1px solid rgba(126, 34, 206, 0.4);
-            background: rgba(30, 0, 70, 0.6);
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
         }
-        .cyber-card:hover {
-            box-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .section h3 {
+            color: var(--primary-dark);
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            margin-bottom: 10px;
+        }
+        
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        .coming-soon-card {
-            border: 1px solid rgba(251, 191, 36, 0.6);
-            background: rgba(70, 50, 0, 0.6);
-            opacity: 0.8;
-            cursor: default;
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
-        .coming-soon-card:hover {
-            transform: none;
-            box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* Download Buttons */
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--secondary), var(--secondary-dark));
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(52, 199, 89, 0.3);
+            margin-top: 15px;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(52, 199, 89, 0.4);
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            color: var(--gray);
+            display: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <nav class="bg-black/70 sticky top-0 z-50 backdrop-blur-sm border-b border-purple-900/50 shadow-2xl shadow-purple-900/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 neon-text">
-                KMT
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#features" id="nav-features" class="text-gray-300 hover:text-cyan-400 transition duration-150">Возможности</a>
-                <a href="#support" id="nav-support" class="text-gray-300 hover:text-cyan-400 transition duration-150">Поддержка</a>
-                <a href="#download" id="nav-download" class="text-gray-300 hover:text-cyan-400 transition duration-150">Скачать</a>
+    <div class="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="KomorOS Logo" class="logo">
+                <h1>KomorOS</h1>
             </div>
-            <a href="#download" id="nav-cta" class="hidden md:inline-block cta-button px-5 py-2 text-sm font-semibold rounded-lg text-white 
-                bg-gradient-to-r from-purple-700 to-indigo-600">
-                Получить KMT
-            </a>
+            <p>Легковесный, быстрый и оптимизированный ROM на базе AOSP.</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <h2 style="color: var(--primary);">KomorOS</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">О KomorOS</a></li>
+                <li><a href="#devices">Устройства</a></li>
+                <li><a href="#download">Скачать</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section class="text-center py-24 md:py-40 bg-gray-900/30 border-b border-purple-900">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 id="hero-title" class="text-5xl md:text-8xl font-black mb-6 leading-tight text-transparent bg-clip-text 
-                bg-gradient-to-r from-cyan-400 to-fuchsia-500 neon-text">
-                KSN MULTI TOOL
-            </h1>
-            <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
-                Ваш универсальный и безопасный инструмент для работы с мобильными чипсетами: MTK, Qualcomm и Unisoc. Разблокировка, восстановление и модификация — быстро и надежно.
-            </p>
-            <a href="#download" id="hero-cta" class="cta-button inline-block px-12 py-5 text-xl font-bold rounded-xl text-white 
-                bg-gradient-to-r from-purple-700 to-indigo-600 shadow-xl shadow-purple-700/50">
-                Скачать KMT (v1.0.0)
-            </a>
-        </div>
-    </section>
-
-    <section id="features" class="py-16 md:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="features-title" class="text-4xl font-bold text-center mb-16 text-white neon-text">
-                Почему выбирают KMT?
-            </h2>
+    <div class="container main-content">
+        <section id="about" class="section">
+            <h2>О KomorOS</h2>
+            <p>KomorOS — это кастомный ROM, созданный для тех, кто ценит скорость и минимализм. Мы взяли за основу AOSP (Android Open Source Project) и убрали всё лишнее, добавив только самые полезные твики и оптимизации.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="cyber-card p-6 rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4 text-purple-400">⚡</div>
-                    <h3 id="feat1-title" class="text-xl font-semibold mb-3 text-cyan-300">Модуль MediaTek (MTK)</h3>
-                    <p id="feat1-desc" class="text-gray-400 text-sm">
-                        Полная поддержка BROM/Preloader. Обход FRP, сброс настроек, чтение/запись Flash, работа с NVRAM. Включает эксклюзивные эксплойты для новых чипов.
-                    </p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Высокая производительность</h3>
+                    <p>Оптимизированная система для максимальной скорости отклика и плавности интерфейса.</p>
                 </div>
-
-                <div class="cyber-card p-6 rounded-xl shadow-lg coming-soon-card">
-                    <div class="text-5xl mb-4 text-yellow-500">⏳</div>
-                    <h3 id="feat2-title" class="text-xl font-semibold mb-3 text-yellow-300">Модуль Qualcomm (Snapdragon)</h3>
-                    <p id="feat2-desc" class="text-gray-400 text-sm">
-                        Поддержка чипсетов Snapdragon находится в активной разработке. Ожидайте полноценный функционал EDL и Fastboot в следующих крупных обновлениях KMT!
-                    </p>
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Энергоэффективность</h3>
+                    <p>Улучшенное управление питанием для долгой работы от батареи без потери производительности.</p>
                 </div>
-
-                <div class="cyber-card p-6 rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4 text-green-400">🌍</div>
-                    <h3 id="feat3-title" class="text-xl font-semibold mb-3 text-cyan-300">Поддержка Unisoc (SPD)</h3>
-                    <p id="feat3-desc" class="text-gray-400 text-sm">
-                        Инструменты для работы с чипсетами Spreadtrum/Unisoc. Надежные методы для сервисных операций, включая восстановление после неудачной прошивки.
-                    </p>
-                </div>
-                
-                <div class="cyber-card p-6 rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4 text-yellow-400">🛡️</div>
-                    <h3 id="feat4-title" class="text-xl font-semibold mb-3 text-cyan-300">Онлайн-Авторизация и Безопасность</h3>
-                    <p id="feat4-desc" class="text-gray-400 text-sm">
-                        Встроенная система онлайн-авторизации (AUTH) для работы с последними моделями устройств, требующими серверной проверки.
-                    </p>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Минимализм</h3>
+                    <p>Отсутствие bloatware и ненужных приложений. Только необходимый функционал.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="download" class="py-16 md:py-20 bg-purple-900/20 border-t border-b border-purple-800">
-        <div class="max-w-xl mx-auto px-4 text-center">
-            <h2 id="download-title" class="text-4xl font-bold mb-4 text-white neon-text">Готовы начать?</h2>
-            <p id="download-subtitle" class="text-gray-300 mb-8">
-                Получите самую свежую версию KSN MULTI TOOL и начните работать профессионально.
-            </p>
+        </section>
+
+        <section id="devices" class="section">
+            <h2>Поддерживаемые устройства</h2>
             
-            <div class="space-y-4">
-                <a href="https://mocklink.com/kmt_download_v1.0.0" target="_blank" id="download-cta" class="cta-button w-full md:w-auto inline-block px-12 py-5 text-xl font-bold rounded-xl text-white 
-                    bg-gradient-to-r from-fuchsia-600 to-indigo-500 shadow-lg shadow-fuchsia-500/50">
-                    СКАЧАТЬ (205 MB)
-                </a>
-                <p id="download-note" class="text-sm text-gray-400">
-                    Требуется Windows 10/11 (64-bit). Перед установкой отключите антивирус.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="support" class="py-16 md:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="support-title" class="text-4xl font-bold text-center mb-12 text-white neon-text">
-                Поддержка и Сообщество
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="device-section">
+                <h3>KomorOS для Infinix Smart 8</h3>
+                <p>Специальная сборка KomorOS, оптимизированная для смартфона Infinix Smart 8.</p>
+                <a href="URL_ДЛЯ_INFINIX_SMART_8" class="download-button">Скачать для Infinix Smart 8</a>
                 
-                <div class="cyber-card p-8 rounded-xl shadow-xl">
-                    <h3 id="support-card-title" class="text-2xl font-semibold mb-3 text-red-400">Техническая Поддержка</h3>
-                    <p id="support-card-desc" class="text-gray-400 mb-4">
-                        Если у вас возникли проблемы с активацией или выполнением операций, свяжитесь с нашей командой поддержки.
-                    </p>
-                    <p class="text-gray-300 font-mono text-lg">
-                        Email: support@ksnmultitool.com
-                    </p>
-                </div>
+                <h4>Инструкции по установке</h4>
+                <ol>
+                    <li>Скачайте KomorOS ROM для Infinix Smart 8 на ваше устройство или компьютер.</li>
+                    <li>Перезагрузите устройство в режиме FastbootD.</li>
+                    <li>Прошейте ROM командой <code>fastboot flash system KomorOS.img</code>.</li>
+                    <li>Сделайте вайп командой <code>fastboot reboot recovery</code>, и после ребута <code>factory reset/wipe data</code>.</li>
+                    <li>Перезагрузитесь в систему.</li>
+                </ol>
+            </div>
+            
+            <div class="device-section" style="margin-top: 40px;">
+                <h3>KomorOS для Infinix HOT 30i</h3>
+                <p>Специальная сборка KomorOS, оптимизированная для смартфона Infinix HOT 30i.</p>
+                <a href="URL_ДЛЯ_INFINIX_HOT_30i" class="download-button">Скачать для Infinix HOT 30i</a>
                 
-                <div class="cyber-card p-8 rounded-xl shadow-xl">
-                    <h3 id="community-card-title" class="text-2xl font-semibold mb-3 text-teal-400">Наше Сообщество</h3>
-                    <p id="community-card-desc" class="text-gray-400 mb-4">
-                        Присоединяйтесь к нашему Telegram-каналу для обмена опытом, получения обновлений и советов от других пользователей.
-                    </p>
-                    <a href="https://t.me/ksn_multi_tool_official" target="_blank" id="community-cta" class="text-cyan-400 hover:text-cyan-300 font-semibold transition duration-150">
-                        Присоединиться к Telegram →
-                    </a>
+                <h4>Инструкции по установке</h4>
+                <ol>
+                    <li>Скачайте KomorOS ROM для Infinix HOT 30i на ваше устройство или компьютер.</li>
+                    <li>Перезагрузите устройство в режиме FastbootD.</li>
+                    <li>Прошейте ROM командой <code>fastboot flash system KomorOS.img</code>.</li>
+                    <li>Сделайте вайп командой <code>fastboot reboot recovery</code>, и после ребута <code>factory reset/wipe data</code>.</li>
+                    <li>Перезагрузитесь в систему.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>Часто задаваемые вопросы</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Какие устройства поддерживает KomorOS?</div>
+                <div class="faq-answer">
+                    <p>На данный момент KomorOS доступен для Infinix Smart 8 и Infinix HOT 30i. В будущем планируется поддержка большего количества устройств.</p>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="faq-item">
+                <div class="faq-question">Нужен ли разблокированный загрузчик для установки?</div>
+                <div class="faq-answer">
+                    <p>Да, для установки KomorOS необходим разблокированный загрузчик и включенный режим разработчика с разрешением отладки по USB.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Сохранятся ли мои данные после установки?</div>
+                <div class="faq-answer">
+                    <p>Нет, процесс установки требует полной очистки данных (wipe data). Обязательно сделайте резервную копию перед установкой.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Получу ли я обновления системы?</div>
+                <div class="faq-answer">
+                    <p>Да, KomorOS предоставляет OTA-обновления. Вы будете получать уведомления о доступных обновлениях прямо на устройство.</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <footer class="bg-black/70 mt-12 py-8 border-t border-purple-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p id="footer-text" class="mb-2">KSN MULTI TOOL (KMT) - Разработано с использованием передовых технологий.</p>
-            <p class="text-sm">© 2025 KSN Development. Все права защищены. | <a href="#" id="footer-policy" class="hover:text-cyan-400">Политика конфиденциальности</a></p>
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2025 KomorOS. Все права защищены.</p>
+            <p>Android является товарным знаком Google LLC.</p>
         </div>
-    </footer>
+    </div>
 
     <script>
-        const translations = {
-            'ru': {
-                'page-title': 'KSN MULTI TOOL (KMT) - Ваш Инструмент №1',
-                'nav-features': 'Возможности',
-                'nav-support': 'Поддержка',
-                'nav-download': 'Скачать',
-                'nav-cta': 'Получить KMT',
-                'hero-subtitle': 'Ваш универсальный и безопасный инструмент для работы с мобильными чипсетами: MTK, Qualcomm и Unisoc. Разблокировка, восстановление и модификация — быстро и надежно.',
-                'hero-cta': 'Скачать KMT (v1.0.0)',
-                'features-title': 'Почему выбирают KMT?',
-                'feat1-title': 'Модуль MediaTek (MTK)',
-                'feat1-desc': 'Полная поддержка BROM/Preloader. Обход FRP, сброс настроек, чтение/запись Flash, работа с NVRAM. Включает эксклюзивные эксплойты для новых чипов.',
-                'feat2-title': 'Модуль Qualcomm (Snapdragon)',
-                'feat2-desc': 'Поддержка чипсетов Snapdragon находится в активной разработке. Ожидайте полноценный функционал EDL и Fastboot в следующих крупных обновлениях KMT!',
-                'feat3-title': 'Поддержка Unisoc (SPD)',
-                'feat3-desc': 'Инструменты для работы с чипсетами Spreadtrum/Unisoc. Надежные методы для сервисных операций, включая восстановление после неудачной прошивки.',
-                'feat4-title': 'Онлайн-Авторизация и Безопасность',
-                'feat4-desc': 'Встроенная система онлайн-авторизации (AUTH) для работы с последними моделями устройств, требующими серверной проверки.',
-                'download-title': 'Готовы начать?',
-                'download-subtitle': 'Получите самую свежую версию KSN MULTI TOOL и начните работать профессионально.',
-                'download-cta': 'СКАЧАТЬ (205 MB)',
-                'download-note': 'Требуется Windows 10/11 (64-bit). Перед установкой отключите антивирус.',
-                'support-title': 'Поддержка и Сообщество',
-                'support-card-title': 'Техническая Поддержка',
-                'support-card-desc': 'Если у вас возникли проблемы с активацией или выполнением операций, свяжитесь с нашей командой поддержки.',
-                'community-card-title': 'Наше Сообщество',
-                'community-card-desc': 'Присоединяйтесь к нашему Telegram-каналу для обмена опытом, получения обновлений и советов от других пользователей.',
-                'community-cta': 'Присоединиться к Telegram →',
-                'footer-text': 'KSN MULTI TOOL (KMT) - Разработано с использованием передовых технологий.',
-                'footer-policy': 'Политика конфиденциальности'
-            },
-            'en': {
-                'page-title': 'KSN MULTI TOOL (KMT) - Your #1 Tool',
-                'nav-features': 'Features',
-                'nav-support': 'Support',
-                'nav-download': 'Download',
-                'nav-cta': 'Get KMT',
-                'hero-subtitle': 'Your universal and secure tool for mobile chipsets: MTK, Qualcomm, and Unisoc. Unlocking, recovery, and modification—fast and reliable.',
-                'hero-cta': 'Download KMT (v1.0.0)',
-                'features-title': 'Why Choose KMT?',
-                'feat1-title': 'MediaTek Module (MTK)',
-                'feat1-desc': 'Full BROM/Preloader support. FRP bypass, reset, Flash read/write, NVRAM operations. Includes exclusive exploits for new chips.',
-                'feat2-title': 'Qualcomm Module (Snapdragon)',
-                'feat2-desc': 'Snapdragon chipset support is currently under active development. Expect full EDL and Fastboot functionality in upcoming major KMT releases!',
-                'feat3-title': 'Unisoc Support (SPD)',
-                'feat3-desc': 'Tools for Spreadtrum/Unisoc chipsets. Reliable methods for service operations, including recovery after failed flashing.',
-                'feat4-title': 'Online Authorization & Security',
-                'feat4-desc': 'Built-in online authorization (AUTH) system for working with the latest device models requiring server verification.',
-                'download-title': 'Ready to Start?',
-                'download-subtitle': 'Get the latest version of KSN MULTI TOOL and start working professionally.',
-                'download-cta': 'DOWNLOAD (205 MB)',
-                'download-note': 'Requires Windows 10/11 (64-bit). Disable antivirus before installation.',
-                'support-title': 'Support and Community',
-                'support-card-title': 'Technical Support',
-                'support-card-desc': 'If you have issues with activation or operations, contact our support team.',
-                'community-card-title': 'Our Community',
-                'community-card-desc': 'Join our Telegram channel to share experiences, get updates, and receive advice from other users.',
-                'community-cta': 'Join Telegram →',
-                'footer-text': 'KSN MULTI TOOL (KMT) - Developed using cutting-edge technologies.',
-                'footer-policy': 'Privacy Policy'
-            }
-        };
-
-        function getPreferredLanguage() {
-            const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
-            if (translations[browserLang]) {
-                return browserLang;
-            }
-            return 'ru'; 
-        }
-
-        function applyTranslation(lang) {
-            const strings = translations[lang];
-            document.documentElement.lang = lang;
-            for (const id in strings) {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.textContent = strings[id];
-                } else if (id === 'page-title') {
-                    document.title = strings[id];
+        // Простой скрипт для FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+                
+                // Скрыть все ответы
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.textContent = q.textContent.replace('−', '+');
+                });
+                
+                // Показать/скрыть текущий ответ
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                    question.textContent = question.textContent.replace('+', '−');
                 }
-            }
-        }
-
-        window.onload = function() {
-            const lang = getPreferredLanguage();
-            applyTranslation(lang);
-        };
+            });
+        });
     </script>
+
 </body>
 </html>

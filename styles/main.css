@@ -453,3 +453,81 @@ a:hover {
 
 .product-badge.new {
     background
+
+/* Стили для новых элементов */
+.telegram-link.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #0088cc;
+    color: white !important;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.telegram-link.nav-icon:hover {
+    background-color: #0077b5;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.weekly-joke-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffebcc 100%);
+}
+
+[data-theme="dark"] .weekly-joke-section {
+    background: linear-gradient(135deg, #2d2318 0%, #3d2e1a 100%);
+}
+
+.weekly-joke-card {
+    background-color: var(--light-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border-top: 6px solid var(--primary-color);
+}
+
+.weekly-joke-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.joke-icon {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+}
+
+.weekly-joke-text {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.weekly-joke-subtext {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.btn-telegram {
+    background-color: #0088cc;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-telegram:hover {
+    background-color: #0077b5;
+    color: white;
+    transform: translateY(-2px);
+}

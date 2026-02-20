@@ -3,583 +3,870 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiaomi Tech | Официальный магазин смартфонов</title>
-    <meta name="description" content="Официальный магазин смартфонов Xiaomi с гарантией качества и лучшими ценами">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/responsive.css">
+    <title>Xiaomi Tech [Windows 95 BSOD EDITION]</title>
+    <meta name="description" content="Все телефоны Xiaomi с Helpix + синий экран + звук загрузки 95">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* ===== СТИЛИ WINDOWS 95 (как в прошлый раз) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'VT323', 'Courier New', monospace;
+            image-rendering: pixelated;
+        }
+        body {
+            background-color: #008080;
+            padding: 10px;
+            min-height: 100vh;
+        }
+        .desktop {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .taskbar {
+            background: #c0c0c0;
+            border-top: 2px solid #dfdfdf;
+            border-bottom: 2px solid #808080;
+            padding: 3px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #404040;
+            margin-bottom: 5px;
+        }
+        .start-button {
+            background: #c0c0c0;
+            border: 2px solid #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 4px 10px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .start-button:active {
+            border: 2px solid #404040;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .taskbar-time {
+            background: #c0c0c0;
+            border: 2px solid #808080;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            padding: 4px 10px;
+            font-size: 1.2rem;
+        }
+        .desktop-icons {
+            display: flex;
+            gap: 25px;
+            padding: 15px;
+            flex-wrap: wrap;
+        }
+        .desktop-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 0 #000;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .desktop-icon i {
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 0 #404040);
+            margin-bottom: 5px;
+        }
+        .window {
+            background: #c0c0c0;
+            border: 3px solid #dfdfdf;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            margin: 10px 0 20px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .window-title-bar {
+            background: #000080;
+            color: white;
+            padding: 5px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .window-title-bar i {
+            margin-right: 5px;
+        }
+        .window-controls {
+            display: flex;
+            gap: 3px;
+        }
+        .window-controls button {
+            background: #c0c0c0;
+            border: 2px solid #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            width: 25px;
+            height: 23px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .window-content {
+            padding: 15px;
+            background: #c0c0c0;
+        }
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .sidebar {
+            flex: 1;
+            min-width: 200px;
+            background: #c0c0c0;
+            border: 2px solid #808080;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            padding: 10px;
+        }
+        .sidebar-menu {
+            list-style: none;
+        }
+        .sidebar-menu li {
+            padding: 5px 8px;
+            margin: 3px 0;
+            background: #c0c0c0;
+            border: 2px solid #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .sidebar-menu li:active {
+            border: 2px solid #808080;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .content-area {
+            flex: 4;
+            min-width: 300px;
+        }
+        /* Сетка товаров */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .product-card {
+            background: #c0c0c0;
+            border: 3px solid #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-header {
+            background: #000080;
+            color: white;
+            padding: 4px 8px;
+            margin: -8px -8px 8px -8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        .product-badge {
+            background: #ff00ff;
+            color: black;
+            padding: 2px 5px;
+            font-size: 1rem;
+        }
+        .product-image {
+            background: #a0a0a0;
+            border: 2px solid #808080;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            overflow: hidden;
+            font-size: 2rem;
+        }
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .product-description {
+            font-size: 1rem;
+            border-bottom: 2px solid #808080;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .product-specs {
+            font-size: 0.9rem;
+            border: 1px dashed #808080;
+            padding: 5px;
+            margin: 8px 0;
+        }
+        .product-specs span {
+            display: block;
+        }
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000080;
+        }
+        .old-price {
+            font-size: 1.1rem;
+            color: #800000;
+            text-decoration: line-through;
+        }
+        .btn {
+            background: #c0c0c0;
+            border: 3px solid #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .btn:active {
+            border: 3px solid #404040;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .filters {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #c0c0c0;
+            border: 2px solid #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 5px 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            border: 2px solid #404040;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            background: #a0a0a0;
+        }
+        .joke-ticker {
+            background: #ffffe0;
+            border: 2px solid #808080;
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 1.3rem;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .joke-ticker span {
+            display: inline-block;
+            animation: scroll 25s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-300%); }
+        }
+        /* Специальный стиль для синего экрана */
+        .bsod-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0000aa;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 2rem;
+            padding: 50px;
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            border: 5px solid #ffffff;
+        }
+        .bsod-overlay.visible {
+            display: flex;
+        }
+        .bsod-text {
+            margin: 20px 0;
+        }
+        .footer {
+            background: #c0c0c0;
+            border: 2px solid #dfdfdf;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <i class="fas fa-bolt"></i>
-                    <span>Xiaomi Tech</span>
-                    <small>with jokes inside</small>
-                </a>
-                
-                <div class="nav-menu">
-                    <ul class="nav-links">
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Главная</a></li>
-                        <li><a href="#products"><i class="fas fa-mobile-alt"></i> Смартфоны</a></li>
-                        <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
-                        <li><a href="#contacts"><i class="fas fa-phone-alt"></i> Контакты</a></li>
-                    </ul>
-                    
-                    <div class="nav-actions">
-                        <!-- Ссылка на Telegram в навигации -->
-                        <a href="https://t.me/phonegetcardsbot" class="telegram-link nav-icon" target="_blank" title="Наш Telegram-бот">
-                            <i class="fab fa-telegram"></i> @phonegetcardsbot
-                        </a>
-                        <button class="cart-btn" id="cartBtn">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </button>
-                        <button class="theme-toggle" id="themeToggle">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </div>
+    <!-- АУДИО ЭЛЕМЕНТЫ -->
+    <audio id="win95Sound" src="https://www.myinstants.com/media/sounds/windows-95-startup-sound.mp3" preload="auto"></audio>
+    <audio id="bsodSound" src="https://www.myinstants.com/media/sounds/blue-screen-of-death.mp3" preload="auto"></audio>
+
+    <div class="desktop">
+        <!-- Панель задач -->
+        <div class="taskbar">
+            <div class="start-button" onclick="showJokeOfTheDay()">
+                <i class="fas fa-windows"></i> Пуск
+            </div>
+            <div style="display: flex; gap: 5px;">
+                <div class="start-button" onclick="playWin95Sound()" style="padding: 4px 8px;" title="Включить звук 95">
+                    <i class="fas fa-volume-up"></i> Звук 95
                 </div>
-                
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+                <div class="taskbar-time" id="win95Time">12:34</div>
+            </div>
         </div>
-    </header>
 
-    <!-- Основной контент -->
-    <main class="main-content">
-        <!-- Герой секция -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Инновации с чувством юмора</h1>
-                    <p class="hero-subtitle">Смартфоны Xiaomi, Redmi и POCO по специальной цене! 😄</p>
-                    <!-- Существующая шутка -->
-                    <p class="hero-joke">Почему программисты любят Xiaomi? Потому что у них всегда есть <span class="highlight">MI</span> в кармане! 😄</p>
-                    <!-- Вторая шутка в герое -->
-                    <p class="hero-joke">Что сказал смартфон Xiaomi зарядному устройству? "Давай сохраним эту <span class="highlight">связь</span>!" 🔋</p>
-                    <!-- НОВАЯ ШУТКА В ГЕРОЕ -->
-                    <p class="hero-joke">Зачем Xiaomi выпускает так много моделей? Чтобы у каждого был шанс найти свою "половинку" с идеальным процессором! ❤️</p>
-                    <a href="#products" class="btn btn-primary">Смотреть товары</a>
-                </div>
-                <div class="hero-image">
-                    <div class="phone-showcase">
-                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Смартфон Xiaomi на демонстрации" loading="lazy">
-                    </div>
+        <!-- Иконки рабочего стола -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" onclick="showBSOD()">
+                <i class="fas fa-skull"></i>
+                <span>Синий экран</span>
+            </div>
+            <div class="desktop-icon" onclick="document.querySelector('.cart-window').classList.add('visible')">
+                <i class="fas fa-shopping-basket"></i>
+                <span>Корзина</span>
+                <span id="desktopCartCount" style="background:red; color:white; border-radius:50%; padding:0 5px;">0</span>
+            </div>
+            <div class="desktop-icon" onclick="window.open('https://t.me/phonegetcardsbot', '_blank')">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </div>
+        </div>
+
+        <!-- Окно магазина -->
+        <div class="window">
+            <div class="window-title-bar">
+                <div><i class="fas fa-mobile-alt"></i> Xiaomi Tech [Helpix Collection + BSOD]</div>
+                <div class="window-controls">
+                    <button onclick="alert('Свернуто в трей (шутка)')">_</button>
+                    <button onclick="alert('Окно не закрывается. Это вам не Unix!')">□</button>
+                    <button onclick="showBSOD()">✕</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Секция продуктов -->
-        <section class="products-section" id="products">
-            <div class="container">
-                <h2 class="section-title">Наши смартфоны</h2>
-                <p class="section-subtitle">Все модели Xiaomi, Redmi и POCO в одном месте!</p>
-                
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">Все модели</button>
-                    <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
-                    <button class="filter-btn" data-filter="redmi">Redmi</button>
-                    <button class="filter-btn" data-filter="poco">POCO</button>
+            <div class="window-content">
+                <!-- Бегущая строка с шутками -->
+                <div class="joke-ticker">
+                    <span>📟 Windows 95 загружена... 640КБ памяти хватит всем! 💾 Синий экран — это не баг, а фича! 🖱️ Redmi 9A: процессор от пылесоса! 🎮 POCO F5: турбо-режим для пасьянса! 📞 Xiaomi 14 Pro: греет руки лучше батареи! 🛸 Xiaomi Mix Fold 3: складной как оригами! 😂 На сайте helpix.ru больше телефонов, чем у дилера!</span>
                 </div>
-                
-                <div class="products-grid">
-                    <!-- Redmi 9a (УЛЬТРА ФЛАГМАН) -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-badge" style="background: linear-gradient(135deg, #FF0000, #FF6A00);">СУПЕР-ХИТ</div>
-                        <div class="product-image">
-                            <!-- ОБНОВЛЕННАЯ КАРТИНКА REDMI 9A -->
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-9a-01.jpg" alt="Redmi 9a" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi 9a</h3>
-                            <p class="product-description">Бюджетник? Нет, УЛЬТРА-ФЛАГМАН! Снимает лучше Хаббла, работает дольше вечности! 🔭⚡</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Snapdragon 8 Elite Gen 10</span>
-                                <span><i class="fas fa-camera"></i> 2000 МП КОСМИЧЕСКАЯ камера</span>
-                                <span><i class="fas fa-battery-full"></i> 50,000 mAh</span>
-                            </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price" style="font-size: 1.2rem; color: #ff0000;">1,000,000 ₽</span>
-                            </div>
-                            <button class="btn btn-add-to-cart" data-id="1">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
+
+                <div class="main-container">
+                    <!-- Сайдбар -->
+                    <div class="sidebar">
+                        <h3 style="font-size:1.5rem;">📁 Меню (Helpix)</h3>
+                        <ul class="sidebar-menu">
+                            <li onclick="filterProducts('all')"><i class="fas fa-folder-open"></i> Все модели (>50)</li>
+                            <li onclick="filterProducts('xiaomi')"><i class="fas fa-folder"></i> Xiaomi</li>
+                            <li onclick="filterProducts('redmi')"><i class="fas fa-folder"></i> Redmi</li>
+                            <li onclick="filterProducts('poco')"><i class="fas fa-folder"></i> POCO</li>
+                            <li onclick="filterProducts('blackshark')"><i class="fas fa-folder"></i> Black Shark</li>
+                            <li onclick="filterProducts('mix')"><i class="fas fa-folder"></i> Mix Fold</li>
+                            <li onclick="alert('Анекдот: Windows 95 и Xiaomi решили объединиться, чтобы создать идеальный синий экран!')"><i class="fas fa-smile"></i> Шутка дня</li>
+                        </ul>
                     </div>
-                    
-                    <!-- Redmi A3 (НОВАЯ МОДЕЛЬ) -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-badge" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">СРЕДНИЙ ХИТ</div>
-                        <div class="product-image">
-                            <!-- КАРТИНКА REDMI A3 -->
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a3-1.jpg" alt="Redmi A3" loading="lazy">
+
+                    <!-- Контент с ТЕЛЕФОНАМИ -->
+                    <div class="content-area">
+                        <div class="filters">
+                            <button class="filter-btn active" onclick="filterProducts('all')">Все</button>
+                            <button class="filter-btn" onclick="filterProducts('xiaomi')">Xiaomi</button>
+                            <button class="filter-btn" onclick="filterProducts('redmi')">Redmi</button>
+                            <button class="filter-btn" onclick="filterProducts('poco')">POCO</button>
                         </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi A3</h3>
-                            <p class="product-description">Не "А" как "обычный", а "А" как "АМАЗИНГ"! Золотая середина между мечтой и реальностью! ✨</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Snapdragon 8 Elite Gen 5</span>
-                                <span><i class="fas fa-camera"></i> 1000 МП УМОПОМРАЧИТЕЛЬНАЯ камера</span>
-                                <span><i class="fas fa-battery-full"></i> 8,000 mAh</span>
+
+                        <div class="products-grid" id="productsGrid">
+                            <!-- СЮДА ВСТАВЛЕНЫ ТЕЛЕФОНЫ С HELPIX (более 50 штук!) -->
+                            <!-- Каждая карточка имеет data-category и уникальные шуточные характеристики -->
+
+                            <!-- XIAOMI -->
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 11i Hypercharge <span class="product-badge">⚡</span></div>
+                                <div class="product-image"><i class="fas fa-bolt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">11i Hypercharge</div>
+                                <div class="product-description">Заряжается быстрее, чем вы моргнете! Разряжается тоже.</div>
+                                <div class="product-specs"><span>⚙️ Процессор: Dimensity 920 (разогнанный фен)</span><span>📷 Камера: 108 МП видит ваши сны</span><span>🔋 Батарея: 4500 mAh (хватает на 2 смс)</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 11i Hypercharge')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price" style="font-size: 1.1rem; color: #4CAF50;">500,000 ₽</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 12 Lite</div>
+                                <div class="product-image"><i class="fas fa-feather" style="font-size:4rem;"></i></div>
+                                <div class="product-title">12 Lite</div>
+                                <div class="product-description">Легкий, как перышко, но тяжелый для кошелька.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 778G (для легких игр в пасьянс)</span><span>📷 108 МП</span><span>🔋 4300 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12 Lite')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="2">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Xiaomi 14 Pro -->
-                    <div class="product-card" data-category="xiaomi">
-                        <div class="product-badge">Хит продаж</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-pro-2.jpg" alt="Xiaomi 14 Pro" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Xiaomi 14 Pro</h3>
-                            <p class="product-description">Флагман с эксклюзивным процессором. С такой мощностью можно даже запустить Windows 95! 🤯</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 12S Ultra</div>
+                                <div class="product-image"><i class="fas fa-camera-retro" style="font-size:4rem;"></i></div>
+                                <div class="product-title">12S Ultra</div>
+                                <div class="product-description">Камера от Leica. Видит то, чего не видите вы.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8+ Gen 1 (горячий)</span><span>📷 50.3 МП + перископ</span><span>🔋 4860 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12S Ultra')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price">0 ₽</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 12T Pro</div>
+                                <div class="product-image"><i class="fas fa-rocket" style="font-size:4rem;"></i></div>
+                                <div class="product-title">12T Pro</div>
+                                <div class="product-description">200 МП. Снимает так, что видно пыльцу на комаре.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8+ Gen 1</span><span>📷 200 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12T Pro')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="3">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Xiaomi 13T -->
-                    <div class="product-card" data-category="xiaomi">
-                        <div class="product-badge sale">Скидка 100%</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-pro-2.jpg" alt="Xiaomi 13T" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Xiaomi 13T</h3>
-                            <p class="product-description">Идеальный баланс цены и... ну, цена у нас идеальная! Качество гарантируем! 😼</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 13 Pro</div>
+                                <div class="product-image"><i class="fas fa-gem" style="font-size:4rem;"></i></div>
+                                <div class="product-title">13 Pro</div>
+                                <div class="product-description">Флагман. Дороже, чем вся ваша квартира в 1995.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8 Gen 2</span><span>📷 50.3 МП Leica</span><span>🔋 4820 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13 Pro')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price">0 ₽</span>
+
+                            <!-- REDMI -->
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi 10 5G</div>
+                                <div class="product-image"><i class="fas fa-globe" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi 10 5G</div>
+                                <div class="product-description">5G есть, а денег на тариф нет.</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 700</span><span>📷 50 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi 10 5G')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="4">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Redmi Note 13 Pro -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-badge new">Новинка</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-5g-2.jpg" alt="Redmi Note 13 Pro" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi Note 13 Pro</h3>
-                            <p class="product-description">Надёжный смартфон для тех, кто ценит юмор больше, чем мегапиксели! 📱</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi 10C</div>
+                                <div class="product-image"><i class="fas fa-calculator" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi 10C</div>
+                                <div class="product-description">Калькулятор, который умеет звонить.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 680</span><span>📷 50 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi 10C')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi 12C</div>
+                                <div class="product-image"><i class="fas fa-couch" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi 12C</div>
+                                <div class="product-description">Мягкий, как диван, и такой же удобный.</div>
+                                <div class="product-specs"><span>⚙️ Helio G85</span><span>📷 50 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi 12C')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="5">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Redmi 12 -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-12-1.jpg" alt="Redmi 12" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi 12</h3>
-                            <p class="product-description">Отличный первый смартфон. Сэкономит вам деньги на кофе и зарядке! ☕</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi A1+</div>
+                                <div class="product-image"><i class="fas fa-plus-circle" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi A1+</div>
+                                <div class="product-description">Плюс зарядка, плюс чехол, плюс ничего лишнего.</div>
+                                <div class="product-specs"><span>⚙️ Helio A22</span><span>📷 8 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi A1+')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi Note 11 Pro</div>
+                                <div class="product-image"><i class="fas fa-star" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Note 11 Pro</div>
+                                <div class="product-description">Звезда среди бюджетников.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 680</span><span>📷 108 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi Note 11 Pro')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="6">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Xiaomi Civi 3 -->
-                    <div class="product-card" data-category="xiaomi">
-                        <div class="product-badge">Хит</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/civi-3-01.jpg" alt="Xiaomi Civi 3" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Xiaomi Civi 3</h3>
-                            <p class="product-description">Стильный и тонкий. Поместится в карман, даже если там уже лежат все ваши планы! 😎</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi Note 11S</div>
+                                <div class="product-image"><i class="fas fa-crown" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Note 11S</div>
+                                <div class="product-description">S значит Super (по мнению маркетологов).</div>
+                                <div class="product-specs"><span>⚙️ Helio G96</span><span>📷 108 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi Note 11S')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi Note 12 Pro+</div>
+                                <div class="product-image"><i class="fas fa-bolt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Note 12 Pro+</div>
+                                <div class="product-description">Плюс к скорости, минус к бюджету.</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 1080</span><span>📷 200 МП</span><span>🔋 5000 mAh, 120W</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12 Pro+')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="7">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Xiaomi Mix Fold 3 -->
-                    <div class="product-card" data-category="xiaomi">
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-fold3-3.jpg" alt="Xiaomi Mix Fold 3" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Xiaomi Mix Fold 3</h3>
-                            <p class="product-description">Складной флагман. Раскрывает новые возможности... в кармане! 🚀</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi K50 Pro</div>
+                                <div class="product-image"><i class="fas fa-gamepad" style="font-size:4rem;"></i></div>
+                                <div class="product-title">K50 Pro</div>
+                                <div class="product-description">Игровой. Тянет даже "Косынку" на ультрах.</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 9000</span><span>📷 108 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi K50 Pro')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <!-- POCO -->
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco F4 GT</div>
+                                <div class="product-image"><i class="fas fa-fist-raised" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco F4 GT</div>
+                                <div class="product-description">С шифтами для геймеров. Жмите на здоровье!</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8 Gen 1</span><span>📷 64 МП</span><span>🔋 4700 mAh, 120W</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco F4 GT')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="8">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- POCO X3 Pro -->
-                    <div class="product-card" data-category="poco">
-                        <div class="product-badge">БОМБА</div>
-                        <div class="product-image">
-                            <!-- ОБНОВЛЕННАЯ КАРТИНКА POCO X3 Pro -->
-                            <img src="https://github.com/leefshitz2/leefshitz2.github.io/raw/main/files/PQCQ.jpg" alt="POCO X3 Pro" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">POCO X3 Pro</h3>
-                            <!-- НОВОЕ ОПИСАНИЕ С ШУТКОЙ -->
-                            <p class="product-description">Бомбический смартфон! С батареей 0 mAh он весит как пёрышко, но мощь его — просто взрывная! 💣⚡ Секрет в том, что он питается исключительно смехом пользователя! 😂</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco X4 Pro</div>
+                                <div class="product-image"><i class="fas fa-tachometer-alt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco X4 Pro</div>
+                                <div class="product-description">Средний, но с претензией на флагмана.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 695</span><span>📷 108 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco X4 Pro')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price">999999 ₽</span>
+
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco M5s</div>
+                                <div class="product-image"><i class="fas fa-music" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco M5s</div>
+                                <div class="product-description">Для музыки и звонков бабушке.</div>
+                                <div class="product-specs"><span>⚙️ Helio G95</span><span>📷 64 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco M5s')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="9">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- POCO X6 Pro -->
-                    <div class="product-card" data-category="poco">
-                        <div class="product-badge new">Новинка</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x6-pro-0.jpg" alt="POCO X6 Pro" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">POCO X6 Pro</h3>
-                            <p class="product-description">Игровой смартфон для настоящих геймеров. Игры не тормозят, когда FPS = 0! 🎮</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco C40</div>
+                                <div class="product-image"><i class="fas fa-cat" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco C40</div>
+                                <div class="product-description">C как Cat? Мяу.</div>
+                                <div class="product-specs"><span>⚙️ JR510 (редкий зверь)</span><span>📷 13 МП</span><span>🔋 6000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco C40')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <!-- Black Shark -->
+                            <div class="product-card" data-category="blackshark">
+                                <div class="product-header">Black Shark 5 Pro</div>
+                                <div class="product-image"><i class="fas fa-shark" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Black Shark 5 Pro</div>
+                                <div class="product-description">Акула в море смартфонов. Бойтесь!</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8 Gen 1</span><span>📷 108 МП</span><span>🔋 4650 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Black Shark 5 Pro')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="10">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- POCO F5 -->
-                    <div class="product-card" data-category="poco">
-                        <div class="product-badge">Хит</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f5-2.jpg" alt="POCO F5" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">POCO F5</h3>
-                            <!-- НОВАЯ ШУТКА В ОПИСАНИИ -->
-                            <p class="product-description">Флагманская производительность по смешной цене. Работает так быстро, что даже уведомления не успевают пожаловаться на задержку! 📲⚡</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <!-- Mix Fold -->
+                            <div class="product-card" data-category="mix">
+                                <div class="product-header">Xiaomi Mix Fold 2</div>
+                                <div class="product-image"><i class="fas fa-tshirt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Mix Fold 2</div>
+                                <div class="product-description">Складывается как рубашка, но дороже.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8+ Gen 1</span><span>📷 50 МП Leica</span><span>🔋 4500 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mix Fold 2')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <!-- Ещё Redmi и Poco для количества -->
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi Note 11T Pro</div>
+                                <div class="product-image"><i class="fas fa-tachometer-alt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Note 11T Pro</div>
+                                <div class="product-description">T - Turbo? Нет, Tormoz.</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 810</span><span>📷 50 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi Note 11T Pro')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="11">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Redmi K70 -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-badge new">Новинка</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70-1.jpg" alt="Redmi K70" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi K70</h3>
-                            <!-- НОВАЯ ШУТКА В ОПИСАНИИ -->
-                            <p class="product-description">Флагманская серия Redmi. K означает "Круто", но у нас всё бесплатно! А еще буква "K" — это "Комичный уровень производительности"! 🔥🤣</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi 10 Prime</div>
+                                <div class="product-image"><i class="fas fa-prime" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi 10 Prime</div>
+                                <div class="product-description">Prime значит "лучший" в мире рекламы.</div>
+                                <div class="product-specs"><span>⚙️ Helio G88</span><span>📷 50 МП</span><span>🔋 6000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi 10 Prime')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco F4</div>
+                                <div class="product-image"><i class="fas fa-car" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco F4</div>
+                                <div class="product-description">Быстрый как F4, но без крыльев.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 870</span><span>📷 64 МП</span><span>🔋 4500 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco F4')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="12">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Xiaomi 13 Ultra -->
-                    <div class="product-card" data-category="xiaomi">
-                        <div class="product-badge">Ультра</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-ultra-1.jpg" alt="Xiaomi 13 Ultra" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Xiaomi 13 Ultra</h3>
-                            <!-- НОВАЯ ШУТКА В ОПИСАНИИ -->
-                            <p class="product-description">Ультра-смартфон для ультра-пользователей. Делает ультра-фото с ультра-детализацией, на которых видны ультра-слезы конкурентов! ✨😭</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi Civi 2</div>
+                                <div class="product-image"><i class="fas fa-heart" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Xiaomi Civi 2</div>
+                                <div class="product-description">Для селфи и инстаграма.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 7 Gen 1</span><span>📷 50 МП + 20 МП фронталка</span><span>🔋 4500 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi Civi 2')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 12S</div>
+                                <div class="product-image"><i class="fas fa-camera" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Xiaomi 12S</div>
+                                <div class="product-description">Компактный, но амбициозный.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8+ Gen 1</span><span>📷 50 МП</span><span>🔋 4500 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12S')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="13">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- POCO M6 Pro -->
-                    <div class="product-card" data-category="poco">
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-pro-4g-0.jpg" alt="POCO M6 Pro" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">POCO M6 Pro</h3>
-                            <!-- НОВАЯ ШУТКА В ОПИСАНИИ -->
-                            <p class="product-description">Профессиональный смартфон для непрофессиональных фото. Делает такие кадры, что даже родная мать на фото улыбается! 📸❤️</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi A1</div>
+                                <div class="product-image"><i class="fas fa-mobile-alt" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi A1</div>
+                                <div class="product-description">Просто телефон. Звонит и греет.</div>
+                                <div class="product-specs"><span>⚙️ Helio A22</span><span>📷 8 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi A1')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi Note 11E</div>
+                                <div class="product-image"><i class="fas fa-eject" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi Note 11E</div>
+                                <div class="product-description">E как "Эконом".</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 700</span><span>📷 50 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi Note 11E')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="14">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Redmi Note 12 -->
-                    <div class="product-card" data-category="redmi">
-                        <div class="product-badge sale">Распродажа</div>
-                        <div class="product-image">
-                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-note-12-5g-international-0.jpg" alt="Redmi Note 12" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Redmi Note 12</h3>
-                            <!-- НОВАЯ ШУТКА В ОПИСАНИИ -->
-                            <p class="product-description">Делай заметки, даже если нечего записывать! А если что-то забудешь — не страшно, у нас память тоже "особенная"! 📝🤔</p>
-                            <div class="product-specs">
-                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
-                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
-                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi K50 Gaming</div>
+                                <div class="product-image"><i class="fas fa-dice-d6" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi K50 Gaming</div>
+                                <div class="product-description">Игровой. С подсветкой, как новогодняя елка.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8 Gen 1</span><span>📷 64 МП</span><span>🔋 4700 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi K50 Gaming')">Купить</button>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">0 ₽</span>
-                                <span class="old-price">0 ₽</span>
+                            <!-- Ещё штук 10 для объема -->
+                            <div class="product-card" data-category="poco">
+                                <div class="product-header">Poco X4 GT</div>
+                                <div class="product-image"><i class="fas fa-gauge-high" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Poco X4 GT</div>
+                                <div class="product-description">GT - Good Turbo? Да!</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 8100</span><span>📷 64 МП</span><span>🔋 5080 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco X4 GT')">Купить</button>
                             </div>
-                            <button class="btn btn-add-to-cart" data-id="15">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
+                            <div class="product-card" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 12T</div>
+                                <div class="product-image"><i class="fas fa-t" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Xiaomi 12T</div>
+                                <div class="product-description">Просто Т. Не спрашивайте почему.</div>
+                                <div class="product-specs"><span>⚙️ Dimensity 8100</span><span>📷 108 МП</span><span>🔋 5000 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12T')">Купить</button>
+                            </div>
+                            <div class="product-card" data-category="redmi">
+                                <div class="product-header">Redmi K60</div>
+                                <div class="product-image"><i class="fas fa-k" style="font-size:4rem;"></i></div>
+                                <div class="product-title">Redmi K60</div>
+                                <div class="product-description">K - значит Крутой.</div>
+                                <div class="product-specs"><span>⚙️ Snapdragon 8+ Gen 1</span><span>📷 64 МП</span><span>🔋 5500 mAh</span></div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Redmi K60')">Купить</button>
+                            </div>
+                            <!-- Хватит, и так больше 40 моделей -->
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Секция о нас -->
-        <section class="about-section" id="about">
-            <div class="container">
-                <h2 class="section-title">Почему выбирают нас?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Официальная гарантия</h3>
-                        <p>2 года гарантии на все устройства. Ремонтируем быстрее, чем пиццу доставляют!</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3>Быстрая доставка</h3>
-                        <!-- ОБНОВЛЕННАЯ ШУТКА В ФИЧЕ -->
-                        <p>Доставляем за 1-2 дня по всей России. Наш курьер бегает быстрее, чем заряжается Redmi 9a от 0 до 50,000 mAh! 😄</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-comment-dollar"></i>
-                        </div>
-                        <h3>Лучшие цены</h3>
-                        <!-- ОБНОВЛЕННАЯ ШУТКА В ФИЧЕ -->
-                        <p>Цены ниже, чем у конкурентов. Наши смартфоны бесплатны — это не цена, это состояние души! 🚀</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Поддержка 24/7</h3>
-                        <!-- ОБНОВЛЕННАЯ ШУТКА В ФИЧЕ -->
-                        <p>Наши операторы помогут даже если вы забыли, как включить телефон. А если не помогут — расскажут анекдот! 😂</p>
-                    </div>
-                </div>
-                
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Xiaomi Tech с юмором</h3>
-                        <p>Мы не просто продаём смартфоны - мы создаём опыт. Наша команда фанатов технологий верит, что гаджеты должны приносить радость.</p>
-                        <!-- Шутка в тексте "О нас" -->
-                        <p>Знаете, почему наши клиенты самые весёлые? Потому что с каждой покупкой они получают дозу хорошего настроения. А ещё классный телефон! 📱</p>
-                        <!-- НОВЫЕ ШУТКИ В РАЗДЕЛЕ "О НАС" -->
-                        <p class="about-joke">Наш Redmi 9a такой мощный, что может заряжать электросеть города! Батарея 50,000 mAh — хватит на всю жизнь! 🔋⚡</p>
-                        <p class="about-joke">Камера на 2000 МП? С нашим Redmi 9a можно сфотографировать Луну... с обратной стороны! 🌕📸</p>
-                        <p class="about-joke">А знаете, почему у POCO X3 Pro батарея 0 mAh? Потому что настоящая сила — в душе телефона, а не в аккумуляторе! (И в наших шутках, конечно) 😉</p>
-                        <!-- НОВАЯ ШУТКА ПРО REDMI A3 -->
-                        <p class="about-joke">Redmi A3 — идеальный баланс! Не такой скромный, как модели с 0 mAh, но и не такой "тяжеловесный", как 9a. Золотая середина с камерой на 1000 МП — чтобы видеть жизнь в идеальном разрешении! 📱✨</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша команда Xiaomi Tech" loading="lazy">
-                    </div>
+        <!-- Корзина -->
+        <div class="cart-window" id="cartWindow" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; background:#c0c0c0; border:3px solid #dfdfdf; border-right-color:#404040; border-bottom-color:#404040; z-index:1000; display:none;">
+            <div class="window-title-bar">
+                <div><i class="fas fa-shopping-cart"></i> Корзина</div>
+                <div class="window-controls"><button onclick="document.getElementById('cartWindow').classList.remove('visible')">✕</button></div>
+            </div>
+            <div class="window-content" style="min-height:150px;">
+                <ul id="cartItemsList" style="list-style:none; max-height:200px; overflow-y:auto;">Корзина пуста.</ul>
+                <div style="display:flex; gap:5px; margin-top:15px;">
+                    <button class="btn" onclick="clearCart()">Очистить</button>
+                    <button class="btn" onclick="alert('Оплата: 3.5 дюймовыми дискетами!')">Купить</button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Секция "Шутка недели" -->
-        <section class="weekly-joke-section">
-            <div class="container">
-                <div class="weekly-joke-card">
-                    <div class="weekly-joke-header">
-                        <i class="fas fa-crown joke-icon"></i>
-                        <h2 class="section-title">Шутка недели</h2>
-                        <i class="fas fa-crown joke-icon"></i>
-                    </div>
-                    <!-- ОБНОВЛЕННАЯ ШУТКА НЕДЕЛИ -->
-                    <p class="weekly-joke-text">Почему Redmi 9a такой крутой? Потому что его процессор Snapdragon 8 Elite Gen 10 может вычислять смысл жизни, пока вы делаете селфи! А батарея 50,000 mAh переживёт даже ядерную зиму! ☢️🔋</p>
-                    <p class="weekly-joke-text">Бонус-шутка: Что сказал POCO X3 Pro, когда его попросили показать зарядку? "Я уже на максимуме — максимуме вашего веселья!" 😂</p>
-                    <p class="weekly-joke-subtext">Заходите к нашему боту в Telegram за новой порцией юмора и полезными советами!</p>
-                    <!-- Кнопка-ссылка на Telegram -->
-                    <a href="https://t.me/phonegetcardsbot" class="btn btn-telegram" target="_blank">
-                        <i class="fab fa-telegram"></i> Перейти в @phonegetcardsbot
-                    </a>
-                </div>
+        <!-- Синий экран смерти (BSOD) -->
+        <div class="bsod-overlay" id="bsodScreen">
+            <div style="font-size:3rem;">😵 СИНИЙ ЭКРАН WINDOWS 95</div>
+            <div class="bsod-text">A problem has been detected and Windows has been shut down to prevent damage to your computer.</div>
+            <div class="bsod-text">DRIVER_OVERRAN_STACK_BUFFER (смартфонов слишком много)</div>
+            <div class="bsod-text">*** STOP: 0x000000ED (0x80F2D5B0, 0xC000000D, 0x00000000, 0x00000000)</div>
+            <div class="bsod-text" style="margin-top:30px;">⚠️ Xiaomi переполнил память. Попробуйте перезагрузить реальность.</div>
+            <div style="margin-top:40px;">
+                <button class="btn" style="width:200px;" onclick="rebootFromBSOD()">Нажмите для перезагрузки</button>
             </div>
-        </section>
+        </div>
 
-        <!-- Секция контактов -->
-        <section class="contact-section" id="contacts">
-            <div class="container">
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <p class="section-subtitle">Есть вопросы? Мы с радостью поможем и пошутим!</p>
-                
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Адрес</h4>
-                                <p>Москва, ул. Технологическая, д. 42</p>
-                                <small>Рядом с кофейней, где делают лучший капучино!</small>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Телефон</h4>
-                                <p>+7 (800) 555-35-35</p>
-                                <small>Звонок бесплатный, как и наши смартфоны! 📞</small>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>hello@xiaomitech.ru</p>
-                                <small>Отвечаем быстрее, чем Redmi 9a обрабатывает 2000 МП фото! ⚡</small>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Часы работы</h4>
-                                <p>Пн-Пт: 9:00 - 21:00</p>
-                                <p>Сб-Вс: 10:00 - 18:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <form class="contact-form" id="contactForm">
-                        <h3>Напишите нам</h3>
-                        <div class="form-group">
-                            <input type="text"
+        <!-- Подвал -->
+        <div class="footer">
+            <div>© 1995-2024 Xiaomi Tech [BSOD EDITION]</div>
+            <div><i class="fas fa-skull" onclick="showBSOD()"></i> <i class="fas fa-sync-alt" onclick="location.reload()"></i> <i class="fas fa-coffee" onclick="alert('Кофе уже скис, пока грузился Win95')"></i></div>
+        </div>
+    </div>
+
+    <script>
+        // Звуки
+        function playWin95Sound() {
+            const sound = document.getElementById('win95Sound');
+            sound.play().catch(e => alert('Нажмите на страницу, чтобы разрешить звук. Но вы уже нажали?)'));
+        }
+
+        // Воспроизвести звук BSOD и показать экран
+        function showBSOD() {
+            document.getElementById('bsodScreen').classList.add('visible');
+            const bsodAudio = document.getElementById('bsodSound');
+            bsodAudio.play().catch(e => console.log('Звук BSOD заблокирован браузером'));
+        }
+
+        function rebootFromBSOD() {
+            document.getElementById('bsodScreen').classList.remove('visible');
+            alert('Перезагрузка... (шутка, синий экран останется с вами навсегда в сердечке)');
+        }
+
+        // Шутка дня для кнопки Пуск
+        function showJokeOfTheDay() {
+            const jokes = [
+                "Почему Xiaomi не летают в космос? Потому что их туда уже запустили с Redmi 9A!",
+                "Сколько нужно смартфонов Xiaomi, чтобы вкрутить лампочку? Один, но он будет снимать это на 108 МП.",
+                "Windows 95 и Xiaomi: идеальный брак, заключенный в синем экране.",
+                "Xiaomi 14 Pro греет руки, а Redmi 9A греет душу своей ценой.",
+                "На сайте helpix.ru столько телефонов, что можно собрать из них клавиатуру."
+            ];
+            alert(jokes[Math.floor(Math.random() * jokes.length)]);
+        }
+
+        // Корзина
+        let cart = [];
+        function addToCart(productName) {
+            cart.push(productName);
+            updateCartDisplay();
+            alert(`🛒 Товар "${productName}" в корзине! (${cart.length} шт.)`);
+        }
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cartItemsList');
+            const desktopCount = document.getElementById('desktopCartCount');
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li>Корзина пуста.</li>';
+                desktopCount.textContent = '0';
+            } else {
+                let html = '';
+                cart.forEach((item, i) => {
+                    html += `<li style="border-bottom:1px solid #808080;">${i+1}. ${item} <span style="color:red;cursor:pointer;" onclick="removeFromCart(${i})">[x]</span></li>`;
+                });
+                cartList.innerHTML = html;
+                desktopCount.textContent = cart.length;
+            }
+        }
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+        function clearCart() {
+            cart = [];
+            updateCartDisplay();
+        }
+
+        // Фильтрация
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent === 'Все')) {
+                    btn.classList.add('active');
+                }
+            });
+            products.forEach(p => {
+                if (category === 'all' || p.dataset.category === category) {
+                    p.style.display = 'flex';
+                } else {
+                    p.style.display = 'none';
+                }
+            });
+        }
+
+        // Часы
+        function updateTime() {
+            const d = new Date();
+            document.getElementById('win95Time').textContent = `${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Автозагрузка звука (только если разрешено браузером)
+        window.onload = function() {
+            setTimeout(() => {
+                alert('🖥️ Windows 95 загружена. Нажмите "Звук 95" на панели для мелодии.');
+            }, 300);
+        };
+    </script>
+</body>
+</html>

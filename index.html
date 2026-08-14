@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>computershikcats · bio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0f0a;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      font-family: 'Courier New', 'Fira Code', 'JetBrains Mono', monospace;
+      color: #00ff41;
+      text-shadow: 0 0 3px #00ff41, 0 0 8px #004d00;
+      line-height: 1.5;
+    }
+
+    .terminal {
+      max-width: 950px;
+      width: 100%;
+      background: #0c120c;
+      border: 1px solid #1d3b1d;
+      border-radius: 16px;
+      padding: 2rem 2rem 2.2rem;
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.08), inset 0 0 15px rgba(0, 255, 65, 0.02);
+      backdrop-filter: blur(1px);
+    }
+
+    /* заголовок — как приглашение командной строки */
+    .prompt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00cc33;
+      border-bottom: 1px dashed #1f4f1f;
+      padding-bottom: 0.65rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .prompt .user {
+      color: #66ff88;
+    }
+    .prompt .host {
+      color: #33aa55;
+    }
+    .prompt .path {
+      color: #88dd99;
+    }
+    .prompt .blink {
+      display: inline-block;
+      width: 10px;
+      height: 20px;
+      background: #00ff41;
+      box-shadow: 0 0 12px #00ff41;
+      margin-left: 4px;
+      animation: blink 1.2s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* блоки с информацией */
+    .section {
+      margin-bottom: 1.8rem;
+      padding-left: 0.4rem;
+      border-left: 2px solid #1d5a1d;
+      padding-left: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #66ff88;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: "▶";
+      color: #00cc44;
+      font-size: 1.2rem;
+    }
+
+    .entry {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .entry .label {
+      color: #55bb77;
+      min-width: 120px;
+      font-weight: 500;
+    }
+
+    .entry .value {
+      color: #bbffbb;
+      word-break: break-word;
+    }
+
+    .value a {
+      color: #88ff99;
+      text-decoration: none;
+      border-bottom: 1px dotted #2a7a2a;
+      transition: 0.2s;
+    }
+
+    .value a:hover {
+      color: #b3ffb3;
+      border-bottom: 1px solid #66ff88;
+      text-shadow: 0 0 10px #00aa33;
+    }
+
+    .chip {
+      display: inline-block;
+      background: #142014;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      border: 1px solid #1d4a1d;
+      font-size: 0.85rem;
+      margin: 0.1rem 0.2rem;
+      color: #b3f0b3;
+    }
+
+    .list-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .list-inline .chip {
+      background: #0f1a0f;
+      border-color: #2b5e2b;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px dashed #1f4a1f;
+      margin: 1.5rem 0 1.2rem 0;
+      opacity: 0.4;
+    }
+
+    .footer-prompt {
+      margin-top: 1.8rem;
+      color: #3d8c3d;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid #173317;
+      padding-top: 1.2rem;
+    }
+
+    .footer-prompt span {
+      color: #66bb77;
+    }
+
+    .blink-underscore {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: #00aa33;
+      box-shadow: 0 0 12px #00aa33;
+      margin-left: 6px;
+      animation: blink 1.4s step-end infinite;
+    }
+
+    /* адаптив */
+    @media (max-width: 620px) {
+      .terminal { padding: 1.2rem; }
+      .entry .label { min-width: 90px; }
+      .prompt { font-size: 1rem; }
+    }
+
+    /* спец-эффект "строки ввода" */
+    .cursor-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #55cc77;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .cursor-line .prompt-symbol {
+      color: #33aa55;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <!-- приглашение -->
+    <div class="prompt">
+      <span class="user">computershikcats</span>
+      <span class="host">@hacktop</span>
+      <span class="path">~/bio</span>
+      <span class="blink"></span>
+    </div>
+
+    <!-- Имя -->
+    <div class="section">
+      <div class="section-title">IDENTITY</div>
+      <div class="entry">
+        <span class="label">$ name</span>
+        <span class="value">Computershikcats</span>
+      </div>
+    </div>
+
+    <!-- ПК / ноутбук / Raspberry -->
+    <div class="section">
+      <div class="section-title">HARDWARE</div>
+      <div class="entry">
+        <span class="label">🖥 ПК</span>
+        <span class="value" style="color:#779977;">отсутствует</span>
+      </div>
+      <div class="entry">
+        <span class="label">💻 Ноутбук</span>
+        <span class="value"><span class="chip">Asus X553S</span> Intel Pentium N3700 · 8 ГБ RAM · SSD 256 ГБ</span>
+      </div>
+      <div class="entry">
+        <span class="label">🍓 Raspberry Pi4</span>
+        <span class="value" style="color:#99dd99;">в роли «псевдо-ПК»</span>
+      </div>
+    </div>
+
+    <!-- Соцсети -->
+    <div class="section">
+      <div class="section-title">SOCIALS</div>
+      <div class="entry">
+        <span class="label">Telegram</span>
+        <span class="value"><a href="https://t.me/phonegetcardsbot_official" target="_blank">phonegetcardsbot_official.t.me</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">GitHub</span>
+        <span class="value"><a href="https://github.com/leefshitz2" target="_blank">github.com/leefshitz2</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">4pda</span>
+        <span class="value"><a href="https://4pda.to/forum/index.php?showuser=11299573" target="_blank">4pda.to/user/11299573</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">Discord</span>
+        <span class="value">computershikcats123</span>
+      </div>
+    </div>
+
+    <!-- Каналы ТГ -->
+    <div class="section">
+      <div class="section-title">TELEGRAM CHANNELS</div>
+      <div class="entry">
+        <span class="label">📌 Мод Max</span>
+        <span class="value"><a href="http://ruonemeapp.t.me/" target="_blank">ruonemeapp.t.me</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">📌 Старый (заброшен)</span>
+        <span class="value"><a href="https://t.me/+3DcXe1K2vEA2Njlh" target="_blank">t.me/+3DcXe1K2vEA2Njlh</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">📌 Новый канал</span>
+        <span class="value"><a href="https://t.me/+58HwRWRs0ikyNDQx" target="_blank">t.me/+58HwRWRs0ikyNDQx</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">📌 BrodGSI Updates</span>
+        <span class="value"><a href="https://t.me/brodgsi_new" target="_blank">t.me/brodgsi_new</a></span>
+      </div>
+      <div class="entry">
+        <span class="label">📂 Qualcomm Loaders</span>
+        <span class="value" style="color:#779977;"><a href="https://t.me/Qualcomm_Loaders" target="_blank">Qualcomm_Loaders.t.me</a> (файлопомойка)</span>
+      </div>
+    </div>
+
+    <!-- Телефоны -->
+    <div class="section">
+      <div class="section-title">MOBILE</div>
+      <div class="entry">
+        <span class="label">📱 Основные</span>
+        <span class="value"><span class="chip">Xiaomi Mi 8 6/64</span> <span class="chip">Redmi Note 11 6/128</span></span>
+      </div>
+      <div class="entry">
+        <span class="label">📱 Другие</span>
+        <span class="value" style="display: flex; flex-wrap: wrap; gap: 4px;">
+          <span class="chip">Redmi Note 9 Pro 6/128 белый</span>
+          <span class="chip">Redmi 4X</span>
+          <span class="chip">Redmi Note 4X</span>
+          <span class="chip">Redmi 9C</span>
+          <span class="chip">Samsung Galaxy J5 (2015)</span>
+          <span class="chip">Sony Xperia Z</span>
+          <span class="chip">Samsung Galaxy A04</span>
+          <span class="chip">Samsung Galaxy A10</span>
+          <span class="chip">Samsung Galaxy S2</span>
+          <span class="chip">Samsung Galaxy S3</span>
+          <span class="chip">Samsung GT-3322</span>
+          <span class="chip">LG G2</span>
+          <span class="chip">LG G3</span>
+          <span class="chip">Apple iPod Touch 5</span>
+          <span class="chip">Samsung Galaxy A6</span>
+          <span class="chip">Honor 9X (сломан экран/кнопки)</span>
+          <span class="chip">Копия S23 MT6580</span>
+          <span class="chip">Samsung A12 (MTK)</span>
+          <span class="chip">Doogee X96</span>
+          <span class="chip">Samsung S6 Edge</span>
+          <span class="chip">Infinix Smart 8 (разбит 😭)</span>
+          <span class="chip">Samsung Mega 5.8 Duos (не раб.)</span>
+          <span class="chip">LG L Bello</span>
+          <span class="chip">Apple iPhone 7 plus (iOS 15)</span>
+          <span class="chip">Meizu M1 Note</span>
+          <span class="chip">Alcatel OT-5020A</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- разделитель -->
+    <hr class="divider">
+
+    <!-- дополнительный "prompt" как в командной строке -->
+    <div class="cursor-line">
+      <span class="prompt-symbol">$</span>
+      <span style="color:#55bb77;">cat</span>
+      <span style="color:#88dd99;">~/.bio/contacts</span>
+      <span class="blink-underscore"></span>
+    </div>
+
+    <div class="footer-prompt">
+      <span>⚡</span> 
+      <span style="color:#66bb77;">computershikcats</span> 
+      <span style="color:#3f7a3f;">·</span> 
+      <span style="color:#55aa55;">все телефоны в одном месте</span>
+      <span style="color:#2f5f2f; margin-left: auto;">[2026]</span>
+    </div>
+
+    <!-- маленькая строка состояния -->
+    <div style="margin-top: 0.8rem; font-size: 0.75rem; color: #1f4f1f; display: flex; gap: 20px; border-top: 1px solid #142414; padding-top: 0.8rem;">
+      <span>🟢 ONLINE</span>
+      <span>╰┈➤ $SHELL = /bin/hacker</span>
+      <span style="margin-left: auto;">~ $</span>
+    </div>
+  </div>
+</body>
+</html>

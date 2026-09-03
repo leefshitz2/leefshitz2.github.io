@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaomi Tech | Официальный магазин смартфонов</title>
+    <meta name="description" content="Официальный магазин смартфонов Xiaomi с гарантией качества и лучшими ценами">
+    <link rel="stylesheet" href="XimiTechtokGore/styles/main.css">
+    <link rel="stylesheet" href="XimiTechtokGore/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>Xiaomi Tech</span>
+                    <small>with jokes inside</small>
+                </a>
+                
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="#products"><i class="fas fa-mobile-alt"></i> Смартфоны</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
+                        <li><a href="#contacts"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <a href="https://t.me/phonegetcardsbot" class="telegram-link nav-icon" target="_blank" title="Наш Telegram-бот">
+                            <i class="fab fa-telegram"></i> @phonegetcardsbot
+                        </a>
+                        <button class="cart-btn" id="cartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Герой секция -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Инновации с чувством юмора</h1>
+                    <p class="hero-subtitle">Смартфоны Xiaomi, Redmi и POCO по специальной цене! 😄</p>
+                    <p class="hero-joke">Почему программисты любят Xiaomi? Потому что у них всегда есть <span class="highlight">MI</span> в кармане! 😄</p>
+                    <p class="hero-joke">Что сказал смартфон Xiaomi зарядному устройству? "Давай сохраним эту <span class="highlight">связь</span>!" 🔋</p>
+                    <p class="hero-joke">Зачем Xiaomi выпускает так много моделей? Чтобы у каждого был шанс найти свою "половинку" с идеальным процессором! ❤️</p>
+                    <a href="#products" class="btn btn-primary">Смотреть товары</a>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-showcase">
+                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Смартфон Xiaomi на демонстрации" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция продуктов -->
+        <section class="products-section" id="products">
+            <div class="container">
+                <h2 class="section-title">Наши смартфоны</h2>
+                <p class="section-subtitle">Все модели Xiaomi, Redmi и POCO в одном месте!</p>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Все модели</button>
+                    <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
+                    <button class="filter-btn" data-filter="redmi">Redmi</button>
+                    <button class="filter-btn" data-filter="poco">POCO</button>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Redmi 9a -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-badge" style="background: linear-gradient(135deg, #FF0000, #FF6A00);">СУПЕР-ХИТ</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-9a-01.jpg" alt="Redmi 9a" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi 9a</h3>
+                            <p class="product-description">Бюджетник? Нет, УЛЬТРА-ФЛАГМАН! Снимает лучше Хаббла, работает дольше вечности! 🔭⚡</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Snapdragon 8 Elite Gen 10</span>
+                                <span><i class="fas fa-camera"></i> 2000 МП КОСМИЧЕСКАЯ камера</span>
+                                <span><i class="fas fa-battery-full"></i> 50,000 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price" style="font-size: 1.2rem; color: #ff0000;">1,000,000 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="1">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Redmi A3 -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-badge" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">СРЕДНИЙ ХИТ</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a3-1.jpg" alt="Redmi A3" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi A3</h3>
+                            <p class="product-description">Не "А" как "обычный", а "А" как "АМАЗИНГ"! Золотая середина между мечтой и реальностью! ✨</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Snapdragon 8 Elite Gen 5</span>
+                                <span><i class="fas fa-camera"></i> 1000 МП УМОПОМРАЧИТЕЛЬНАЯ камера</span>
+                                <span><i class="fas fa-battery-full"></i> 8,000 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price" style="font-size: 1.1rem; color: #4CAF50;">500,000 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="2">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Xiaomi 14 Pro -->
+                    <div class="product-card" data-category="xiaomi">
+                        <div class="product-badge">Хит продаж</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-pro-2.jpg" alt="Xiaomi 14 Pro" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Xiaomi 14 Pro</h3>
+                            <p class="product-description">Флагман с эксклюзивным процессором. С такой мощностью можно даже запустить Windows 95! 🤯</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="3">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Xiaomi 13T -->
+                    <div class="product-card" data-category="xiaomi">
+                        <div class="product-badge sale">Скидка 100%</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-pro-2.jpg" alt="Xiaomi 13T" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Xiaomi 13T</h3>
+                            <p class="product-description">Идеальный баланс цены и... ну, цена у нас идеальная! Качество гарантируем! 😼</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="4">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Redmi Note 13 Pro -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-badge new">Новинка</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-5g-2.jpg" alt="Redmi Note 13 Pro" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi Note 13 Pro</h3>
+                            <p class="product-description">Надёжный смартфон для тех, кто ценит юмор больше, чем мегапиксели! 📱</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="5">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Redmi 12 -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-12-1.jpg" alt="Redmi 12" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi 12</h3>
+                            <p class="product-description">Отличный первый смартфон. Сэкономит вам деньги на кофе и зарядке! ☕</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="6">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Xiaomi Civi 3 -->
+                    <div class="product-card" data-category="xiaomi">
+                        <div class="product-badge">Хит</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/civi-3-01.jpg" alt="Xiaomi Civi 3" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Xiaomi Civi 3</h3>
+                            <p class="product-description">Стильный и тонкий. Поместится в карман, даже если там уже лежат все ваши планы! 😎</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="7">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Xiaomi Mix Fold 3 -->
+                    <div class="product-card" data-category="xiaomi">
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-fold3-3.jpg" alt="Xiaomi Mix Fold 3" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Xiaomi Mix Fold 3</h3>
+                            <p class="product-description">Складной флагман. Раскрывает новые возможности... в кармане! 🚀</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="8">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- POCO X3 Pro -->
+                    <div class="product-card" data-category="poco">
+                        <div class="product-badge">БОМБА</div>
+                        <div class="product-image">
+                            <img src="https://github.com/leefshitz2/leefshitz2.github.io/raw/main/files/PQCQ.jpg" alt="POCO X3 Pro" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">POCO X3 Pro</h3>
+                            <p class="product-description">Бомбический смартфон! С батареей 0 mAh он весит как пёрышко, но мощь его — просто взрывная! 💣⚡ Секрет в том, что он питается исключительно смехом пользователя! 😂</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price">999999 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="9">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- POCO X6 Pro -->
+                    <div class="product-card" data-category="poco">
+                        <div class="product-badge new">Новинка</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x6-pro-0.jpg" alt="POCO X6 Pro" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">POCO X6 Pro</h3>
+                            <p class="product-description">Игровой смартфон для настоящих геймеров. Игры не тормозят, когда FPS = 0! 🎮</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="10">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- POCO F5 -->
+                    <div class="product-card" data-category="poco">
+                        <div class="product-badge">Хит</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f5-2.jpg" alt="POCO F5" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">POCO F5</h3>
+                            <p class="product-description">Флагманская производительность по смешной цене. Работает так быстро, что даже уведомления не успевают пожаловаться на задержку! 📲⚡</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="11">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Redmi K70 -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-badge new">Новинка</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70-1.jpg" alt="Redmi K70" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi K70</h3>
+                            <p class="product-description">Флагманская серия Redmi. K означает "Круто", но у нас всё бесплатно! А еще буква "K" — это "Комичный уровень производительности"! 🔥🤣</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="12">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Xiaomi 13 Ultra -->
+                    <div class="product-card" data-category="xiaomi">
+                        <div class="product-badge">Ультра</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-ultra-1.jpg" alt="Xiaomi 13 Ultra" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Xiaomi 13 Ultra</h3>
+                            <p class="product-description">Ультра-смартфон для ультра-пользователей. Делает ультра-фото с ультра-детализацией, на которых видны ультра-слезы конкурентов! ✨😭</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="13">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- POCO M6 Pro -->
+                    <div class="product-card" data-category="poco">
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-pro-4g-0.jpg" alt="POCO M6 Pro" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">POCO M6 Pro</h3>
+                            <p class="product-description">Профессиональный смартфон для непрофессиональных фото. Делает такие кадры, что даже родная мать на фото улыбается! 📸❤️</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="14">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Redmi Note 12 -->
+                    <div class="product-card" data-category="redmi">
+                        <div class="product-badge sale">Распродажа</div>
+                        <div class="product-image">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-note-12-5g-international-0.jpg" alt="Redmi Note 12" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Redmi Note 12</h3>
+                            <p class="product-description">Делай заметки, даже если нечего записывать! А если что-то забудешь — не страшно, у нас память тоже "особенная"! 📝🤔</p>
+                            <div class="product-specs">
+                                <span><i class="fas fa-microchip"></i> Mediatek MT6580</span>
+                                <span><i class="fas fa-camera"></i> 0 МП камера</span>
+                                <span><i class="fas fa-battery-full"></i> 0 mAh</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">0 ₽</span>
+                                <span class="old-price">0 ₽</span>
+                            </div>
+                            <button class="btn btn-add-to-cart" data-id="15">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция о нас -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Официальная гарантия</h3>
+                        <p>2 года гарантии на все устройства. Ремонтируем быстрее, чем пиццу доставляют!</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Быстрая доставка</h3>
+                        <p>Доставляем за 1-2 дня по всей России. Наш курьер бегает быстрее, чем заряжается Redmi 9a от 0 до 50,000 mAh! 😄</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comment-dollar"></i>
+                        </div>
+                        <h3>Лучшие цены</h3>
+                        <p>Цены ниже, чем у конкурентов. Наши смартфоны бесплатны — это не цена, это состояние души! 🚀</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Поддержка 24/7</h3>
+                        <p>Наши операторы помогут даже если вы забыли, как включить телефон. А если не помогут — расскажут анекдот! 😂</p>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Xiaomi Tech с юмором</h3>
+                        <p>Мы не просто продаём смартфоны - мы создаём опыт. Наша команда фанатов технологий верит, что гаджеты должны приносить радость.</p>
+                        <p>Знаете, почему наши клиенты самые весёлые? Потому что с каждой покупкой они получают дозу хорошего настроения. А ещё классный телефон! 📱</p>
+                        <p class="about-joke">Наш Redmi 9a такой мощный, что может заряжать электросеть города! Батарея 50,000 mAh — хватит на всю жизнь! 🔋⚡</p>
+                        <p class="about-joke">Камера на 2000 МП? С нашим Redmi 9a можно сфотографировать Луну... с обратной стороны! 🌕📸</p>
+                        <p class="about-joke">А знаете, почему у POCO X3 Pro батарея 0 mAh? Потому что настоящая сила — в душе телефона, а не в аккумуляторе! (И в наших шутках, конечно) 😉</p>
+                        <p class="about-joke">Redmi A3 — идеальный баланс! Не такой скромный, как модели с 0 mAh, но и не такой "тяжеловесный", как 9a. Золотая середина с камерой на 1000 МП — чтобы видеть жизнь в идеальном разрешении! 📱✨</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша команда Xiaomi Tech" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Шутка недели" -->
+        <section class="weekly-joke-section">
+            <div class="container">
+                <div class="weekly-joke-card">
+                    <div class="weekly-joke-header">
+                        <i class="fas fa-crown joke-icon"></i>
+                        <h2 class="section-title">Шутка недели</h2>
+                        <i class="fas fa-crown joke-icon"></i>
+                    </div>
+                    <p class="weekly-joke-text">Почему Redmi 9a такой крутой? Потому что его процессор Snapdragon 8 Elite Gen 10 может вычислять смысл жизни, пока вы делаете селфи! А батарея 50,000 mAh переживёт даже ядерную зиму! ☢️🔋</p>
+                    <p class="weekly-joke-text">Бонус-шутка: Что сказал POCO X3 Pro, когда его попросили показать зарядку? "Я уже на максимуме — максимуме вашего веселья!" 😂</p>
+                    <p class="weekly-joke-subtext">Заходите к нашему боту в Telegram за новой порцией юмора и полезными советами!</p>
+                    <a href="https://t.me/phonegetcardsbot" class="btn btn-telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> Перейти в @phonegetcardsbot
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция контактов -->
+        <section class="contact-section" id="contacts">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <p class="section-subtitle">Есть вопросы? Мы с радостью поможем и пошутим!</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>Москва, ул. Технологическая, д. 42</p>
+                                <small>Рядом с кофейней, где делают лучший капучино!</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p>+7 (800) 555-35-35</p>
+                                <small>Звонок бесплатный, как и наши смартфоны! 📞</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@xiaomitech.ru</p>
+                                <small>Отвечаем быстрее, чем Redmi 9a обрабатывает 2000 МП фото! ⚡</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Часы работы</h4>
+                                <p>Пн-Пт: 9:00 - 21:00</p>
+                                <p>Сб-Вс: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <h3>Напишите нам</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Ваше сообщение..." rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required>
+                                <span>Согласен получать уведомления о скидках и смешные мемы</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>Xiaomi Tech</span>
+                    </div>
+                    <p>Продажа смартфонов Xiaomi, Redmi и POCO с 2023 года. От бюджетного Redmi 9a с космическими характеристиками до всех остальных!</p>
+                    <div class="social-links">
+                        <a href="https://t.me/phonegetcardsbot" target="_blank" title="Наш Telegram-бот"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Бренды</h4>
+                    <ul>
+                        <li><a href="#products" data-filter="xiaomi">Xiaomi</a></li>
+                        <li><a href="#products" data-filter="redmi">Redmi</a></li>
+                        <li><a href="#products" data-filter="poco">POCO</a></li>
+                        <li><a href="#">Все модели</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Возврат товара</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Юмор дня</h4>
+                    <div class="joke-of-day">
+                        <p>Что делает Redmi 9a, когда видит iPhone? Заряжает его на 50% и говорит: "Расслабься, малыш, у меня ещё 49,950% осталось!" 🔋😎</p>
+                        <small>Обновляется ежедневно. Больше в нашем Telegram!</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Xiaomi Tech. Все права защищены. Шутки тоже. Все спецификации смартфонов являются юмористическими и не соответствуют реальным характеристикам.</p>
+                <p>Этот сайт является форком оригинального репозитория с добавлением юмора и улучшений</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Корзина покупок -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Ваша корзина</h3>
+            <button class="cart-close" id="cartClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Ваша корзина пуста</p>
+                <p>Добавьте смартфон, и мы добавим шутку!</p>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotal">0 ₽</span>
+            </div>
+            <button class="btn btn-primary btn-checkout" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> Оформить заказ
+            </button>
+            <p class="cart-note">* Все смартфоны бесплатны! Доставка тоже бесплатная, и бонусная шутка в придачу!</p>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Уведомления -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Скрипты -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>

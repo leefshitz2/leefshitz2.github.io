@@ -1,347 +1,477 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>computershikcats · био</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      border-radius: 0 !important;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computershikcats · био</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 0 !important;
+        }
 
-    body {
-      background-color: #000000;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
-      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-      color: #d0e8d0;
-      line-height: 1.5;
-      min-height: 100vh;
-    }
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            color: #d0e8d0;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
 
-    .card {
-      max-width: 960px;
-      width: 100%;
-      background: #0a0a0a;
-      padding: 2.2rem 2.5rem 2.5rem;
-      border: 1px solid #1f2a1f;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9);
-    }
+        .card {
+            max-width: 960px;
+            width: 100%;
+            background: #0a0a0a;
+            padding: 2.2rem 2.5rem 2.5rem;
+            border: 1px solid #1f2a1f;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9);
+        }
 
-    .header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #1f2f1f;
-      padding-bottom: 0.75rem;
-      margin-bottom: 2rem;
-    }
+        .header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #1f2f1f;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+        }
 
-    .name {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #64ff1a;
-      text-shadow: 0 0 10px rgba(100, 255, 26, 0.15);
-    }
+        .name {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #64ff1a;
+            text-shadow: 0 0 10px rgba(100, 255, 26, 0.15);
+        }
 
-    .badge {
-      background: #0f1a0f;
-      color: #64ff1a;
-      padding: 0.3rem 1.2rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      border: 1px solid #2a4f2a;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+        .badge {
+            background: #0f1a0f;
+            color: #64ff1a;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #2a4f2a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
-    .section {
-      margin-bottom: 2.1rem;
-    }
+        .section {
+            margin-bottom: 2.1rem;
+        }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #64ff1a;
-      letter-spacing: 0.6px;
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-left: 4px solid #64ff1a;
-      padding-left: 0.9rem;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64ff1a;
+            letter-spacing: 0.6px;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #64ff1a;
+            padding-left: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
 
-    .grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      padding-left: 0.3rem;
-    }
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-left: 0.3rem;
+        }
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      padding: 0.2rem 0;
-    }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 0.2rem 0;
+        }
 
-    .label {
-      color: #6f9f6f;
-      min-width: 110px;
-      font-weight: 400;
-      font-size: 0.9rem;
-      letter-spacing: 0.2px;
-    }
+        .label {
+            color: #6f9f6f;
+            min-width: 130px;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.2px;
+        }
 
-    .value {
-      color: #d0f0d0;
-      word-break: break-word;
-      font-size: 0.95rem;
-    }
+        .value {
+            color: #d0f0d0;
+            word-break: break-word;
+            font-size: 0.95rem;
+        }
 
-    .btn-link {
-      display: inline-block;
-      background: #0f1a0f;
-      color: #64ff1a;
-      padding: 0.25rem 1.1rem;
-      border: 1px solid #2a552a;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 6px rgba(100, 255, 26, 0.05);
-      letter-spacing: 0.2px;
-    }
+        .btn-link {
+            display: inline-block;
+            background: #0f1a0f;
+            color: #64ff1a;
+            padding: 0.25rem 1.1rem;
+            border: 1px solid #2a552a;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 6px rgba(100, 255, 26, 0.05);
+            letter-spacing: 0.2px;
+        }
 
-    .btn-link:hover {
-      background: #1a2f1a;
-      border-color: #64ff1a;
-      box-shadow: 0 0 16px rgba(100, 255, 26, 0.15);
-      color: #8aff4d;
-    }
+        .btn-link:hover {
+            background: #1a2f1a;
+            border-color: #64ff1a;
+            box-shadow: 0 0 16px rgba(100, 255, 26, 0.15);
+            color: #8aff4d;
+        }
 
-    .btn-link:active {
-      transform: scale(0.97);
-    }
+        .btn-link:active {
+            transform: scale(0.97);
+        }
 
-    .chip {
-      display: inline-block;
-      background: #0d150d;
-      padding: 0.15rem 0.9rem;
-      border: 1px solid #1f3f1f;
-      font-size: 0.82rem;
-      color: #b8e0b8;
-      margin: 0.15rem 0.2rem;
-      white-space: nowrap;
-    }
+        .chip {
+            display: inline-block;
+            background: #0d150d;
+            padding: 0.15rem 0.9rem;
+            border: 1px solid #1f3f1f;
+            font-size: 0.82rem;
+            color: #b8e0b8;
+            margin: 0.15rem 0.2rem;
+            white-space: nowrap;
+        }
 
-    .inline-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem 0.5rem;
-      margin-top: 0.1rem;
-    }
+        .inline-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.5rem;
+            margin-top: 0.1rem;
+        }
 
-    .inline-chips .chip {
-      background: #0d180d;
-      border-color: #1f421f;
-    }
+        .inline-chips .chip {
+            background: #0d180d;
+            border-color: #1f421f;
+        }
 
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.7rem;
-      align-items: center;
-    }
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            align-items: center;
+        }
 
-    .social-row .btn-link {
-      background: #0a120a;
-      border-color: #1f3f1f;
-    }
+        .social-row .btn-link {
+            background: #0a120a;
+            border-color: #1f3f1f;
+        }
 
-    .social-row .btn-link:hover {
-      background: #142414;
-      border-color: #64ff1a;
-    }
+        .social-row .btn-link:hover {
+            background: #142414;
+            border-color: #64ff1a;
+        }
 
-    .channel-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 0.7rem;
-      align-items: center;
-    }
+        .channel-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.7rem;
+            align-items: center;
+        }
 
-    .channel-row .btn-link {
-      background: #0a120a;
-      border-color: #1a3a1a;
-      font-size: 0.8rem;
-    }
+        .channel-row .btn-link {
+            background: #0a120a;
+            border-color: #1a3a1a;
+            font-size: 0.8rem;
+        }
 
-    .value a:not(.btn-link) {
-      color: #64ff1a;
-      text-decoration: none;
-      border-bottom: 1px dotted #2a5a2a;
-      transition: 0.15s;
-    }
+        .value a:not(.btn-link) {
+            color: #64ff1a;
+            text-decoration: none;
+            border-bottom: 1px dotted #2a5a2a;
+            transition: 0.15s;
+        }
 
-    .value a:not(.btn-link):hover {
-      color: #8aff4d;
-      border-bottom: 1px solid #64ff1a;
-    }
+        .value a:not(.btn-link):hover {
+            color: #8aff4d;
+            border-bottom: 1px solid #64ff1a;
+        }
 
-    @media (max-width: 640px) {
-      .card { padding: 1.5rem; }
-      .label { min-width: 80px; }
-      .name { font-size: 1.6rem; }
-      .header { flex-direction: column; align-items: flex-start; gap: 6px; }
-      .btn-link { padding: 0.2rem 0.9rem; font-size: 0.8rem; }
-    }
-  </style>
+        .note {
+            color: #5f8f5f;
+            font-size: 0.85rem;
+            margin-left: 4px;
+        }
+
+        .chip-blogger {
+            display: inline-block;
+            background: #0f1a0f;
+            padding: 0.2rem 1rem;
+            border: 1px solid #2a552a;
+            font-size: 0.85rem;
+            color: #64ff1a;
+            margin: 0.15rem 0.3rem 0.15rem 0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.5rem;
+            }
+            .label {
+                min-width: 80px;
+            }
+            .name {
+                font-size: 1.6rem;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .btn-link {
+                padding: 0.2rem 0.9rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
+    <div class="card">
 
-    <div class="header">
-      <div class="name">Computershikcats</div>
-      <div class="badge">активен</div>
+        <div class="header">
+            <div class="name">Computershikcats</div>
+            <div class="badge">активен</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Приветствие</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="value" style="color:#64ff1a; font-size:1.1rem;">Привет, я Computershikcats</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Техника</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">ПК</span>
+                    <span class="value" style="color:#6f9f6f;">отсутствует</span>
+                </div>
+                <div class="row">
+                    <span class="label">Ноутбук (говно)</span>
+                    <span class="value"><span class="chip">Asus X553S</span> Intel Pentium N3700 · 8 ГБ · SSD 256 ГБ</span>
+                </div>
+                <div class="row">
+                    <span class="label">Raspberry Pi 4</span>
+                    <span class="value" style="color:#9acf9a;">используется как дополнительный ПК</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Соцсети</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Telegram</span>
+                    <span class="value social-row">
+                        <a href="http://babaxpoco.t.me/" target="_blank" class="btn-link">babaxpoco.t.me</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">GitHub</span>
+                    <span class="value social-row">
+                        <a href="https://github.com/leefshitz2" target="_blank" class="btn-link">github.com/leefshitz2</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">4pda</span>
+                    <span class="value social-row">
+                        <a href="https://4pda.to/forum/index.php?showuser=11299573" target="_blank" class="btn-link">4pda.to/user/11299573</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Discord</span>
+                    <span class="value">computershikcats123</span>
+                </div>
+                <div class="row">
+                    <span class="label">SmartsWorld</span>
+                    <span class="value social-row">
+                        <a href="https://smartsworld.ru/users/computershikcats.38667/" target="_blank" class="btn-link">smartsworld.ru/users/computershikcats</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Каналы и чаты</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Стикерпаки</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/computershikstickers" target="_blank" class="btn-link">t.me/computershikstickers</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Мод Max (скам)</span>
+                    <span class="value channel-row">
+                        <a href="http://ruonemeapp.t.me/" target="_blank" class="btn-link">ruonemeapp.t.me</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Старый канал</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/+3DcXe1K2vEA2Njlh" target="_blank" class="btn-link">t.me/+3DcXe1K2vEA2Njlh</a>
+                        <span class="note">(архив, не подписывайтесь)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Новый канал</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/+58HwRWRs0ikyNDQx" target="_blank" class="btn-link">t.me/+58HwRWRs0ikyNDQx</a>
+                        <span class="note">(подписывайтесь)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">BrodGSI [NEW]</span>
+                    <span class="value channel-row">
+                        <a href="http://BrodGSIUpdates.t.me/" target="_blank" class="btn-link">BrodGSIUpdates.t.me</a>
+                        <span class="note">(заброшен)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Qualcomm Loaders</span>
+                    <span class="value channel-row">
+                        <a href="http://Qualcomm_Loaders.t.me/" target="_blank" class="btn-link">Qualcomm_Loaders.t.me</a>
+                        <span class="note">(файлопомойка)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Doogee X96 Updates</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/Doogee_X96" target="_blank" class="btn-link">t.me/Doogee_X96</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Xiaomi Unlock</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/ximiunlock" target="_blank" class="btn-link">t.me/ximiunlock</a>
+                        <span class="note">(дешёвые цены)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">PhoneBot канал</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/phonebot_channel" target="_blank" class="btn-link">t.me/phonebot_channel</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Боты</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Phonescards</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/Phonescards_bot" target="_blank" class="btn-link">t.me/Phonescards_bot</a>
+                        <span class="note">(в разработке)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">BrodGSI</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/BrodGSI_bot" target="_blank" class="btn-link">t.me/BrodGSI_bot</a>
+                        <span class="note">(временно отключен)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Телефоны</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Основные</span>
+                    <span class="value">
+                        <span class="chip">Xiaomi Mi 8 6/64 (crDroid 11.17)</span>
+                        <span class="chip">Redmi Note 11 6/128 (Project Infinity X A16)</span>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Другие</span>
+                    <span class="value inline-chips">
+                        <span class="chip">Redmi Note 9 Pro 6/128 белый (не раб.)</span>
+                        <span class="chip">Redmi 4X (лок Mi)</span>
+                        <span class="chip">Redmi Note 4X (4 шт., 1 рабочий)</span>
+                        <span class="chip">Redmi 9C (остатки)</span>
+                        <span class="chip">Samsung J5 (2015)</span>
+                        <span class="chip">Sony Xperia Z (тач частично)</span>
+                        <span class="chip">Samsung A04 (рефаб, кирпич)</span>
+                        <span class="chip">Samsung A10</span>
+                        <span class="chip">Samsung S2 (MicroUSB не раб.)</span>
+                        <span class="chip">Samsung S3 (без кнопки питания)</span>
+                        <span class="chip">Samsung GT-3322</span>
+                        <span class="chip">LG G2 (основа 2024)</span>
+                        <span class="chip">LG G3</span>
+                        <span class="chip">iPod Touch 5 (iOS 9.3.5, обход iCloud)</span>
+                        <span class="chip">Samsung A6 (рабочий)</span>
+                        <span class="chip">Honor 9X (экран/кнопки не раб.)</span>
+                        <span class="chip">Honor 8A (нет платы зарядки)</span>
+                        <span class="chip">копия S23 (MT6580)</span>
+                        <span class="chip">Samsung A12 (MTK)</span>
+                        <span class="chip">Doogee X96 (TWRP заброшен)</span>
+                        <span class="chip">Samsung S6 Edge (Verizon, мать заменена)</span>
+                        <span class="chip">Infinix Smart 8 (экран вдребезги)</span>
+                        <span class="chip">Samsung Mega 5.8 (не раб., основа 2023)</span>
+                        <span class="chip">LG L Bello</span>
+                        <span class="chip">iPhone 7 Plus (iOS 15, обход iCloud)</span>
+                        <span class="chip">Meizu M1 Note</span>
+                        <span class="chip">Alcatel OT-5020A (МТС 972)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Любимые блогеры</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Техноблогеры</span>
+                    <span class="value">
+                        <span class="chip-blogger">AFaGP</span>
+                        <span class="chip-blogger">Чопокомпик</span>
+                        <span class="chip-blogger">Runa1366</span>
+                        <span class="chip-blogger">Павел Хмурчик</span>
+                        <span class="chip-blogger">Geekster1337</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+                    <div class="section">
+            <div class="section-title">Сайты</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Магазин Ximi</span>
+                    <span class="value channel-row">
+                        <a href="https://leefshitz2.github.io/XimiTechtokGore/" target="_blank" class="btn-link">leefshitz2.github.io/XimiTechtokGore</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Telegram-био</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/DrunDev9008" target="_blank" class="btn-link">t.me/DrunDev9008</a>
+                        <span class="note">(копия этого био в Telegram)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div class="section">
-      <div class="section-title">Техника</div>
-      <div class="grid">
-        <div class="row">
-          <span class="label">ПК</span>
-          <span class="value" style="color:#6f9f6f;">отсутствует</span>
-        </div>
-        <div class="row">
-          <span class="label">Ноутбук</span>
-          <span class="value"><span class="chip">Asus X553S</span> Intel Pentium N3700 · 8 ГБ · SSD 256 ГБ</span>
-        </div>
-        <div class="row">
-          <span class="label">Raspberry Pi 4</span>
-          <span class="value" style="color:#9acf9a;">используется как дополнительный ПК</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Соцсети</div>
-      <div class="grid">
-        <div class="row">
-          <span class="label">Telegram</span>
-          <span class="value social-row">
-            <a href="https://t.me/phonegetcardsbot_official" target="_blank" class="btn-link">phonegetcardsbot_official</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">GitHub</span>
-          <span class="value social-row">
-            <a href="https://github.com/leefshitz2" target="_blank" class="btn-link">github.com/leefshitz2</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">4pda</span>
-          <span class="value social-row">
-            <a href="https://4pda.to/forum/index.php?showuser=11299573" target="_blank" class="btn-link">4pda.to/user/11299573</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">Discord</span>
-          <span class="value"><span style="color:#b0e0b0;">computershikcats123</span></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Каналы в Telegram</div>
-      <div class="grid">
-        <div class="row">
-          <span class="label">Мод Max</span>
-          <span class="value channel-row">
-            <a href="http://ruonemeapp.t.me/" target="_blank" class="btn-link">ruonemeapp.t.me</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">Старый (заброшен)</span>
-          <span class="value channel-row">
-            <a href="https://t.me/+3DcXe1K2vEA2Njlh" target="_blank" class="btn-link">t.me/+3DcXe1K2vEA2Njlh</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">Новый канал</span>
-          <span class="value channel-row">
-            <a href="https://t.me/+58HwRWRs0ikyNDQx" target="_blank" class="btn-link">t.me/+58HwRWRs0ikyNDQx</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">BrodGSI Updates</span>
-          <span class="value channel-row">
-            <a href="https://t.me/brodgsi_new" target="_blank" class="btn-link">t.me/brodgsi_new</a>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">Qualcomm Loaders</span>
-          <span class="value" style="color:#6f9f6f;">
-            <a href="https://t.me/Qualcomm_Loaders" target="_blank" class="btn-link" style="background:#0d150d; border-color:#1a3a1a;">Qualcomm_Loaders.t.me</a>
-            <span style="color:#5f8f5f; font-size:0.85rem; margin-left:4px;">(файлопомойка)</span>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Телефоны</div>
-      <div class="grid">
-        <div class="row">
-          <span class="label">Основные</span>
-          <span class="value">
-            <span class="chip">Xiaomi Mi 8 6/64</span>
-            <span class="chip">Redmi Note 11 6/128</span>
-          </span>
-        </div>
-        <div class="row">
-          <span class="label">Другие</span>
-          <span class="value inline-chips">
-            <span class="chip">Redmi Note 9 Pro 6/128 белый</span>
-            <span class="chip">Redmi 4X</span>
-            <span class="chip">Redmi Note 4X</span>
-            <span class="chip">Redmi 9C</span>
-            <span class="chip">Samsung J5 (2015)</span>
-            <span class="chip">Sony Xperia Z</span>
-            <span class="chip">Samsung A04</span>
-            <span class="chip">Samsung A10</span>
-            <span class="chip">Samsung S2</span>
-            <span class="chip">Samsung S3</span>
-            <span class="chip">Samsung GT-3322</span>
-            <span class="chip">LG G2</span>
-            <span class="chip">LG G3</span>
-            <span class="chip">iPod Touch 5</span>
-            <span class="chip">Samsung A6</span>
-            <span class="chip">Honor 9X (сломан экран и кнопки)</span>
-            <span class="chip">копия S23 (MT6580)</span>
-            <span class="chip">Samsung A12 (MTK)</span>
-            <span class="chip">Doogee X96</span>
-            <span class="chip">Samsung S6 Edge</span>
-            <span class="chip">Infinix Smart 8 (разбит)</span>
-            <span class="chip">Samsung Mega 5.8 (не работает)</span>
-            <span class="chip">LG L Bello</span>
-            <span class="chip">iPhone 7 Plus (iOS 15)</span>
-            <span class="chip">Meizu M1 Note</span>
-            <span class="chip">Alcatel OT-5020A</span>
-          </span>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </body>
 </html>

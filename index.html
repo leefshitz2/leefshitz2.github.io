@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border-radius: 0 !important;
         }
 
         body {
@@ -19,7 +18,7 @@
             padding: 2rem 1rem;
             font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
             color: #d0e8d0;
-            line-height: 1.5;
+            line-height: 1.6;
             min-height: 100vh;
         }
 
@@ -28,8 +27,9 @@
             width: 100%;
             background: #0a0a0a;
             padding: 2.2rem 2.5rem 2.5rem;
-            border: 1px solid #1f2a1f;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9);
+            border: 1px solid #1f3a1f;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(100, 255, 26, 0.05), 0 8px 40px rgba(0, 0, 0, 0.9);
         }
 
         .header {
@@ -37,7 +37,7 @@
             align-items: baseline;
             justify-content: space-between;
             flex-wrap: wrap;
-            border-bottom: 2px solid #1f2f1f;
+            border-bottom: 2px solid #1f3a1f;
             padding-bottom: 0.75rem;
             margin-bottom: 2rem;
         }
@@ -47,7 +47,7 @@
             font-weight: 600;
             letter-spacing: -0.5px;
             color: #64ff1a;
-            text-shadow: 0 0 10px rgba(100, 255, 26, 0.15);
+            text-shadow: 0 0 20px rgba(100, 255, 26, 0.3), 0 0 60px rgba(100, 255, 26, 0.1);
         }
 
         .badge {
@@ -56,9 +56,11 @@
             padding: 0.3rem 1.2rem;
             font-size: 0.8rem;
             font-weight: 500;
-            border: 1px solid #2a4f2a;
+            border: 1px solid #2a5a2a;
+            border-radius: 6px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(100, 255, 26, 0.1);
         }
 
         .section {
@@ -77,7 +79,8 @@
             border-left: 4px solid #64ff1a;
             padding-left: 0.9rem;
             text-transform: uppercase;
-            opacity: 0.85;
+            opacity: 0.9;
+            text-shadow: 0 0 15px rgba(100, 255, 26, 0.15);
         }
 
         .grid {
@@ -95,7 +98,7 @@
         }
 
         .label {
-            color: #6f9f6f;
+            color: #4faf4f;
             min-width: 130px;
             font-weight: 400;
             font-size: 0.9rem;
@@ -113,20 +116,22 @@
             background: #0f1a0f;
             color: #64ff1a;
             padding: 0.25rem 1.1rem;
-            border: 1px solid #2a552a;
+            border: 1px solid #2a5a2a;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 0 6px rgba(100, 255, 26, 0.05);
+            box-shadow: 0 0 10px rgba(100, 255, 26, 0.05);
             letter-spacing: 0.2px;
         }
 
         .btn-link:hover {
             background: #1a2f1a;
             border-color: #64ff1a;
-            box-shadow: 0 0 16px rgba(100, 255, 26, 0.15);
+            box-shadow: 0 0 25px rgba(100, 255, 26, 0.2);
             color: #8aff4d;
+            transform: scale(1.02);
         }
 
         .btn-link:active {
@@ -137,23 +142,12 @@
             display: inline-block;
             background: #0d150d;
             padding: 0.15rem 0.9rem;
-            border: 1px solid #1f3f1f;
+            border: 1px solid #1f4a1f;
+            border-radius: 6px;
             font-size: 0.82rem;
             color: #b8e0b8;
             margin: 0.15rem 0.2rem;
             white-space: nowrap;
-        }
-
-        .inline-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem 0.5rem;
-            margin-top: 0.1rem;
-        }
-
-        .inline-chips .chip {
-            background: #0d180d;
-            border-color: #1f421f;
         }
 
         .social-row {
@@ -165,7 +159,7 @@
 
         .social-row .btn-link {
             background: #0a120a;
-            border-color: #1f3f1f;
+            border-color: #1f4a1f;
         }
 
         .social-row .btn-link:hover {
@@ -182,7 +176,7 @@
 
         .channel-row .btn-link {
             background: #0a120a;
-            border-color: #1a3a1a;
+            border-color: #1a4a1a;
             font-size: 0.8rem;
         }
 
@@ -208,16 +202,37 @@
             display: inline-block;
             background: #0f1a0f;
             padding: 0.2rem 1rem;
-            border: 1px solid #2a552a;
+            border: 1px solid #2a5a2a;
+            border-radius: 6px;
             font-size: 0.85rem;
             color: #64ff1a;
             margin: 0.15rem 0.3rem 0.15rem 0;
             font-weight: 500;
+            box-shadow: 0 0 10px rgba(100, 255, 26, 0.05);
+        }
+
+        /* вертикальный список телефонов */
+        .phone-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding-left: 0.3rem;
+        }
+
+        .phone-list .chip {
+            display: inline-block;
+            width: fit-content;
+            white-space: normal;
+            margin: 0.1rem 0;
+            background: #0d180d;
+            border-color: #1f4a1f;
+            padding: 0.2rem 1rem;
         }
 
         @media (max-width: 640px) {
             .card {
                 padding: 1.5rem;
+                border-radius: 8px;
             }
             .label {
                 min-width: 80px;
@@ -245,21 +260,23 @@
             <div class="badge">активен</div>
         </div>
 
+        <!-- 0. Приветствие -->
         <div class="section">
             <div class="section-title">Приветствие</div>
             <div class="grid">
                 <div class="row">
-                    <span class="value" style="color:#64ff1a; font-size:1.1rem;">Привет, я Computershikcats</span>
+                    <span class="value" style="color:#64ff1a; font-size:1.1rem; text-shadow: 0 0 20px rgba(100,255,26,0.2);">Привет, я Computershikcats</span>
                 </div>
             </div>
         </div>
 
+        <!-- 1. Мой ноутбук и горе-ПК -->
         <div class="section">
             <div class="section-title">Техника</div>
             <div class="grid">
                 <div class="row">
                     <span class="label">ПК</span>
-                    <span class="value" style="color:#6f9f6f;">отсутствует</span>
+                    <span class="value" style="color:#4faf4f;">отсутствует</span>
                 </div>
                 <div class="row">
                     <span class="label">Ноутбук (говно)</span>
@@ -267,11 +284,12 @@
                 </div>
                 <div class="row">
                     <span class="label">Raspberry Pi 4</span>
-                    <span class="value" style="color:#9acf9a;">используется как дополнительный ПК</span>
+                    <span class="value" style="color:#6fbf6f;">используется как дополнительный ПК</span>
                 </div>
             </div>
         </div>
 
+        <!-- 2. Мои соцсети -->
         <div class="section">
             <div class="section-title">Соцсети</div>
             <div class="grid">
@@ -306,6 +324,24 @@
             </div>
         </div>
 
+        <!-- 3. Мои любимые -->
+        <div class="section">
+            <div class="section-title">Любимые блогеры</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Техноблогеры</span>
+                    <span class="value">
+                        <span class="chip-blogger">AFaGP</span>
+                        <span class="chip-blogger">Чопокомпик</span>
+                        <span class="chip-blogger">Runa1366</span>
+                        <span class="chip-blogger">Павел Хмурчик</span>
+                        <span class="chip-blogger">Geekster1337</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Мои каналы -->
         <div class="section">
             <div class="section-title">Каналы и чаты</div>
             <div class="grid">
@@ -371,6 +407,33 @@
             </div>
         </div>
 
+        <!-- 5. Мои сайты -->
+        <div class="section">
+            <div class="section-title">Сайты</div>
+            <div class="grid">
+                <div class="row">
+                    <span class="label">Магазин Ximi</span>
+                    <span class="value channel-row">
+                        <a href="https://leefshitz2.github.io/XimiTechtokGore/" target="_blank" class="btn-link">leefshitz2.github.io/XimiTechtokGore</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Новая версия</span>
+                    <span class="value channel-row">
+                        <a href="https://leefshitz2.github.io/XimiTechtokRemake/" target="_blank" class="btn-link">leefshitz2.github.io/XimiTechtokRemake</a>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="label">Telegram-био</span>
+                    <span class="value channel-row">
+                        <a href="https://t.me/DrunDev9008" target="_blank" class="btn-link">t.me/DrunDev9008</a>
+                        <span class="note">(копия этого био в Telegram)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Мои боты -->
         <div class="section">
             <div class="section-title">Боты</div>
             <div class="grid">
@@ -391,19 +454,20 @@
             </div>
         </div>
 
+        <!-- 7. Мои телефоны (вертикально) -->
         <div class="section">
             <div class="section-title">Телефоны</div>
             <div class="grid">
                 <div class="row">
                     <span class="label">Основные</span>
-                    <span class="value">
+                    <span class="value phone-list">
                         <span class="chip">Xiaomi Mi 8 6/64 (crDroid 11.17)</span>
                         <span class="chip">Redmi Note 11 6/128 (Project Infinity X A16)</span>
                     </span>
                 </div>
                 <div class="row">
                     <span class="label">Другие</span>
-                    <span class="value inline-chips">
+                    <span class="value phone-list">
                         <span class="chip">Redmi Note 9 Pro 6/128 белый (не раб.)</span>
                         <span class="chip">Redmi 4X (лок Mi)</span>
                         <span class="chip">Redmi Note 4X (4 шт., 1 рабочий)</span>
@@ -431,42 +495,6 @@
                         <span class="chip">iPhone 7 Plus (iOS 15, обход iCloud)</span>
                         <span class="chip">Meizu M1 Note</span>
                         <span class="chip">Alcatel OT-5020A (МТС 972)</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Любимые блогеры</div>
-            <div class="grid">
-                <div class="row">
-                    <span class="label">Техноблогеры</span>
-                    <span class="value">
-                        <span class="chip-blogger">AFaGP</span>
-                        <span class="chip-blogger">Чопокомпик</span>
-                        <span class="chip-blogger">Runa1366</span>
-                        <span class="chip-blogger">Павел Хмурчик</span>
-                        <span class="chip-blogger">Geekster1337</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-                    <div class="section">
-            <div class="section-title">Сайты</div>
-            <div class="grid">
-                <div class="row">
-                    <span class="label">Магазин Ximi</span>
-                    <span class="value channel-row">
-                        <a href="https://leefshitz2.github.io/XimiTechtokGore/" target="_blank" class="btn-link">leefshitz2.github.io/XimiTechtokGore</a>
-                    </span>
-                </div>
-                <div class="row">
-                    <span class="label">Telegram-био</span>
-                    <span class="value channel-row">
-                        <a href="https://t.me/DrunDev9008" target="_blank" class="btn-link">t.me/DrunDev9008</a>
-                        <span class="note">(копия этого био в Telegram)</span>
                     </span>
                 </div>
             </div>

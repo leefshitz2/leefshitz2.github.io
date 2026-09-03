@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaomi Tech [МЕГА-СБОРКА: 300+ моделей + 6 тем + звуки XP/95]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style id="theme-style">
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'VT323', 'Courier New', monospace; image-rendering: pixelated; }
+        body { background-color: #008080; padding: 10px; min-height: 100vh; transition: background-color 0.3s; }
+        .desktop { display: flex; flex-direction: column; gap: 8px; }
+        .taskbar { background: #c0c0c0; border-top: 2px solid #dfdfdf; border-bottom: 2px solid #808080; padding: 3px 5px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .start-button { background: #c0c0c0; border: 2px solid #fff; border-right-color: #404040; border-bottom-color: #404040; padding: 4px 10px; font-size: 1.3rem; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .start-button:active { border: 2px solid #404040; border-right-color: #fff; border-bottom-color: #fff; }
+        .taskbar-time { background: #c0c0c0; border: 2px solid #808080; border-right-color: #fff; border-bottom-color: #fff; padding: 4px 10px; font-size: 1.2rem; }
+        .desktop-icons { display: flex; gap: 25px; padding: 15px; flex-wrap: wrap; }
+        .desktop-icon { display: flex; flex-direction: column; align-items: center; width: 80px; color: white; text-shadow: 1px 1px 0 #000; cursor: pointer; font-size: 1.2rem; }
+        .desktop-icon i { font-size: 3rem; filter: drop-shadow(2px 2px 0 #404040); margin-bottom: 5px; }
+        .window { background: #c0c0c0; border: 3px solid #dfdfdf; border-right-color: #404040; border-bottom-color: #404040; margin: 10px 0 20px 0; display: flex; flex-direction: column; transition: all 0.3s; }
+        .window-title-bar { background: #000080; color: white; padding: 5px 8px; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; transition: background 0.3s; }
+        .window-controls { display: flex; gap: 3px; }
+        .window-controls button { background: #c0c0c0; border: 2px solid #fff; border-right-color: #404040; border-bottom-color: #404040; width: 25px; height: 23px; font-size: 1.2rem; cursor: pointer; }
+        .window-content { padding: 15px; background: #c0c0c0; transition: background 0.3s; }
+        .main-container { display: flex; flex-wrap: wrap; gap: 15px; }
+        .sidebar { flex: 1; min-width: 200px; background: #c0c0c0; border: 2px solid #808080; border-right-color: #fff; border-bottom-color: #fff; padding: 10px; max-height: 600px; overflow-y: auto; }
+        .sidebar-menu { list-style: none; }
+        .sidebar-menu li { padding: 5px 8px; margin: 3px 0; background: #c0c0c0; border: 2px solid #fff; border-right-color: #808080; border-bottom-color: #808080; font-size: 1.2rem; cursor: pointer; }
+        .sidebar-menu li:hover { background: #a0a0a0; }
+        .theme-section { margin-top: 20px; border-top: 2px solid #808080; padding-top: 10px; }
+        .theme-btn { display: block; width: 100%; padding: 8px; margin: 5px 0; background: #c0c0c0; border: 2px solid #fff; border-right-color: #404040; border-bottom-color: #404040; font-size: 1.2rem; cursor: pointer; text-align: left; }
+        .content-area { flex: 4; min-width: 300px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin-top: 15px; max-height: 600px; overflow-y: auto; padding-right: 5px; }
+        .product-card { background: #c0c0c0; border: 3px solid #fff; border-right-color: #404040; border-bottom-color: #404040; padding: 8px; display: flex; flex-direction: column; }
+        .product-header { background: #000080; color: white; padding: 4px 8px; margin: -8px -8px 8px -8px; font-size: 1.2rem; display: flex; justify-content: space-between; }
+        .product-badge { background: #ff00ff; color: black; padding: 2px 5px; font-size: 1rem; }
+        .product-image { background: #000; border: 3px solid #808080; border-right-color: #fff; border-bottom-color: #fff; height: 150px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; overflow: hidden; position: relative; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; filter: contrast(1.5) brightness(0.9); }
+        .product-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 4px; }
+        .product-description { font-size: 1rem; border-bottom: 2px solid #808080; padding-bottom: 5px; margin-bottom: 5px; }
+        .product-price { display: flex; align-items: baseline; gap: 10px; margin: 8px 0; }
+        .current-price { font-size: 1.8rem; font-weight: bold; color: #000080; }
+        .btn { background: #c0c0c0; border: 3px solid #fff; border-right-color: #404040; border-bottom-color: #404040; padding: 5px; font-size: 1.2rem; cursor: pointer; width: 100%; text-align: center; }
+        .btn:active { border: 3px solid #404040; border-right-color: #fff; border-bottom-color: #fff; }
+        .filters { display: flex; gap: 5px; margin-bottom: 15px; flex-wrap: wrap; }
+        .filter-btn { background: #c0c0c0; border: 2px solid #fff; border-right-color: #404040; border-bottom-color: #404040; padding: 5px 12px; font-size: 1.2rem; cursor: pointer; }
+        .filter-btn.active { border: 2px solid #404040; border-right-color: #fff; border-bottom-color: #fff; background: #a0a0a0; }
+        .joke-ticker { background: #ffffe0; border: 2px solid #808080; padding: 8px; margin: 10px 0; font-size: 1.3rem; overflow: hidden; white-space: nowrap; }
+        .joke-ticker span { display: inline-block; animation: scroll 30s linear infinite; }
+        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-400%); } }
+        .footer { background: #c0c0c0; border: 2px solid #dfdfdf; border-right-color: #404040; border-bottom-color: #404040; padding: 15px; margin-top: 20px; font-size: 1.2rem; display: flex; flex-wrap: wrap; justify-content: space-between; }
+        .year-badge { background: #800080; color: white; padding: 2px 5px; font-size: 0.9rem; margin-left: 5px; }
+        .bsod-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0000aa; color: white; font-family: 'VT323'; font-size: 2rem; padding: 50px; z-index: 10000; display: none; flex-direction: column; }
+        .cart-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 300px; background: #c0c0c0; border: 3px solid #dfdfdf; border-right-color: #404040; border-bottom-color: #404040; z-index: 1000; display: none; }
+        .cart-window.visible { display: block; }
+    </style>
+</head>
+<body>
+    <audio id="win95Sound" src="https://www.myinstants.com/media/sounds/windows-95-startup-sound.mp3" preload="auto"></audio>
+    <audio id="winXPSound" src="https://www.myinstants.com/media/sounds/windows-xp-startup.mp3" preload="auto"></audio>
+    <audio id="bsodSound" src="https://www.myinstants.com/media/sounds/blue-screen-of-death.mp3" preload="auto"></audio>
+
+    <div class="desktop">
+        <div class="taskbar" id="taskbar">
+            <div class="start-button" onclick="showJoke()">
+                <i class="fas fa-windows"></i> Пуск
+            </div>
+            <div style="display: flex; gap: 5px;">
+                <div class="start-button" onclick="playSound('win95')" style="padding: 4px 8px;" title="Windows 95">95</div>
+                <div class="start-button" onclick="playSound('winxp')" style="padding: 4px 8px;" title="Windows XP">XP</div>
+                <div class="taskbar-time" id="win95Time">12:34</div>
+            </div>
+        </div>
+
+        <div class="desktop-icons">
+            <div class="desktop-icon" onclick="showBSOD()"><i class="fas fa-skull"></i><span>BSOD</span></div>
+            <div class="desktop-icon" onclick="toggleCart()"><i class="fas fa-shopping-basket"></i><span>Корзина</span><span id="desktopCartCount">0</span></div>
+            <div class="desktop-icon" onclick="window.open('https://t.me/phonegetcardsbot', '_blank')"><i class="fab fa-telegram"></i><span>Telegram</span></div>
+        </div>
+
+        <div class="window" id="mainWindow">
+            <div class="window-title-bar" id="windowTitleBar">
+                <div><i class="fas fa-mobile-alt"></i> Xiaomi Tech [300+ моделей | 6 тем | XP/95 звук]</div>
+                <div class="window-controls">
+                    <button onclick="alert('Минимизировано')">_</button>
+                    <button onclick="alert('Окно не резиновое')">□</button>
+                    <button onclick="showBSOD()">✕</button>
+                </div>
+            </div>
+            <div class="window-content" id="windowContent">
+                <div class="joke-ticker"><span>📱 300+ моделей Xiaomi 2011-2026! 🎨 6 тем: MIUI/XP/Win7/HyperOS/Lineage/Cyanogen! 🔊 Звуки 95/XP! 🐺 Шакал 1000%!</span></div>
+                
+                <div class="main-container">
+                    <div class="sidebar" id="sidebar">
+                        <h3>📁 Меню</h3>
+                        <ul class="sidebar-menu">
+                            <li onclick="filterYear('all')">🏠 Все модели</li>
+                            <li onclick="filterYear('2026')">📱 2026</li>
+                            <li onclick="filterYear('2025')">📱 2025</li>
+                            <li onclick="filterYear('2024')">📱 2024</li>
+                            <li onclick="filterYear('2023')">📱 2023</li>
+                            <li onclick="filterYear('2022')">📱 2022</li>
+                            <li onclick="filterYear('2021')">📱 2021</li>
+                            <li onclick="filterYear('2020')">📱 2020</li>
+                        </ul>
+                        
+                        <div class="theme-section">
+                            <h4>🎨 Темы</h4>
+                            <button class="theme-btn" onclick="setTheme('miui')">MIUI V5</button>
+                            <button class="theme-btn" onclick="setTheme('xp')">Windows XP</button>
+                            <button class="theme-btn" onclick="setTheme('win7')">Windows 7</button>
+                            <button class="theme-btn" onclick="setTheme('hyperos')">HyperOS V2</button>
+                            <button class="theme-btn" onclick="setTheme('lineage')">LineageOS</button>
+                            <button class="theme-btn" onclick="setTheme('cyanogen')">CyanogenMOD</button>
+                            <button class="theme-btn" onclick="setTheme('win95')">🔙 Win95</button>
+                        </div>
+                    </div>
+
+                    <div class="content-area">
+                        <div class="filters">
+                            <button class="filter-btn active" onclick="filterCategory('all')">Все</button>
+                            <button class="filter-btn" onclick="filterCategory('xiaomi')">Xiaomi</button>
+                            <button class="filter-btn" onclick="filterCategory('redmi')">Redmi</button>
+                            <button class="filter-btn" onclick="filterCategory('poco')">POCO</button>
+                            <button class="filter-btn" onclick="filterCategory('mix')">Mix</button>
+                        </div>
+
+                        <div class="products-grid" id="productsGrid">
+                            <!-- ========== 2026 ========== -->
+                            <div class="product-card" data-year="2026" data-category="poco">
+                                <div class="product-header">Poco M8 5G <span class="year-badge">2026</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m8-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M8+5G'"></div>
+                                <div class="product-title">Poco M8 5G</div>
+                                <div class="product-description">8G? Уже 10G!</div>
+                                <div class="product-price"><span class="current-price">0 ₽</span></div>
+                                <button class="btn" onclick="addToCart('Poco M8 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2026" data-category="poco">
+                                <div class="product-header">Poco M8 Pro <span class="year-badge">2026</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m8-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M8+Pro'"></div>
+                                <div class="product-title">Poco M8 Pro</div>
+                                <div class="product-description">Профессиональный шакал</div>
+                                <button class="btn" onclick="addToCart('Poco M8 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2026" data-category="redmi">
+                                <div class="product-header">Redmi Turbo 5 <span class="year-badge">2026</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-5-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+5'"></div>
+                                <div class="product-title">Redmi Turbo 5</div>
+                                <div class="product-description">Турбо-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 5')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2026" data-category="redmi">
+                                <div class="product-header">Turbo 5 Max <span class="year-badge">2026</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-5-max-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+5+Max'"></div>
+                                <div class="product-title">Turbo 5 Max</div>
+                                <div class="product-description">Макси-турбо</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 5 Max')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2025 ========== -->
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">15 Ultra <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+Ultra'"></div>
+                                <div class="product-title">Xiaomi 15 Ultra</div>
+                                <div class="product-description">Ультра-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">15S Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15s-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15S+Pro'"></div>
+                                <div class="product-title">Xiaomi 15S Pro</div>
+                                <div class="product-description">Super-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15S Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">15T <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15t-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15T'"></div>
+                                <div class="product-title">Xiaomi 15T</div>
+                                <div class="product-description">Turbo-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15T')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">15T Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15T+Pro'"></div>
+                                <div class="product-title">Xiaomi 15T Pro</div>
+                                <div class="product-description">Про-турбо</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 17 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=17'"></div>
+                                <div class="product-title">Xiaomi 17</div>
+                                <div class="product-description">Пропустили 16</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 17')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">17 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=17+Pro'"></div>
+                                <div class="product-title">Xiaomi 17 Pro</div>
+                                <div class="product-description">Про-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 17 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">17 Pro Max <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-pro-max-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=17+Pro+Max'"></div>
+                                <div class="product-title">17 Pro Max</div>
+                                <div class="product-description">Макси-про</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 17 Pro Max')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">17 Ultra <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=17+Ultra'"></div>
+                                <div class="product-title">17 Ultra</div>
+                                <div class="product-description">Ультра-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 17 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">17 Ultra Leica <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-ultra-leica-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=17+Ultra+Leica'"></div>
+                                <div class="product-title">17 Ultra Leica</div>
+                                <div class="product-description">Leica-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 17 Ultra Leica')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">Civi 5 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-civi-5-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Civi+5+Pro'"></div>
+                                <div class="product-title">Civi 5 Pro</div>
+                                <div class="product-description">Для селфи-шакалов</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Civi 5 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="mix">
+                                <div class="product-header">Mix Flip 2 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-flip-2-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mix+Flip+2'"></div>
+                                <div class="product-title">Mix Flip 2</div>
+                                <div class="product-description">Складной шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mix Flip 2')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">Poco C71 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c71-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C71'"></div>
+                                <div class="product-title">Poco C71</div>
+                                <div class="product-description">C-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco C71')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">C85 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c85-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C85+4G'"></div>
+                                <div class="product-title">Poco C85 4G</div>
+                                <div class="product-description">4G-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco C85 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">C85 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c85-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C85+5G'"></div>
+                                <div class="product-title">Poco C85 5G</div>
+                                <div class="product-description">5G-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco C85 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">Poco F7 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f7-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F7'"></div>
+                                <div class="product-title">Poco F7</div>
+                                <div class="product-description">F-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco F7')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">F7 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f7-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F7+Pro'"></div>
+                                <div class="product-title">Poco F7 Pro</div>
+                                <div class="product-description">Про-F-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco F7 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">F7 Ultra <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f7-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F7+Ultra'"></div>
+                                <div class="product-title">Poco F7 Ultra</div>
+                                <div class="product-description">Ультра-F</div>
+                                <button class="btn" onclick="addToCart('Poco F7 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">F8 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f8-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F8+Pro'"></div>
+                                <div class="product-title">Poco F8 Pro</div>
+                                <div class="product-description">F8 лучше F7</div>
+                                <button class="btn" onclick="addToCart('Poco F8 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">F8 Ultra <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f8-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F8+Ultra'"></div>
+                                <div class="product-title">Poco F8 Ultra</div>
+                                <div class="product-description">Ультра-F8</div>
+                                <button class="btn" onclick="addToCart('Poco F8 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">M7 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m7-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M7+5G'"></div>
+                                <div class="product-title">Poco M7 5G</div>
+                                <div class="product-description">M-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco M7 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">M7 Plus <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m7-plus-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M7+Plus'"></div>
+                                <div class="product-title">Poco M7 Plus</div>
+                                <div class="product-description">Плюс-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco M7 Plus')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">M7 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m7-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M7+4G'"></div>
+                                <div class="product-title">Poco M7 4G</div>
+                                <div class="product-description">4G-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco M7 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">Poco X7 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x7-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X7'"></div>
+                                <div class="product-title">Poco X7</div>
+                                <div class="product-description">X-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco X7')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">X7 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x7-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X7+Pro'"></div>
+                                <div class="product-title">Poco X7 Pro</div>
+                                <div class="product-description">Про-X-шакал</div>
+                                <button class="btn" onclick="addToCart('Poco X7 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="poco">
+                                <div class="product-header">X7 Pro Iron Man <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x7-pro-ironman-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Iron+Man'"></div>
+                                <div class="product-title">X7 Pro Iron Man</div>
+                                <div class="product-description">Железный шакал</div>
+                                <button class="btn" onclick="addToCart('Poco X7 Pro Iron Man')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">Qin F25 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-qin-f25-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Qin+F25'"></div>
+                                <div class="product-title">Qin F25</div>
+                                <div class="product-description">Кнопочный шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Qin F25')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="xiaomi">
+                                <div class="product-header">Qin K25 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-qin-k25-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Qin+K25'"></div>
+                                <div class="product-title">Qin K25</div>
+                                <div class="product-description">Кнопочный +</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Qin K25')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Redmi 13x <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-13x-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13x'"></div>
+                                <div class="product-title">Redmi 13x</div>
+                                <div class="product-description">13x шакалов</div>
+                                <button class="btn" onclick="addToCart('Redmi 13x')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">14C 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-14c-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14C+5G'"></div>
+                                <div class="product-title">Redmi 14C 5G</div>
+                                <div class="product-description">C-шакал 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 14C 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">15 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+4G'"></div>
+                                <div class="product-title">Redmi 15 4G</div>
+                                <div class="product-description">15-й шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi 15 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">15 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+5G'"></div>
+                                <div class="product-title">Redmi 15 5G</div>
+                                <div class="product-description">15-й 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 15 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">15C 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15c-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15C+4G'"></div>
+                                <div class="product-title">Redmi 15C 4G</div>
+                                <div class="product-description">C-шакал 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi 15C 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">15C 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15c-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15C+5G'"></div>
+                                <div class="product-title">Redmi 15C 5G</div>
+                                <div class="product-description">C-шакал 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 15C 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">15R 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15r-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15R+5G'"></div>
+                                <div class="product-title">Redmi 15R 5G</div>
+                                <div class="product-description">R-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi 15R 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Redmi A5 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a5-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A5'"></div>
+                                <div class="product-title">Redmi A5</div>
+                                <div class="product-description">A-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi A5')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">K80 Ultra <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k80-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K80+Ultra'"></div>
+                                <div class="product-title">K80 Ultra</div>
+                                <div class="product-description">Ультра-K</div>
+                                <button class="btn" onclick="addToCart('Redmi K80 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Redmi K90 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k90-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K90'"></div>
+                                <div class="product-title">Redmi K90</div>
+                                <div class="product-description">K-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi K90')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">K90 Pro Max <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k90-pro-max-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K90+Pro+Max'"></div>
+                                <div class="product-title">K90 Pro Max</div>
+                                <div class="product-description">Макси-K</div>
+                                <button class="btn" onclick="addToCart('Redmi K90 Pro Max')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+4G'"></div>
+                                <div class="product-title">Note 14 4G</div>
+                                <div class="product-description">14-й ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+5G'"></div>
+                                <div class="product-title">Note 14 5G</div>
+                                <div class="product-description">108 МП</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 Pro 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-pro-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+Pro+4G'"></div>
+                                <div class="product-title">Note 14 Pro 4G</div>
+                                <div class="product-description">Про-ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 Pro 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 Pro 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+Pro+5G'"></div>
+                                <div class="product-title">Note 14 Pro 5G</div>
+                                <div class="product-description">200 МП</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 Pro 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 Pro+ <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-pro-plus-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+Pro%2B'"></div>
+                                <div class="product-title">Note 14 Pro+</div>
+                                <div class="product-description">Плюс-ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 Pro+')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14 SE <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-se-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+SE'"></div>
+                                <div class="product-title">Note 14 SE</div>
+                                <div class="product-description">SE-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 SE')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 14S <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14s-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14S'"></div>
+                                <div class="product-title">Note 14S</div>
+                                <div class="product-description">S-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14S')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-5g-global-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+5G'"></div>
+                                <div class="product-title">Note 15 5G</div>
+                                <div class="product-description">15-й ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 5G CN <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-5g-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+5G+CN'"></div>
+                                <div class="product-title">Note 15 5G CN</div>
+                                <div class="product-description">Китай-шакал</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 5G CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 Pro 5G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-pro-5g-global-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+Pro+5G'"></div>
+                                <div class="product-title">Note 15 Pro 5G</div>
+                                <div class="product-description">Про-ноут 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 Pro 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 Pro CN <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-pro-5g-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+Pro+CN'"></div>
+                                <div class="product-title">Note 15 Pro CN</div>
+                                <div class="product-description">Китай-про</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 Pro CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 Pro 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-pro-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+Pro+4G'"></div>
+                                <div class="product-title">Note 15 Pro 4G</div>
+                                <div class="product-description">Про-ноут 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 Pro 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 Pro+ <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-pro-plus-global-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+Pro%2B'"></div>
+                                <div class="product-title">Note 15 Pro+</div>
+                                <div class="product-description">Плюс-про</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 Pro+')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 Pro+ CN <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-pro-plus-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+Pro%2B+CN'"></div>
+                                <div class="product-title">Note 15 Pro+ CN</div>
+                                <div class="product-description">Китай-плюс</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 Pro+ CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15 4G <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15-4g-global-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15+4G'"></div>
+                                <div class="product-title">Note 15 4G</div>
+                                <div class="product-description">4G-ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Note 15R <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-15r-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+15R'"></div>
+                                <div class="product-title">Note 15R</div>
+                                <div class="product-description">R-ноут</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 15R')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Turbo 4 <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-4-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+4'"></div>
+                                <div class="product-title">Redmi Turbo 4</div>
+                                <div class="product-description">Турбо-4</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 4')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Turbo 4 Pro <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-4-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+4+Pro'"></div>
+                                <div class="product-title">Turbo 4 Pro</div>
+                                <div class="product-description">Про-турбо</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 4 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2025" data-category="redmi">
+                                <div class="product-header">Turbo 4 HP <span class="year-badge">2025</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-4-pro-hp-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+4+HP'"></div>
+                                <div class="product-title">Turbo 4 HP</div>
+                                <div class="product-description">Гарри Поттер</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 4 HP')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2024 (кратко) ========== -->
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">14 Civi <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-civi-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14+Civi'"></div>
+                                <div class="product-title">Xiaomi 14 Civi</div>
+                                <div class="product-description">Civi-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14 Civi')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">14 Ultra <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14+Ultra'"></div>
+                                <div class="product-title">Xiaomi 14 Ultra</div>
+                                <div class="product-description">Ультра-2024</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">14T <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14t-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14T'"></div>
+                                <div class="product-title">Xiaomi 14T</div>
+                                <div class="product-description">T-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14T')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">14T Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14T+Pro'"></div>
+                                <div class="product-title">Xiaomi 14T Pro</div>
+                                <div class="product-description">Про-T</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 15 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15'"></div>
+                                <div class="product-title">Xiaomi 15</div>
+                                <div class="product-description">Просто 15</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">15 Custom <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-custom-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+Custom'"></div>
+                                <div class="product-title">15 Custom</div>
+                                <div class="product-description">Кастом-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15 Custom')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">15 Diamond <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-diamond-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+Diamond'"></div>
+                                <div class="product-title">15 Diamond</div>
+                                <div class="product-description">Бриллиант</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15 Diamond')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">15 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=15+Pro'"></div>
+                                <div class="product-title">Xiaomi 15 Pro</div>
+                                <div class="product-description">Про-15</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 15 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">Civi 4 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-civi-4-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Civi+4+Pro'"></div>
+                                <div class="product-title">Civi 4 Pro</div>
+                                <div class="product-description">Civi-4</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Civi 4 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="mix">
+                                <div class="product-header">Mix Flip <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-flip-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mix+Flip'"></div>
+                                <div class="product-title">Mix Flip</div>
+                                <div class="product-description">Складной</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mix Flip')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="mix">
+                                <div class="product-header">Mix Fold 4 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-fold-4-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mix+Fold+4'"></div>
+                                <div class="product-title">Mix Fold 4</div>
+                                <div class="product-description">Складной 4</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mix Fold 4')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">Poco C61 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c61-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C61'"></div>
+                                <div class="product-title">Poco C61</div>
+                                <div class="product-description">C-61</div>
+                                <button class="btn" onclick="addToCart('Poco C61')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">C75 4G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c75-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C75+4G'"></div>
+                                <div class="product-title">Poco C75 4G</div>
+                                <div class="product-description">C75 4G</div>
+                                <button class="btn" onclick="addToCart('Poco C75 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">C75 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c75-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C75+5G'"></div>
+                                <div class="product-title">Poco C75 5G</div>
+                                <div class="product-description">C75 5G</div>
+                                <button class="btn" onclick="addToCart('Poco C75 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">Poco F6 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f6-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F6'"></div>
+                                <div class="product-title">Poco F6</div>
+                                <div class="product-description">F6</div>
+                                <button class="btn" onclick="addToCart('Poco F6')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">F6 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f6-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F6+Pro'"></div>
+                                <div class="product-title">Poco F6 Pro</div>
+                                <div class="product-description">F6 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco F6 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">M6 4G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M6+4G'"></div>
+                                <div class="product-title">Poco M6 4G</div>
+                                <div class="product-description">M6 4G</div>
+                                <button class="btn" onclick="addToCart('Poco M6 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">M6 Plus <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-plus-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M6+Plus'"></div>
+                                <div class="product-title">Poco M6 Plus</div>
+                                <div class="product-description">M6 Plus</div>
+                                <button class="btn" onclick="addToCart('Poco M6 Plus')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">M6 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-pro-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M6+Pro'"></div>
+                                <div class="product-title">Poco M6 Pro</div>
+                                <div class="product-description">M6 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco M6 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">M7 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m7-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M7+Pro'"></div>
+                                <div class="product-title">Poco M7 Pro</div>
+                                <div class="product-description">M7 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco M7 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">X6 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x6-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X6+5G'"></div>
+                                <div class="product-title">Poco X6 5G</div>
+                                <div class="product-description">X6 5G</div>
+                                <button class="btn" onclick="addToCart('Poco X6 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">X6 Neo <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x6-neo-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X6+Neo'"></div>
+                                <div class="product-title">Poco X6 Neo</div>
+                                <div class="product-description">X6 Neo</div>
+                                <button class="btn" onclick="addToCart('Poco X6 Neo')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="poco">
+                                <div class="product-header">X6 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x6-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X6+Pro'"></div>
+                                <div class="product-title">Poco X6 Pro</div>
+                                <div class="product-description">X6 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco X6 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="xiaomi">
+                                <div class="product-header">Qin C23 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-qin-c23-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Qin+C23'"></div>
+                                <div class="product-title">Qin C23</div>
+                                <div class="product-description">Кнопочный</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Qin C23')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi 13 4G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-13-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13+4G'"></div>
+                                <div class="product-title">Redmi 13 4G</div>
+                                <div class="product-description">13 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi 13 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi 13 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-13-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13+5G'"></div>
+                                <div class="product-title">Redmi 13 5G</div>
+                                <div class="product-description">13 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 13 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">14C 4G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-14c-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14C+4G'"></div>
+                                <div class="product-title">Redmi 14C 4G</div>
+                                <div class="product-description">14C 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi 14C 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi 14R <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-14r-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14R'"></div>
+                                <div class="product-title">Redmi 14R</div>
+                                <div class="product-description">14R</div>
+                                <button class="btn" onclick="addToCart('Redmi 14R')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi A3 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A3'"></div>
+                                <div class="product-title">Redmi A3</div>
+                                <div class="product-description">A3</div>
+                                <button class="btn" onclick="addToCart('Redmi A3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">A3 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a3-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A3+Pro'"></div>
+                                <div class="product-title">Redmi A3 Pro</div>
+                                <div class="product-description">A3 Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi A3 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">A3x <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a3x-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A3x'"></div>
+                                <div class="product-title">Redmi A3x</div>
+                                <div class="product-description">A3x</div>
+                                <button class="btn" onclick="addToCart('Redmi A3x')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">A4 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a4-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A4+5G'"></div>
+                                <div class="product-title">Redmi A4 5G</div>
+                                <div class="product-description">A4 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi A4 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">K70 Ultra <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K70+Ultra'"></div>
+                                <div class="product-title">K70 Ultra</div>
+                                <div class="product-description">K70 Ultra</div>
+                                <button class="btn" onclick="addToCart('Redmi K70 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi K80 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k80-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K80'"></div>
+                                <div class="product-title">Redmi K80</div>
+                                <div class="product-description">K80</div>
+                                <button class="btn" onclick="addToCart('Redmi K80')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">K80 Pro <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k80-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K80+Pro'"></div>
+                                <div class="product-title">K80 Pro</div>
+                                <div class="product-description">K80 Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi K80 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">K80 Pro Lambo <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k80-pro-lambo-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K80+Lambo'"></div>
+                                <div class="product-title">K80 Lambo</div>
+                                <div class="product-description">Lambo</div>
+                                <button class="btn" onclick="addToCart('Redmi K80 Lambo')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 13 4G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+4G'"></div>
+                                <div class="product-title">Note 13 4G</div>
+                                <div class="product-description">13 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 13 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+5G'"></div>
+                                <div class="product-title">Note 13 5G</div>
+                                <div class="product-description">13 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 13 Pro+ <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-plus-wc-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+Pro%2B'"></div>
+                                <div class="product-title">Note 13 Pro+</div>
+                                <div class="product-description">World Champion</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 Pro+')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 13R <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13r-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13R'"></div>
+                                <div class="product-title">Note 13R</div>
+                                <div class="product-description">13R</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13R')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 14 5G IN <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-5g-india-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+5G+IN'"></div>
+                                <div class="product-title">Note 14 5G IN</div>
+                                <div class="product-description">Индия</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 5G IN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 14 5G CN <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-5g-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+5G+CN'"></div>
+                                <div class="product-title">Note 14 5G CN</div>
+                                <div class="product-description">Китай</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 5G CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 14 Pro 5G <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-pro-5g-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+Pro+5G'"></div>
+                                <div class="product-title">Note 14 Pro 5G</div>
+                                <div class="product-description">Китай-про</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 Pro 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Note 14 Pro+ CN <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-pro-plus-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+14+Pro%2B+CN'"></div>
+                                <div class="product-title">Note 14 Pro+ CN</div>
+                                <div class="product-description">Китай-плюс</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 14 Pro+ CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Redmi Turbo 3 <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+3'"></div>
+                                <div class="product-title">Turbo 3</div>
+                                <div class="product-description">Турбо-3</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2024" data-category="redmi">
+                                <div class="product-header">Turbo 3 HP <span class="year-badge">2024</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-turbo-3-hp-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Turbo+3+HP'"></div>
+                                <div class="product-title">Turbo 3 HP</div>
+                                <div class="product-description">Гарри Поттер</div>
+                                <button class="btn" onclick="addToCart('Redmi Turbo 3 HP')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2023 (кратко) ========== -->
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">13 Lite <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-lite-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13+Lite'"></div>
+                                <div class="product-title">13 Lite</div>
+                                <div class="product-description">Lite-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13 Lite')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">13 Ultra <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13+Ultra'"></div>
+                                <div class="product-title">13 Ultra</div>
+                                <div class="product-description">Ультра</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">13T <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13T'"></div>
+                                <div class="product-title">Xiaomi 13T</div>
+                                <div class="product-description">T-шакал</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13T')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">13T Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13T+Pro'"></div>
+                                <div class="product-title">13T Pro</div>
+                                <div class="product-description">Про-T</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 14 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14'"></div>
+                                <div class="product-title">Xiaomi 14</div>
+                                <div class="product-description">14</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">14 Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=14+Pro'"></div>
+                                <div class="product-title">Xiaomi 14 Pro</div>
+                                <div class="product-description">Про-14</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 14 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">Civi 2 HK <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-civi-2-hk-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Civi+2+HK'"></div>
+                                <div class="product-title">Civi 2 Hello Kitty</div>
+                                <div class="product-description">Hello Kitty</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Civi 2 HK')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">Civi 3 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-civi-3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Civi+3'"></div>
+                                <div class="product-title">Civi 3</div>
+                                <div class="product-description">Civi 3</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Civi 3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="mix">
+                                <div class="product-header">Mix Fold 3 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-fold-3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mix+Fold+3'"></div>
+                                <div class="product-title">Mix Fold 3</div>
+                                <div class="product-description">Складной</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mix Fold 3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">Poco C51 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c51-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C51'"></div>
+                                <div class="product-title">Poco C51</div>
+                                <div class="product-description">C51</div>
+                                <button class="btn" onclick="addToCart('Poco C51')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">Poco C65 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-c65-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=C65'"></div>
+                                <div class="product-title">Poco C65</div>
+                                <div class="product-description">C65</div>
+                                <button class="btn" onclick="addToCart('Poco C65')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">Poco F5 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f5-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F5'"></div>
+                                <div class="product-title">Poco F5</div>
+                                <div class="product-description">F5</div>
+                                <button class="btn" onclick="addToCart('Poco F5')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">F5 Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f5-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F5+Pro'"></div>
+                                <div class="product-title">Poco F5 Pro</div>
+                                <div class="product-description">F5 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco F5 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">M6 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M6+5G'"></div>
+                                <div class="product-title">Poco M6 5G</div>
+                                <div class="product-description">M6 5G</div>
+                                <button class="btn" onclick="addToCart('Poco M6 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">M6 Pro 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m6-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=M6+Pro+5G'"></div>
+                                <div class="product-title">Poco M6 Pro 5G</div>
+                                <div class="product-description">M6 Pro 5G</div>
+                                <button class="btn" onclick="addToCart('Poco M6 Pro 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">Poco X5 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X5'"></div>
+                                <div class="product-title">Poco X5</div>
+                                <div class="product-description">X5</div>
+                                <button class="btn" onclick="addToCart('Poco X5')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="poco">
+                                <div class="product-header">X5 Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X5+Pro'"></div>
+                                <div class="product-title">Poco X5 Pro</div>
+                                <div class="product-description">X5 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco X5 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">Qin F22 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-qin-f22-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Qin+F22'"></div>
+                                <div class="product-title">Qin F22</div>
+                                <div class="product-description">Кнопки</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Qin F22')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="xiaomi">
+                                <div class="product-header">Qin3 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-qin3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Qin3'"></div>
+                                <div class="product-title">Qin3</div>
+                                <div class="product-description">Qin3</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Qin3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Redmi 12 4G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-12-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=12+4G'"></div>
+                                <div class="product-title">Redmi 12 4G</div>
+                                <div class="product-description">12 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi 12 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Redmi 12 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-12-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=12+5G'"></div>
+                                <div class="product-title">Redmi 12 5G</div>
+                                <div class="product-description">12 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 12 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">13C 4G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-13c-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13C+4G'"></div>
+                                <div class="product-title">Redmi 13C 4G</div>
+                                <div class="product-description">13C 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi 13C 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">13C 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-13c-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13C+5G'"></div>
+                                <div class="product-title">Redmi 13C 5G</div>
+                                <div class="product-description">13C 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi 13C 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Redmi A2 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a2-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A2'"></div>
+                                <div class="product-title">Redmi A2</div>
+                                <div class="product-description">A2</div>
+                                <button class="btn" onclick="addToCart('Redmi A2')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">A2+ <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a2-plus-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=A2%2B'"></div>
+                                <div class="product-title">Redmi A2+</div>
+                                <div class="product-description">A2+</div>
+                                <button class="btn" onclick="addToCart('Redmi A2+')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">K60 Ultra <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k60-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K60+Ultra'"></div>
+                                <div class="product-title">K60 Ultra</div>
+                                <div class="product-description">K60 Ultra</div>
+                                <button class="btn" onclick="addToCart('Redmi K60 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Redmi K70 <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K70'"></div>
+                                <div class="product-title">Redmi K70</div>
+                                <div class="product-description">K70</div>
+                                <button class="btn" onclick="addToCart('Redmi K70')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">K70 Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K70+Pro'"></div>
+                                <div class="product-title">K70 Pro</div>
+                                <div class="product-description">K70 Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi K70 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">K70E <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k70e-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K70E'"></div>
+                                <div class="product-title">K70E</div>
+                                <div class="product-description">K70E</div>
+                                <button class="btn" onclick="addToCart('Redmi K70E')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12 4G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12+4G'"></div>
+                                <div class="product-title">Note 12 4G</div>
+                                <div class="product-description">12 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12+5G'"></div>
+                                <div class="product-title">Note 12 5G</div>
+                                <div class="product-description">12 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12 Pro 4G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-4g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12+Pro+4G'"></div>
+                                <div class="product-title">Note 12 Pro 4G</div>
+                                <div class="product-description">12 Pro 4G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12 Pro 4G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12 Turbo <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-turbo-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12+Turbo'"></div>
+                                <div class="product-title">Note 12 Turbo</div>
+                                <div class="product-description">Turbo</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12 Turbo')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12S <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12s-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12S'"></div>
+                                <div class="product-title">Note 12S</div>
+                                <div class="product-description">12S</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12S')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 12T Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+12T+Pro'"></div>
+                                <div class="product-title">Note 12T Pro</div>
+                                <div class="product-description">12T Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 12T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 13 5G CN <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-5g-china-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+5G+CN'"></div>
+                                <div class="product-title">Note 13 5G CN</div>
+                                <div class="product-description">13 5G</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 5G CN')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 13 Pro 5G <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+Pro+5G'"></div>
+                                <div class="product-title">Note 13 Pro 5G</div>
+                                <div class="product-description">13 Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 Pro 5G')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 13 Pro+ <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-plus-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13+Pro%2B'"></div>
+                                <div class="product-title">Note 13 Pro+</div>
+                                <div class="product-description">13 Pro+</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13 Pro+')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2023" data-category="redmi">
+                                <div class="product-header">Note 13R Pro <span class="year-badge">2023</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13r-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+13R+Pro'"></div>
+                                <div class="product-title">Note 13R Pro</div>
+                                <div class="product-description">13R Pro</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 13R Pro')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2022 (несколько) ========== -->
+                            <div class="product-card" data-year="2022" data-category="xiaomi">
+                                <div class="product-header">11i Hypercharge <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11i-hypercharge-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=11i+Hyper'"></div>
+                                <div class="product-title">11i Hypercharge</div>
+                                <div class="product-description">Hyper</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 11i Hypercharge')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="xiaomi">
+                                <div class="product-header">12 Lite <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12-lite-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=12+Lite'"></div>
+                                <div class="product-title">Xiaomi 12 Lite</div>
+                                <div class="product-description">Lite</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12 Lite')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="xiaomi">
+                                <div class="product-header">12S Ultra <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12s-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=12S+Ultra'"></div>
+                                <div class="product-title">12S Ultra</div>
+                                <div class="product-description">Ультра</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12S Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="xiaomi">
+                                <div class="product-header">12T Pro <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=12T+Pro'"></div>
+                                <div class="product-title">Xiaomi 12T Pro</div>
+                                <div class="product-description">200 МП</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 12T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="xiaomi">
+                                <div class="product-header">Xiaomi 13 <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=13'"></div>
+                                <div class="product-title">Xiaomi 13</div>
+                                <div class="product-description">13</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 13')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="poco">
+                                <div class="product-header">Poco F4 GT <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f4-gt-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F4+GT'"></div>
+                                <div class="product-title">Poco F4 GT</div>
+                                <div class="product-description">GT</div>
+                                <button class="btn" onclick="addToCart('Poco F4 GT')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="poco">
+                                <div class="product-header">Poco X4 GT <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x4-gt-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X4+GT'"></div>
+                                <div class="product-title">Poco X4 GT</div>
+                                <div class="product-description">X4 GT</div>
+                                <button class="btn" onclick="addToCart('Poco X4 GT')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="redmi">
+                                <div class="product-header">Redmi 10C <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10c-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=10C'"></div>
+                                <div class="product-title">Redmi 10C</div>
+                                <div class="product-description">10C</div>
+                                <button class="btn" onclick="addToCart('Redmi 10C')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="redmi">
+                                <div class="product-header">Redmi K50 <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k50-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=K50'"></div>
+                                <div class="product-title">Redmi K50</div>
+                                <div class="product-description">K50</div>
+                                <button class="btn" onclick="addToCart('Redmi K50')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2022" data-category="redmi">
+                                <div class="product-header">Note 11 Pro <span class="year-badge">2022</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11-pro-5g-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+11+Pro'"></div>
+                                <div class="product-title">Note 11 Pro</div>
+                                <div class="product-description">108 МП</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 11 Pro')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2021 ========== -->
+                            <div class="product-card" data-year="2021" data-category="xiaomi">
+                                <div class="product-header">11T Pro <span class="year-badge">2021</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=11T+Pro'"></div>
+                                <div class="product-title">Xiaomi 11T Pro</div>
+                                <div class="product-description">11T Pro</div>
+                                <button class="btn" onclick="addToCart('Xiaomi 11T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2021" data-category="xiaomi">
+                                <div class="product-header">Mi 11 Ultra <span class="year-badge">2021</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-11-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+11+Ultra'"></div>
+                                <div class="product-title">Mi 11 Ultra</div>
+                                <div class="product-description">Ультра</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 11 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2021" data-category="poco">
+                                <div class="product-header">Poco F3 <span class="year-badge">2021</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f3-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F3'"></div>
+                                <div class="product-title">Poco F3</div>
+                                <div class="product-description">F3</div>
+                                <button class="btn" onclick="addToCart('Poco F3')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2021" data-category="poco">
+                                <div class="product-header">Poco X3 Pro <span class="year-badge">2021</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x3-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X3+Pro'"></div>
+                                <div class="product-title">Poco X3 Pro</div>
+                                <div class="product-description">X3 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco X3 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2021" data-category="redmi">
+                                <div class="product-header">Note 10 Pro <span class="year-badge">2021</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-10-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+10+Pro'"></div>
+                                <div class="product-title">Note 10 Pro</div>
+                                <div class="product-description">108 МП</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 10 Pro')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2020 ========== -->
+                            <div class="product-card" data-year="2020" data-category="xiaomi">
+                                <div class="product-header">Mi 10 Ultra <span class="year-badge">2020</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-10-ultra-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+10+Ultra'"></div>
+                                <div class="product-title">Mi 10 Ultra</div>
+                                <div class="product-description">120x зум</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 10 Ultra')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2020" data-category="poco">
+                                <div class="product-header">Poco F2 Pro <span class="year-badge">2020</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f2-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=F2+Pro'"></div>
+                                <div class="product-title">Poco F2 Pro</div>
+                                <div class="product-description">F2 Pro</div>
+                                <button class="btn" onclick="addToCart('Poco F2 Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2020" data-category="poco">
+                                <div class="product-header">Poco X3 NFC <span class="year-badge">2020</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x3-nfc-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=X3+NFC'"></div>
+                                <div class="product-title">Poco X3 NFC</div>
+                                <div class="product-description">X3</div>
+                                <button class="btn" onclick="addToCart('Poco X3 NFC')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2020" data-category="redmi">
+                                <div class="product-header">Redmi 9A <span class="year-badge">2020</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-9a-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=9A'"></div>
+                                <div class="product-title">Redmi 9A</div>
+                                <div class="product-description">Легенда</div>
+                                <button class="btn" onclick="addToCart('Redmi 9A')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2019 ========== -->
+                            <div class="product-card" data-year="2019" data-category="xiaomi">
+                                <div class="product-header">Mi 9T Pro <span class="year-badge">2019</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9t-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+9T+Pro'"></div>
+                                <div class="product-title">Mi 9T Pro</div>
+                                <div class="product-description">Поп-ап</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 9T Pro')">Купить</button>
+                            </div>
+                            <div class="product-card" data-year="2019" data-category="redmi">
+                                <div class="product-header">Note 7 <span class="year-badge">2019</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-7-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Note+7'"></div>
+                                <div class="product-title">Redmi Note 7</div>
+                                <div class="product-description">48 МП</div>
+                                <button class="btn" onclick="addToCart('Redmi Note 7')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2018 ========== -->
+                            <div class="product-card" data-year="2018" data-category="poco">
+                                <div class="product-header">Poco F1 <span class="year-badge">2018</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-f1-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Poco+F1'"></div>
+                                <div class="product-title">Pocophone F1</div>
+                                <div class="product-description">Первый</div>
+                                <button class="btn" onclick="addToCart('Pocophone F1')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2017 ========== -->
+                            <div class="product-card" data-year="2017" data-category="xiaomi">
+                                <div class="product-header">Mi A1 <span class="year-badge">2017</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-a1-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+A1'"></div>
+                                <div class="product-title">Mi A1</div>
+                                <div class="product-description">Android One</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi A1')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2016 ========== -->
+                            <div class="product-card" data-year="2016" data-category="xiaomi">
+                                <div class="product-header">Mi Mix <span class="year-badge">2016</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-mix-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+Mix'"></div>
+                                <div class="product-title">Mi Mix</div>
+                                <div class="product-description">Безрамочный</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi Mix')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2015 ========== -->
+                            <div class="product-card" data-year="2015" data-category="xiaomi">
+                                <div class="product-header">Mi Note Pro <span class="year-badge">2015</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-note-pro-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+Note+Pro'"></div>
+                                <div class="product-title">Mi Note Pro</div>
+                                <div class="product-description">2K экран</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi Note Pro')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2014 ========== -->
+                            <div class="product-card" data-year="2014" data-category="xiaomi">
+                                <div class="product-header">Mi 4 <span class="year-badge">2014</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-4-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+4'"></div>
+                                <div class="product-title">Xiaomi Mi 4</div>
+                                <div class="product-description">Сталь</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 4')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2013 ========== -->
+                            <div class="product-card" data-year="2013" data-category="xiaomi">
+                                <div class="product-header">Mi 2S <span class="year-badge">2013</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-2s-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+2S'"></div>
+                                <div class="product-title">Mi 2S</div>
+                                <div class="product-description">Классика</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 2S')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2012 ========== -->
+                            <div class="product-card" data-year="2012" data-category="xiaomi">
+                                <div class="product-header">Mi 2 <span class="year-badge">2012</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-2-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+2'"></div>
+                                <div class="product-title">Xiaomi Mi 2</div>
+                                <div class="product-description">Mi 2</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 2')">Купить</button>
+                            </div>
+
+                            <!-- ========== 2011 ========== -->
+                            <div class="product-card" data-year="2011" data-category="xiaomi">
+                                <div class="product-header">Mi 1 <span class="year-badge">2011</span></div>
+                                <div class="product-image"><img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-1-1.jpg" onerror="this.src='https://via.placeholder.com/200x150/000000/ffffff?text=Mi+1'"></div>
+                                <div class="product-title">Xiaomi Mi 1</div>
+                                <div class="product-description">Первый</div>
+                                <button class="btn" onclick="addToCart('Xiaomi Mi 1')">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Корзина -->
+        <div class="cart-window" id="cartWindow">
+            <div class="window-title-bar"><div>Корзина</div><div class="window-controls"><button onclick="toggleCart()">✕</button></div></div>
+            <div class="window-content"><ul id="cartItemsList">Корзина пуста</ul><button class="btn" onclick="clearCart()">Очистить</button></div>
+        </div>
+
+        <!-- BSOD -->
+        <div class="bsod-overlay" id="bsodScreen">
+            <div style="font-size:3rem;">😵 СИНИЙ ЭКРАН</div>
+            <div>Слишком много телефонов (более 300)</div>
+            <button class="btn" style="width:200px; margin-top:40px;" onclick="hideBSOD()">Перезагрузка</button>
+        </div>
+
+        <div class="footer">
+            <div>© 2011-2026 Xiaomi Tech [300+ моделей | 6 тем]</div>
+            <div><i class="fas fa-skull" onclick="showBSOD()"></i> <i class="fas fa-sync-alt" onclick="location.reload()"></i></div>
+        </div>
+    </div>
+
+    <script>
+        // ========== ОСНОВНЫЕ ФУНКЦИИ ==========
+        let cart = [];
+        function addToCart(name) { cart.push(name); updateCart(); alert(`✅ ${name} в корзине`); }
+        function updateCart() {
+            let html = ''; cart.forEach((item,i) => html += `<li>${i+1}. ${item} <span onclick="removeFromCart(${i})">[x]</span></li>`);
+            document.getElementById('cartItemsList').innerHTML = html || '<li>Корзина пуста</li>';
+            document.getElementById('desktopCartCount').innerText = cart.length;
+        }
+        function removeFromCart(i) { cart.splice(i,1); updateCart(); }
+        function clearCart() { cart = []; updateCart(); }
+        function toggleCart() { document.getElementById('cartWindow').classList.toggle('visible'); }
+
+        // Фильтры
+        function filterCategory(cat) {
+            document.querySelectorAll('.product-card').forEach(c => {
+                c.style.display = (cat === 'all' || c.dataset.category === cat) ? 'flex' : 'none';
+            });
+        }
+        function filterYear(year) {
+            document.querySelectorAll('.product-card').forEach(c => {
+                c.style.display = (year === 'all' || c.dataset.year === year) ? 'flex' : 'none';
+            });
+        }
+
+        // Звуки
+        function playSound(s) {
+            let audio = new Audio(s === 'win95' ? 'https://www.myinstants.com/media/sounds/windows-95-startup-sound.mp3' : 'https://www.myinstants.com/media/sounds/windows-xp-startup.mp3');
+            audio.play().catch(() => alert('Нажмите на страницу для звука'));
+        }
+
+        // BSOD
+        function showBSOD() { document.getElementById('bsodScreen').style.display = 'flex'; }
+        function hideBSOD() { document.getElementById('bsodScreen').style.display = 'none'; }
+
+        // Шутка
+        function showJoke() { alert('6 тем, 300+ моделей, 2 звука, шакал 1000% — а ты всё ещё читаешь?'); }
+
+        // Часы
+        function updateTime() {
+            let d = new Date();
+            document.getElementById('win95Time').innerText = `${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}`;
+        }
+        setInterval(updateTime,1000); updateTime();
+
+        // ========== ТЕМЫ ==========
+        function setTheme(theme) {
+            let body = document.body, tb = document.querySelector('.taskbar'), w = document.getElementById('mainWindow'), wt = document.getElementById('windowTitleBar'), wc = document.getElementById('windowContent'), s = document.getElementById('sidebar');
+            let cards = document.querySelectorAll('.product-card');
+            if(theme === 'miui') {
+                body.style.backgroundColor = '#1e3c1e';
+                wt.style.background = 'linear-gradient(90deg,#0a5e0a,#2e8b57)';
+                w.style.background = '#d4e6d4'; wc.style.background = '#d4e6d4'; s.style.background = '#d4e6d4';
+                tb.style.background = '#2e8b57';
+                cards.forEach(c => { c.style.background = '#d4e6d4'; c.style.color = '#000'; });
+            } else if(theme === 'xp') {
+                body.style.backgroundColor = '#3a6ea5';
+                wt.style.background = 'linear-gradient(90deg,#0058e5,#3c9cff)';
+                w.style.background = '#ece9d8'; wc.style.background = '#ece9d8'; s.style.background = '#ece9d8';
+                tb.style.background = '#245edc';
+                cards.forEach(c => { c.style.background = '#ece9d8'; c.style.color = '#000'; });
+            } else if(theme === 'win7') {
+                body.style.backgroundColor = '#2b5797';
+                wt.style.background = 'linear-gradient(90deg,#1f3d7a,#4a7db5)';
+                w.style.background = '#f0f0f0'; wc.style.background = '#f0f0f0'; s.style.background = '#f0f0f0';
+                tb.style.background = '#1a3b6e';
+                cards.forEach(c => { c.style.background = '#f0f0f0'; c.style.color = '#000'; });
+            } else if(theme === 'hyperos') {
+                body.style.backgroundColor = '#181d27';
+                wt.style.background = 'linear-gradient(135deg,#ff6900,#ff9e45)';
+                w.style.background = '#2a2f3a'; wc.style.background = '#2a2f3a'; s.style.background = '#2a2f3a';
+                tb.style.background = '#20242f';
+                cards.forEach(c => { c.style.background = '#353b48'; c.style.color = '#fff'; });
+            } else if(theme === 'lineage') {
+                body.style.backgroundColor = '#167c80';
+                wt.style.background = 'linear-gradient(90deg,#1976d2,#42a5f5)';
+                w.style.background = '#e3f2fd'; wc.style.background = '#e3f2fd'; s.style.background = '#e3f2fd';
+                tb.style.background = '#0d47a1';
+                cards.forEach(c => { c.style.background = '#e3f2fd'; c.style.color = '#000'; });
+            } else if(theme === 'cyanogen') {
+                body.style.backgroundColor = '#ff5722';
+                wt.style.background = 'linear-gradient(90deg,#bf360c,#ff7043)';
+                w.style.background = '#ffccbc'; wc.style.background = '#ffccbc'; s.style.background = '#ffccbc';
+                tb.style.background = '#e64a19';
+                cards.forEach(c => { c.style.background = '#ffccbc'; c.style.color = '#000'; });
+            } else {
+                body.style.backgroundColor = '#008080';
+                wt.style.background = '#000080';
+                w.style.background = '#c0c0c0'; wc.style.background = '#c0c0c0'; s.style.background = '#c0c0c0';
+                tb.style.background = '#c0c0c0';
+                cards.forEach(c => { c.style.background = '#c0c0c0'; c.style.color = '#000'; });
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Загрузка темы
+        let saved = localStorage.getItem('theme') || 'win95';
+        setTheme(saved);
+    </script>
+</body>
+</html>

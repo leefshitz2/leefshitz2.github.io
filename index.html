@@ -16,7 +16,9 @@
         :root {
             --neon: #6ee7a0;
             --neon-bright: #8effb8;
-            --neon-dim: #4db87a;
+            --neon-mid: #4dd87a;
+            --neon-deep: #2bb55a;
+            --neon-dark: #1a7a3a;
             --neon-glow: rgba(110, 231, 160, 0.6);
             --neon-glow-soft: rgba(110, 231, 160, 0.25);
             --neon-glow-strong: rgba(110, 231, 160, 0.9);
@@ -58,8 +60,7 @@
             margin-bottom: 2rem;
             position: sticky;
             top: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
-            backdrop-filter: blur(10px);
+            background: #000;
             z-index: 100;
         }
 
@@ -94,9 +95,8 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.2rem;
             transition: all 0.25s ease;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.03), rgba(110, 231, 160, 0.01));
+            background: transparent;
             text-shadow: 0 0 8px var(--neon-glow);
-            box-shadow: 0 0 10px rgba(110, 231, 160, 0.05);
         }
 
         .menu-btn:hover {
@@ -108,7 +108,7 @@
         }
 
         .menu-btn.active {
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.15), rgba(110, 231, 160, 0.05));
+            background: rgba(110, 231, 160, 0.1);
             border-color: var(--neon);
             box-shadow: 0 0 20px var(--neon-glow);
         }
@@ -129,7 +129,7 @@
             opacity: 1;
             margin-bottom: 2rem;
             border-color: var(--border-bright);
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.04), rgba(110, 231, 160, 0.01));
+            background: #000;
         }
 
         .nav-menu-inner {
@@ -162,14 +162,13 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             color: var(--neon);
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.12), rgba(110, 231, 160, 0.04));
+            background: #000;
             border: 1px solid var(--border-bright);
             padding: 0.15rem 0.6rem;
             border-radius: 3px;
             margin-bottom: 1rem;
             letter-spacing: 0.5px;
             text-shadow: 0 0 8px var(--neon-glow);
-            box-shadow: 0 0 12px rgba(110, 231, 160, 0.08);
         }
 
         /* ===== HERO ===== */
@@ -187,11 +186,11 @@
         }
 
         .hero h1 .accent {
-            color: var(--neon);
-            text-shadow:
-                0 0 5px var(--neon-glow-strong),
-                0 0 20px var(--neon-glow),
-                0 0 45px var(--neon-glow-soft);
+            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 25%, var(--neon-mid) 50%, var(--neon) 75%, var(--neon-bright) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px var(--neon-glow)) drop-shadow(0 0 30px var(--neon-glow-soft));
         }
 
         .hero p {
@@ -223,7 +222,7 @@
             opacity: 0.5;
         }
 
-        /* ===== КАРТОЧКИ-КНОПКИ (все ссылки зелёные) ===== */
+        /* ===== КАРТОЧКИ-КНОПКИ (зелёный градиент) ===== */
         .link-list {
             display: flex;
             flex-direction: column;
@@ -236,33 +235,35 @@
             justify-content: space-between;
             gap: 1rem;
             padding: 0.85rem 1.1rem;
-            border: 1px solid var(--border-bright);
+            border: 1px solid var(--neon-deep);
             border-radius: 4px;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.08), rgba(110, 231, 160, 0.02));
+            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 35%, var(--neon-mid) 70%, var(--neon) 100%);
             color: #000;
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.25s ease;
             font-family: 'JetBrains Mono', monospace;
             font-weight: 500;
+            box-shadow: 0 0 12px rgba(110, 231, 160, 0.15);
         }
 
         .link-item .name {
             color: #000;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .link-item .url {
-            color: rgba(0, 0, 0, 0.65);
+            color: rgba(0, 0, 0, 0.7);
             font-size: 0.8rem;
             text-align: right;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-weight: 500;
         }
 
         .link-item:hover {
-            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
+            background: linear-gradient(135deg, var(--neon-deep) 0%, var(--neon-mid) 30%, var(--neon) 60%, var(--neon-bright) 100%);
             box-shadow:
                 0 0 25px var(--neon-glow),
                 0 0 50px var(--neon-glow-soft);
@@ -278,7 +279,7 @@
             padding: 0.85rem 1.1rem;
             border: 1px solid var(--border);
             border-radius: 4px;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
+            background: #000;
             color: var(--text);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
@@ -305,24 +306,25 @@
             display: block;
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
+            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 30%, var(--neon) 70%, var(--neon-bright) 100%);
             color: #000;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             font-weight: 700;
             text-align: center;
             text-decoration: none;
+            border: 1px solid var(--neon-deep);
             border-radius: 4px;
             letter-spacing: 0.5px;
             transition: all 0.25s;
             box-shadow:
                 0 0 20px var(--neon-glow),
                 0 0 40px var(--neon-glow-soft);
-            border: none;
             cursor: pointer;
         }
 
         .main-btn:hover {
+            background: linear-gradient(135deg, var(--neon-deep) 0%, var(--neon-mid) 30%, var(--neon-bright) 70%, #aaffcc 100%);
             box-shadow:
                 0 0 30px var(--neon-glow-strong),
                 0 0 60px var(--neon-glow),
@@ -334,22 +336,23 @@
             display: block;
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.1), rgba(110, 231, 160, 0.03));
+            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 40%, var(--neon-mid) 80%, var(--neon) 100%);
             color: #000;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
             text-decoration: none;
-            border: 1px solid var(--border-bright);
+            border: 1px solid var(--neon-deep);
             border-radius: 4px;
             letter-spacing: 0.5px;
             transition: all 0.25s;
             margin-top: 0.6rem;
+            box-shadow: 0 0 12px rgba(110, 231, 160, 0.15);
         }
 
         .secondary-btn:hover {
-            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
+            background: linear-gradient(135deg, var(--neon-deep) 0%, var(--neon-mid) 30%, var(--neon-bright) 100%);
             box-shadow:
                 0 0 20px var(--neon-glow),
                 0 0 40px var(--neon-glow-soft);
@@ -361,7 +364,7 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 1.1rem 1.2rem;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
+            background: #000;
             margin-bottom: 0.6rem;
             transition: all 0.25s;
         }
@@ -414,7 +417,7 @@
             font-size: 0.82rem;
             color: var(--text);
             transition: all 0.2s;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
+            background: #000;
         }
 
         .phone-item::before {
@@ -450,7 +453,7 @@
             padding: 0.4rem 0.9rem;
             border: 1px solid var(--border);
             border-radius: 4px;
-            background: linear-gradient(135deg, rgba(110, 231, 160, 0.03), rgba(0, 0, 0, 0));
+            background: #000;
             transition: all 0.25s;
             cursor: default;
         }
@@ -719,4 +722,4 @@
         });
     </script>
 </body>
-    </html>
+</html>

@@ -35,9 +35,11 @@
             min-height: 100vh;
             padding: 0;
             background-image:
+                radial-gradient(ellipse at top, rgba(110, 231, 160, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(110, 231, 160, 0.04) 0%, transparent 50%),
                 linear-gradient(rgba(110, 231, 160, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(110, 231, 160, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
         }
 
         .container {
@@ -56,7 +58,7 @@
             margin-bottom: 2rem;
             position: sticky;
             top: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
             backdrop-filter: blur(10px);
             z-index: 100;
         }
@@ -92,10 +94,9 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.2rem;
             transition: all 0.25s ease;
-            background: transparent;
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.03), rgba(110, 231, 160, 0.01));
             text-shadow: 0 0 8px var(--neon-glow);
             box-shadow: 0 0 10px rgba(110, 231, 160, 0.05);
-            position: relative;
         }
 
         .menu-btn:hover {
@@ -107,7 +108,7 @@
         }
 
         .menu-btn.active {
-            background: rgba(110, 231, 160, 0.1);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.15), rgba(110, 231, 160, 0.05));
             border-color: var(--neon);
             box-shadow: 0 0 20px var(--neon-glow);
         }
@@ -128,7 +129,7 @@
             opacity: 1;
             margin-bottom: 2rem;
             border-color: var(--border-bright);
-            background: rgba(110, 231, 160, 0.02);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.04), rgba(110, 231, 160, 0.01));
         }
 
         .nav-menu-inner {
@@ -161,7 +162,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             color: var(--neon);
-            background: rgba(110, 231, 160, 0.08);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.12), rgba(110, 231, 160, 0.04));
             border: 1px solid var(--border-bright);
             padding: 0.15rem 0.6rem;
             border-radius: 3px;
@@ -222,7 +223,7 @@
             opacity: 0.5;
         }
 
-        /* ===== КАРТОЧКИ-КНОПКИ (ссылки) ===== */
+        /* ===== КАРТОЧКИ-КНОПКИ (все ссылки зелёные) ===== */
         .link-list {
             display: flex;
             flex-direction: column;
@@ -237,31 +238,60 @@
             padding: 0.85rem 1.1rem;
             border: 1px solid var(--border-bright);
             border-radius: 4px;
-            background: rgba(110, 231, 160, 0.02);
-            color: var(--text);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.08), rgba(110, 231, 160, 0.02));
+            color: #000;
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.25s ease;
             font-family: 'JetBrains Mono', monospace;
-        }
-
-        .link-item:hover {
-            border-color: var(--neon);
-            background: rgba(110, 231, 160, 0.08);
-            box-shadow:
-                0 0 20px var(--neon-glow-soft),
-                inset 0 0 15px rgba(110, 231, 160, 0.05);
-            color: var(--neon);
-            transform: translateX(3px);
+            font-weight: 500;
         }
 
         .link-item .name {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .link-item .url {
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 0.8rem;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .link-item:hover {
+            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
+            box-shadow:
+                0 0 25px var(--neon-glow),
+                0 0 50px var(--neon-glow-soft);
+            transform: translateX(3px);
+        }
+
+        /* ===== НЕССЫЛОЧНАЯ КАРТОЧКА (Discord) ===== */
+        .link-item-static {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.85rem 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: default;
+        }
+
+        .link-item-static .name {
             color: var(--neon);
             font-weight: 500;
             text-shadow: 0 0 8px var(--neon-glow-soft);
         }
 
-        .link-item .url {
+        .link-item-static .url {
             color: var(--text-dim);
             font-size: 0.8rem;
             text-align: right;
@@ -275,7 +305,7 @@
             display: block;
             width: 100%;
             padding: 1rem;
-            background: var(--neon);
+            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
             color: #000;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
@@ -290,7 +320,6 @@
                 0 0 40px var(--neon-glow-soft);
             border: none;
             cursor: pointer;
-            text-shadow: none;
         }
 
         .main-btn:hover {
@@ -299,18 +328,17 @@
                 0 0 60px var(--neon-glow),
                 0 0 100px var(--neon-glow-soft);
             transform: translateY(-2px);
-            background: var(--neon-bright);
         }
 
         .secondary-btn {
             display: block;
             width: 100%;
             padding: 1rem;
-            background: transparent;
-            color: var(--neon);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.1), rgba(110, 231, 160, 0.03));
+            color: #000;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             text-align: center;
             text-decoration: none;
             border: 1px solid var(--border-bright);
@@ -318,16 +346,14 @@
             letter-spacing: 0.5px;
             transition: all 0.25s;
             margin-top: 0.6rem;
-            text-shadow: 0 0 8px var(--neon-glow-soft);
         }
 
         .secondary-btn:hover {
-            border-color: var(--neon);
+            background: linear-gradient(135deg, var(--neon), var(--neon-bright));
             box-shadow:
                 0 0 20px var(--neon-glow),
-                inset 0 0 15px rgba(110, 231, 160, 0.08);
-            color: var(--neon-bright);
-            text-shadow: 0 0 15px var(--neon-glow-strong);
+                0 0 40px var(--neon-glow-soft);
+            transform: translateY(-2px);
         }
 
         /* ===== ХАРДВАРЕ БЛОК ===== */
@@ -335,7 +361,7 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 1.1rem 1.2rem;
-            background: rgba(110, 231, 160, 0.015);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
             margin-bottom: 0.6rem;
             transition: all 0.25s;
         }
@@ -370,7 +396,7 @@
             text-shadow: none;
         }
 
-        /* ===== ТЕЛЕФОНЫ ===== */
+        /* ===== ТЕЛЕФОНЫ (чёрные, не ссылки) ===== */
         .phone-list {
             display: flex;
             flex-direction: column;
@@ -388,7 +414,7 @@
             font-size: 0.82rem;
             color: var(--text);
             transition: all 0.2s;
-            background: rgba(110, 231, 160, 0.01);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.02), rgba(0, 0, 0, 0));
         }
 
         .phone-item::before {
@@ -400,9 +426,8 @@
         }
 
         .phone-item:hover {
-            border-color: var(--neon);
-            background: rgba(110, 231, 160, 0.05);
-            box-shadow: 0 0 15px rgba(110, 231, 160, 0.12);
+            border-color: var(--border-bright);
+            box-shadow: 0 0 15px rgba(110, 231, 160, 0.1);
         }
 
         .phone-item .status {
@@ -411,7 +436,7 @@
             margin-left: auto;
         }
 
-        /* ===== БЛОГЕРЫ ===== */
+        /* ===== БЛОГЕРЫ (чёрные, не ссылки) ===== */
         .blogger-list {
             display: flex;
             flex-wrap: wrap;
@@ -421,23 +446,18 @@
         .blogger-tag {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--neon);
+            color: var(--text);
             padding: 0.4rem 0.9rem;
-            border: 1px solid var(--border-bright);
+            border: 1px solid var(--border);
             border-radius: 4px;
-            background: rgba(110, 231, 160, 0.03);
+            background: linear-gradient(135deg, rgba(110, 231, 160, 0.03), rgba(0, 0, 0, 0));
             transition: all 0.25s;
-            text-shadow: 0 0 8px var(--neon-glow-soft);
             cursor: default;
         }
 
         .blogger-tag:hover {
-            border-color: var(--neon);
-            box-shadow:
-                0 0 18px var(--neon-glow),
-                inset 0 0 12px rgba(110, 231, 160, 0.08);
-            background: rgba(110, 231, 160, 0.08);
-            text-shadow: 0 0 15px var(--neon-glow-strong);
+            border-color: var(--border-bright);
+            box-shadow: 0 0 15px rgba(110, 231, 160, 0.1);
         }
 
         /* ===== ФУТЕР ===== */
@@ -460,8 +480,8 @@
         /* ===== АДАПТИВ ===== */
         @media (max-width: 480px) {
             .container { padding: 1rem 0.9rem 3rem; }
-            .link-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
-            .link-item .url { text-align: left; }
+            .link-item, .link-item-static { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+            .link-item .url, .link-item-static .url { text-align: left; }
             .hero h1 { letter-spacing: -1px; }
         }
     </style>
@@ -530,10 +550,10 @@
                     <span class="name">4pda</span>
                     <span class="url">4pda.to/user/11299573</span>
                 </a>
-                <a href="#" class="link-item">
+                <div class="link-item-static">
                     <span class="name">Discord</span>
                     <span class="url">computershikcats123</span>
-                </a>
+                </div>
                 <a href="https://smartsworld.ru/users/computershikcats.38667/" target="_blank" class="link-item">
                     <span class="name">SmartsWorld</span>
                     <span class="url">smartsworld.ru/computershikcats</span>
@@ -634,8 +654,8 @@
                     <span class="status">crDroid 11.17</span>
                 </div>
                 <div class="phone-item">
-                    Redmi Note 11 6/128
-                    <span class="status">Project Infinity X · A16</span>
+                    Lumia 950
+                    <span class="status">Windows 10 Mobile</span>
                 </div>
             </div>
         </div>
@@ -690,7 +710,6 @@
             menuBtn.textContent = navMenu.classList.contains('open') ? '×' : '≡';
         });
 
-        // Закрывать меню при клике на ссылку
         document.querySelectorAll('.nav-menu-inner a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');

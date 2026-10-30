@@ -50,7 +50,6 @@
             padding: 1.5rem 1.25rem 4rem;
         }
 
-        /* ===== ВЕРХНЯЯ ПАНЕЛЬ ===== */
         .topbar {
             display: flex;
             align-items: center;
@@ -113,7 +112,6 @@
             box-shadow: 0 0 20px var(--neon-glow);
         }
 
-        /* ===== МЕНЮ НАВИГАЦИИ ===== */
         .nav-menu {
             max-height: 0;
             overflow: hidden;
@@ -156,7 +154,6 @@
             text-shadow: 0 0 10px var(--neon-glow);
         }
 
-        /* ===== БЕЙДЖ ВЕРСИИ ===== */
         .version-badge {
             display: inline-block;
             font-family: 'JetBrains Mono', monospace;
@@ -171,7 +168,6 @@
             text-shadow: 0 0 8px var(--neon-glow);
         }
 
-        /* ===== HERO ===== */
         .hero {
             margin-bottom: 3rem;
         }
@@ -200,7 +196,6 @@
             line-height: 1.7;
         }
 
-        /* ===== СЕКЦИИ ===== */
         .section {
             margin-bottom: 2.5rem;
             scroll-margin-top: 80px;
@@ -222,7 +217,6 @@
             opacity: 0.5;
         }
 
-        /* ===== КАРТОЧКИ-КНОПКИ (зелёный градиент) ===== */
         .link-list {
             display: flex;
             flex-direction: column;
@@ -253,7 +247,7 @@
         }
 
         .link-item .url {
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.75);
             font-size: 0.8rem;
             text-align: right;
             overflow: hidden;
@@ -270,7 +264,6 @@
             transform: translateX(3px);
         }
 
-        /* ===== НЕССЫЛОЧНАЯ КАРТОЧКА (Discord) ===== */
         .link-item-static {
             display: flex;
             align-items: center;
@@ -301,65 +294,6 @@
             white-space: nowrap;
         }
 
-        /* ===== ГЛАВНАЯ КНОПКА ===== */
-        .main-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 30%, var(--neon) 70%, var(--neon-bright) 100%);
-            color: #000;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-            border: 1px solid var(--neon-deep);
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-            transition: all 0.25s;
-            box-shadow:
-                0 0 20px var(--neon-glow),
-                0 0 40px var(--neon-glow-soft);
-            cursor: pointer;
-        }
-
-        .main-btn:hover {
-            background: linear-gradient(135deg, var(--neon-deep) 0%, var(--neon-mid) 30%, var(--neon-bright) 70%, #aaffcc 100%);
-            box-shadow:
-                0 0 30px var(--neon-glow-strong),
-                0 0 60px var(--neon-glow),
-                0 0 100px var(--neon-glow-soft);
-            transform: translateY(-2px);
-        }
-
-        .secondary-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--neon-dark) 0%, var(--neon-deep) 40%, var(--neon-mid) 80%, var(--neon) 100%);
-            color: #000;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-            border: 1px solid var(--neon-deep);
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-            transition: all 0.25s;
-            margin-top: 0.6rem;
-            box-shadow: 0 0 12px rgba(110, 231, 160, 0.15);
-        }
-
-        .secondary-btn:hover {
-            background: linear-gradient(135deg, var(--neon-deep) 0%, var(--neon-mid) 30%, var(--neon-bright) 100%);
-            box-shadow:
-                0 0 20px var(--neon-glow),
-                0 0 40px var(--neon-glow-soft);
-            transform: translateY(-2px);
-        }
-
-        /* ===== ХАРДВАРЕ БЛОК ===== */
         .hw-block {
             border: 1px solid var(--border);
             border-radius: 4px;
@@ -393,13 +327,6 @@
             font-weight: 500;
         }
 
-        .hw-block.dead .hw-title {
-            color: var(--text-dim);
-            opacity: 0.6;
-            text-shadow: none;
-        }
-
-        /* ===== ТЕЛЕФОНЫ (чёрные, не ссылки) ===== */
         .phone-list {
             display: flex;
             flex-direction: column;
@@ -439,31 +366,6 @@
             margin-left: auto;
         }
 
-        /* ===== БЛОГЕРЫ (чёрные, не ссылки) ===== */
-        .blogger-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .blogger-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text);
-            padding: 0.4rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: #000;
-            transition: all 0.25s;
-            cursor: default;
-        }
-
-        .blogger-tag:hover {
-            border-color: var(--border-bright);
-            box-shadow: 0 0 15px rgba(110, 231, 160, 0.1);
-        }
-
-        /* ===== ФУТЕР ===== */
         .footer {
             margin-top: 3rem;
             padding-top: 1.5rem;
@@ -480,7 +382,6 @@
             text-shadow: 0 0 10px var(--neon-glow-strong);
         }
 
-        /* ===== АДАПТИВ ===== */
         @media (max-width: 480px) {
             .container { padding: 1rem 0.9rem 3rem; }
             .link-item, .link-item-static { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
@@ -502,203 +403,231 @@
         <nav class="nav-menu" id="navMenu">
             <div class="nav-menu-inner">
                 <a href="#hero">// приветствие</a>
-                <a href="#tech">// техника</a>
+                <a href="#hardware">// железо и приставки</a>
                 <a href="#socials">// соцсети</a>
-                <a href="#bloggers">// любимые блогеры</a>
                 <a href="#channels">// каналы и чаты</a>
-                <a href="#sites">// сайты</a>
-                <a href="#bots">// боты</a>
-                <a href="#phones-main">// основные телефоны</a>
-                <a href="#phones-others">// другие телефоны</a>
+                <a href="#projects">// проекты</a>
+                <a href="#phones-main">// основа и второй</a>
+                <a href="#phones-others">// остальные трубки</a>
             </div>
         </nav>
 
         <!-- Hero -->
         <div class="hero" id="hero">
-            <div class="version-badge">BIO v2.0 · online</div>
+            <div class="version-badge">BIO · updated</div>
             <h1>Привет, я <span class="accent">Computershikcats</span></h1>
-            <p>Техноэнтузиаст, коллекционер телефонов, любитель кастомных прошивок и разработки под Android. Собираю, чиню, прошиваю и просто живу этим.</p>
+            <p>Техноэнтузиаст, ромодел, анбрикер и коллекционер мобильного железа.</p>
         </div>
 
-        <!-- Техника -->
-        <div class="section" id="tech">
-            <div class="section-label">Техника</div>
-            <div class="hw-block dead">
-                <div class="hw-title">ПК</div>
-                <div class="hw-desc">отсутствует</div>
-            </div>
+        <!-- Железо -->
+        <div class="section" id="hardware">
+            <div class="section-label">🖥 Железо и сетап</div>
+            
             <div class="hw-block">
-                <div class="hw-title">Ноутбук (говно)</div>
-                <div class="hw-desc"><strong>Asus X553S</strong> · Intel Pentium N3700 · 8 ГБ ОЗУ · SSD 256 ГБ</div>
+                <div class="hw-title">🖥 Мой ПК (говно)</div>
+                <div class="hw-desc">
+                    <strong>Проц:</strong> Core i3-3240<br>
+                    <strong>Видюха:</strong> Nvidia GTX750<br>
+                    <strong>ОЗУ:</strong> 16gb DDR4<br>
+                    <strong>Накопители:</strong> SSD 120gb + SSD 256gb + HDD 500gb
+                </div>
             </div>
+
             <div class="hw-block">
-                <div class="hw-title">Raspberry Pi 4</div>
-                <div class="hw-desc">используется как дополнительный ПК</div>
+                <div class="hw-title">💻 Мой ноутбук (говно)</div>
+                <div class="hw-desc">
+                    <strong>Название:</strong> Asus X553S<br>
+                    <strong>Процессор:</strong> Intel Pentium N3700<br>
+                    <strong>ОЗУ:</strong> 8 ГБ<br>
+                    <strong>SSD:</strong> 256 ГБ
+                </div>
+            </div>
+
+            <div class="hw-block">
+                <div class="hw-title">🍓 Микро-ПК</div>
+                <div class="hw-desc">В роли подобия ПК выступает <strong>Raspberry Pi 4</strong>.</div>
+            </div>
+
+            <div class="hw-block">
+                <div class="hw-title">🎮 Приставки</div>
+                <div class="hw-desc">
+                    ▸ <strong>Ноунейм приставка за 500 руб</strong> — разобрана на запчасти, хз где она сейчас, вроде где-то дома<br>
+                    ▸ <strong>Xbox One S</strong> — иногда играю во всякую хуету
+                </div>
             </div>
         </div>
 
         <!-- Соцсети -->
         <div class="section" id="socials">
-            <div class="section-label">Соцсети</div>
+            <div class="section-label">✈️ Мои соцсети</div>
             <div class="link-list">
-                <a href="http://midouser.t.me/" target="_blank" class="link-item">
-                    <span class="name">Telegram</span>
-                    <span class="url">midouser.t.me</span>
+                <a href="https://t.me/YaFemboyTech" target="_blank" class="link-item">
+                    <span class="name">✈️ Telegram</span>
+                    <span class="url">t.me/YaFemboyTech</span>
                 </a>
                 <a href="https://github.com/leefshitz2" target="_blank" class="link-item">
-                    <span class="name">GitHub</span>
+                    <span class="name">💻 GitHub</span>
                     <span class="url">github.com/leefshitz2</span>
                 </a>
                 <a href="https://4pda.to/forum/index.php?showuser=11299573" target="_blank" class="link-item">
-                    <span class="name">4pda</span>
-                    <span class="url">4pda.to/user/11299573</span>
+                    <span class="name">📝 4PDA</span>
+                    <span class="url">4pda.to/forum/showuser=11299573</span>
                 </a>
                 <div class="link-item-static">
-                    <span class="name">Discord</span>
+                    <span class="name">💬 Discord</span>
                     <span class="url">computershikcats123</span>
                 </div>
                 <a href="https://smartsworld.ru/users/computershikcats.38667/" target="_blank" class="link-item">
-                    <span class="name">SmartsWorld</span>
-                    <span class="url">smartsworld.ru/computershikcats</span>
+                    <span class="name">📱 SmartsWorld</span>
+                    <span class="url">smartsworld.ru/...</span>
                 </a>
             </div>
         </div>
 
-        <!-- Любимые блогеры -->
-        <div class="section" id="bloggers">
-            <div class="section-label">Любимые блогеры</div>
-            <div class="blogger-list">
-                <span class="blogger-tag">AFaGP</span>
-                <span class="blogger-tag">Чопокомпик</span>
-                <span class="blogger-tag">Runa1366</span>
-                <span class="blogger-tag">Павел Хмурчик</span>
-                <span class="blogger-tag">Geekster1337</span>
-            </div>
-        </div>
-
-        <!-- Каналы -->
+        <!-- Каналы и чаты -->
         <div class="section" id="channels">
-            <div class="section-label">Каналы и чаты</div>
+            <div class="section-label">🐳 Мои каналы и чаты</div>
             <div class="link-list">
+                <div class="link-item-static">
+                    <span class="name">этот😱</span>
+                    <span class="url">channel</span>
+                </div>
                 <a href="https://t.me/computershikstickers" target="_blank" class="link-item">
-                    <span class="name">Стикерпаки</span>
+                    <span class="name">Мои стикерпуки</span>
                     <span class="url">t.me/computershikstickers</span>
-                </a>
-                <a href="http://ruonemeapp.t.me/" target="_blank" class="link-item">
-                    <span class="name">Мод Max (скам)</span>
-                    <span class="url">ruonemeapp.t.me</span>
                 </a>
                 <a href="https://t.me/+3DcXe1K2vEA2Njlh" target="_blank" class="link-item">
                     <span class="name">Старый канал</span>
-                    <span class="url">архив, не подписывайтесь</span>
+                    <span class="url">архив канала, не подписывайтесь</span>
                 </a>
                 <a href="https://t.me/+58HwRWRs0ikyNDQx" target="_blank" class="link-item">
                     <span class="name">Новый канал</span>
-                    <span class="url">подписывайтесь</span>
-                </a>
-                <a href="http://BrodGSIUpdates.t.me/" target="_blank" class="link-item">
-                    <span class="name">BrodGSI [NEW]</span>
-                    <span class="url">заброшен</span>
+                    <span class="url">если хотите, можете подписаться</span>
                 </a>
                 <a href="http://Qualcomm_Loaders.t.me/" target="_blank" class="link-item">
                     <span class="name">Qualcomm Loaders</span>
-                    <span class="url">файлопомойка</span>
+                    <span class="url">файлопомойка, никогда не обновится</span>
                 </a>
                 <a href="https://t.me/Doogee_X96" target="_blank" class="link-item">
                     <span class="name">Doogee X96 Updates</span>
-                    <span class="url">t.me/Doogee_X96</span>
+                    <span class="url">прошивки/ядра для юнисока</span>
+                </a>
+                <a href="https://t.me/+IXXizSepp_Y4Yjcx" target="_blank" class="link-item">
+                    <span class="name">Чат по Xiaomi Mi 8</span>
+                    <span class="url">t.me/+IXXizSepp_Y4Yjcx</span>
                 </a>
                 <a href="https://t.me/ximiunlock" target="_blank" class="link-item">
-                    <span class="name">Xiaomi Unlock</span>
-                    <span class="url">дешёвые цены</span>
+                    <span class="name">Помощь по прошивке / анлоку / анбрику</span>
+                    <span class="url">самые дешевые цены на рынке</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Проекты -->
+        <div class="section" id="projects">
+            <div class="section-label">🚀 Мои проекты</div>
+            <div class="link-list">
+                <a href="https://t.me/Femboy_OS" target="_blank" class="link-item">
+                    <span class="name">FemboyOS</span>
+                    <span class="url">ОС на Arch + wine app + дизайн</span>
                 </a>
                 <a href="https://t.me/phonebot_channel" target="_blank" class="link-item">
                     <span class="name">PhoneBot канал</span>
                     <span class="url">t.me/phonebot_channel</span>
                 </a>
-            </div>
-        </div>
-
-        <!-- Сайты -->
-        <div class="section" id="sites">
-            <div class="section-label">Сайты</div>
-            <a href="https://leefshitz2.github.io/XimiTechtokGore/" target="_blank" class="main-btn">
-                [ СКАЧАТЬ XIMI ]
-            </a>
-            <a href="https://leefshitz2.github.io/XimiTechtokRemake/" target="_blank" class="secondary-btn">
-                [ НОВАЯ ВЕРСИЯ XIMI ]
-            </a>
-            <a href="https://t.me/DrunDev9008" target="_blank" class="secondary-btn">
-                [ TELEGRAM-БИО ]
-            </a>
-        </div>
-
-        <!-- Боты -->
-        <div class="section" id="bots">
-            <div class="section-label">Боты</div>
-            <div class="link-list">
-                <a href="https://t.me/Phonescards_bot" target="_blank" class="link-item">
-                    <span class="name">Phonescards</span>
-                    <span class="url">в разработке</span>
+                <a href="http://Phonescards_bot.t.me/" target="_blank" class="link-item">
+                    <span class="name">PhoneBot</span>
+                    <span class="url">бот с карточками телефонов</span>
                 </a>
-                <a href="https://t.me/BrodGSI_bot" target="_blank" class="link-item">
-                    <span class="name">BrodGSI</span>
+                <a href="http://UnbrickTool.t.me/" target="_blank" class="link-item">
+                    <span class="name">UnbrickTool</span>
+                    <span class="url">тулка для прошива, анбрика и т.д</span>
+                </a>
+                <a href="https://t.me/femboy_gpt" target="_blank" class="link-item">
+                    <span class="name">ФембойGPT канал</span>
+                    <span class="url">t.me/femboy_gpt</span>
+                </a>
+                <a href="http://t.me/femgptbot" target="_blank" class="link-item">
+                    <span class="name">FemboyGPT бот</span>
+                    <span class="url">ии для фембоев</span>
+                </a>
+                <a href="http://BrodGSI_bot.t.me/" target="_blank" class="link-item">
+                    <span class="name">BrodGSI bot</span>
                     <span class="url">временно отключен</span>
                 </a>
+                <a href="https://brodgsi.t.me/" target="_blank" class="link-item">
+                    <span class="name">BrodGSI Updates</span>
+                    <span class="url">заброшен, апдейты в чате</span>
+                </a>
+                <a href="http://Brod_gsi.t.me/" target="_blank" class="link-item">
+                    <span class="name">BrodGSI Chat</span>
+                    <span class="url">чат обновлений</span>
+                </a>
+                <a href="http://BrodGSIUpdates.t.me/" target="_blank" class="link-item">
+                    <span class="name">BrodGSI [NEW]</span>
+                    <span class="url">перезапуск BrodGSI</span>
+                </a>
+                <a href="http://ruonemeapp.t.me/" target="_blank" class="link-item">
+                    <span class="name">Мод на мессенджер скам (Max)</span>
+                    <span class="url">ruonemeapp.t.me</span>
+                </a>
             </div>
         </div>
 
-        <!-- Телефоны -->
+        <!-- Телефоны основа -->
         <div class="section" id="phones-main">
-            <div class="section-label">Основные телефоны</div>
+            <div class="section-label">📱 Мои телефоны (основа и второй)</div>
             <div class="phone-list">
                 <div class="phone-item">
                     Xiaomi Mi 8 6/64
-                    <span class="status">crDroid 11.17</span>
+                    <span class="status">основа, crDroid 11.17</span>
                 </div>
                 <div class="phone-item">
                     Lumia 950
-                    <span class="status">Windows 10 Mobile</span>
+                    <span class="status">чёрный</span>
                 </div>
             </div>
         </div>
 
+        <!-- Другие телефоны -->
         <div class="section" id="phones-others">
-            <div class="section-label">Другие телефоны</div>
+            <div class="section-label">📱 Другие телефоны</div>
             <div class="phone-list">
-                <div class="phone-item">Redmi Note 9 Pro 6/128 белый <span class="status">не раб.</span></div>
-                <div class="phone-item">Redmi 4X <span class="status">лок Mi</span></div>
-                <div class="phone-item">Redmi Note 4X <span class="status">4 шт., 1 рабочий</span></div>
-                <div class="phone-item">Redmi 9C <span class="status">остатки</span></div>
-                <div class="phone-item">Samsung J5 (2015)</div>
-                <div class="phone-item">Sony Xperia Z <span class="status">тач частично</span></div>
-                <div class="phone-item">Samsung A04 <span class="status">рефаб, кирпич</span></div>
-                <div class="phone-item">Samsung A10</div>
-                <div class="phone-item">Samsung S2 <span class="status">MicroUSB не раб.</span></div>
-                <div class="phone-item">Samsung S3 <span class="status">без кнопки питания</span></div>
-                <div class="phone-item">Samsung GT-3322</div>
-                <div class="phone-item">LG G2 <span class="status">основа 2024</span></div>
+                <div class="phone-item">Redmi Note 11 6/128 <span class="status">crDroid 12.11 (А16) · продал</span></div>
+                <div class="phone-item">Redmi Note 9 Pro 6/128 белый <span class="status">с зелёной крышкой</span></div>
+                <div class="phone-item">Redmi 4X</div>
+                <div class="phone-item">Redmi Note 4X <span class="status">было 4 шт, собран 1 рабочий</span></div>
+                <div class="phone-item">Redmi 9C <span class="status">остатки, инфа в старом канале</span></div>
+                <div class="phone-item">Samsung Galaxy J5 (2015)</div>
+                <div class="phone-item">Sony Xperia Z <span class="status">тач работает не полностью</span></div>
+                <div class="phone-item">Samsung Galaxy A04 <span class="status">рефаб/убитый, временно кирпич</span></div>
+                <div class="phone-item">Samsung Galaxy A10 <span class="status">ностальгия по 2025 🥺</span></div>
+                <div class="phone-item">Samsung Galaxy S2 <span class="status">не работает MicroUSB</span></div>
+                <div class="phone-item">Samsung Galaxy S3 <span class="status">без кнопки питания</span></div>
+                <div class="phone-item">Samsung GT-3322 <span class="status">первый телефон в жизни</span></div>
+                <div class="phone-item">LG G2 <span class="status">основа в 2024 💀💀💀</span></div>
                 <div class="phone-item">LG G3</div>
-                <div class="phone-item">iPod Touch 5 <span class="status">iOS 9.3.5, обход iCloud</span></div>
-                <div class="phone-item">Samsung A6 <span class="status">рабочий</span></div>
-                <div class="phone-item">Honor 9X <span class="status">экран/кнопки не раб.</span></div>
-                <div class="phone-item">Honor 8A <span class="status">нет платы зарядки</span></div>
-                <div class="phone-item">копия S23 <span class="status">MT6580</span></div>
-                <div class="phone-item">Samsung A12 <span class="status">MTK</span></div>
-                <div class="phone-item">Doogee X96 <span class="status">TWRP заброшен</span></div>
-                <div class="phone-item">Samsung S6 Edge <span class="status">Verizon, мать заменена</span></div>
-                <div class="phone-item">Infinix Smart 8 <span class="status">экран вдребезги</span></div>
-                <div class="phone-item">Samsung Mega 5.8 <span class="status">не раб., основа 2023</span></div>
+                <div class="phone-item">Apple iPod Touch 5 <span class="status">обошёл iCloud</span></div>
+                <div class="phone-item">Samsung Galaxy A6 <span class="status">с чехлом, полностью рабочий</span></div>
+                <div class="phone-item">Honor 9X <span class="status">нерабочий экран и кнопки</span></div>
+                <div class="phone-item">Honor 8A <span class="status">нету динамиков</span></div>
+                <div class="phone-item">Копия Samsung S23 <span class="status">на MT6580</span></div>
+                <div class="phone-item">Samsung Galaxy A12 <span class="status">версия на MTK</span></div>
+                <div class="phone-item">Doogee X96 <span class="status">TWRP забросил</span></div>
+                <div class="phone-item">Samsung Galaxy S6 Edge <span class="status">Verizon корпус, мать заменена</span></div>
+                <div class="phone-item">Infinix Smart 8 <span class="status">экрану пїзда</span></div>
+                <div class="phone-item">Samsung Galaxy Mega 5.8 Duos <span class="status">не рабочий, основа в 2023 💀</span></div>
                 <div class="phone-item">LG L Bello</div>
-                <div class="phone-item">iPhone 7 Plus <span class="status">iOS 15, обход iCloud</span></div>
+                <div class="phone-item">Apple iPhone 7 plus <span class="status">iOS 15, обошёл iCloud</span></div>
                 <div class="phone-item">Meizu M1 Note</div>
                 <div class="phone-item">Alcatel OT-5020A <span class="status">МТС 972</span></div>
+                <div class="phone-item">Redmi K50 Ultra <span class="status">кирпич, китайская версия</span></div>
             </div>
         </div>
 
         <!-- Футер -->
         <div class="footer">
-            computershikcats <span class="dot">·</span> 2026
+            Computershikcats <span class="dot">·</span> 2026
         </div>
 
     </div>

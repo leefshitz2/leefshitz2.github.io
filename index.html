@@ -14,19 +14,19 @@
         }
 
         :root {
-            --neon: #6ee7a0;
-            --neon-bright: #8effb8;
-            --neon-mid: #4dd87a;
-            --neon-deep: #2bb55a;
-            --neon-dark: #1a7a3a;
-            --neon-glow: rgba(110, 231, 160, 0.6);
-            --neon-glow-soft: rgba(110, 231, 160, 0.25);
-            --neon-glow-strong: rgba(110, 231, 160, 0.9);
+            --neon: #00FF7F;
+            --neon-bright: #33ff99;
+            --neon-mid: #00e673;
+            --neon-deep: #00b359;
+            --neon-dark: #008040;
+            --neon-glow: rgba(0, 255, 127, 0.6);
+            --neon-glow-soft: rgba(0, 255, 127, 0.25);
+            --neon-glow-strong: rgba(0, 255, 127, 0.9);
             --bg: #000000;
-            --border: #1a3a24;
-            --border-bright: #2a6a3a;
-            --text: #d4e8d8;
-            --text-dim: #7a9a82;
+            --border: #143d24;
+            --border-bright: #1f6b3b;
+            --text: #e6f7ed;
+            --text-dim: #8ab89a;
         }
 
         body {
@@ -37,10 +37,10 @@
             min-height: 100vh;
             padding: 0;
             background-image:
-                radial-gradient(ellipse at top, rgba(110, 231, 160, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(110, 231, 160, 0.04) 0%, transparent 50%),
-                linear-gradient(rgba(110, 231, 160, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(110, 231, 160, 0.03) 1px, transparent 1px);
+                radial-gradient(ellipse at top, rgba(0, 255, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(0, 255, 127, 0.05) 0%, transparent 50%),
+                linear-gradient(rgba(0, 255, 127, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 127, 0.04) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
         }
 
@@ -102,12 +102,12 @@
             border-color: var(--neon);
             box-shadow:
                 0 0 15px var(--neon-glow),
-                inset 0 0 10px rgba(110, 231, 160, 0.1);
+                inset 0 0 10px rgba(0, 255, 127, 0.15);
             text-shadow: 0 0 15px var(--neon-glow-strong);
         }
 
         .menu-btn.active {
-            background: rgba(110, 231, 160, 0.1);
+            background: rgba(0, 255, 127, 0.15);
             border-color: var(--neon);
             box-shadow: 0 0 20px var(--neon-glow);
         }
@@ -237,8 +237,8 @@
             font-size: 0.9rem;
             transition: all 0.25s ease;
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            box-shadow: 0 0 12px rgba(110, 231, 160, 0.15);
+            font-weight: 600;
+            box-shadow: 0 0 14px rgba(0, 255, 127, 0.2);
         }
 
         .link-item .name {
@@ -247,13 +247,13 @@
         }
 
         .link-item .url {
-            color: rgba(0, 0, 0, 0.75);
+            color: rgba(0, 0, 0, 0.8);
             font-size: 0.8rem;
             text-align: right;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .link-item:hover {
@@ -305,7 +305,7 @@
 
         .hw-block:hover {
             border-color: var(--border-bright);
-            box-shadow: 0 0 15px rgba(110, 231, 160, 0.08);
+            box-shadow: 0 0 15px rgba(0, 255, 127, 0.1);
         }
 
         .hw-block .hw-title {
@@ -357,7 +357,7 @@
 
         .phone-item:hover {
             border-color: var(--border-bright);
-            box-shadow: 0 0 15px rgba(110, 231, 160, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 127, 0.12);
         }
 
         .phone-item .status {
@@ -414,17 +414,17 @@
 
         <!-- Hero -->
         <div class="hero" id="hero">
-            <div class="version-badge">BIO · updated</div>
+            <div class="version-badge">BIO // online</div>
             <h1>Привет, я <span class="accent">Computershikcats</span></h1>
             <p>Техноэнтузиаст, ромодел, анбрикер и коллекционер мобильного железа.</p>
         </div>
 
         <!-- Железо -->
         <div class="section" id="hardware">
-            <div class="section-label">🖥 Железо и сетап</div>
+            <div class="section-label">Сетап и железо</div>
             
             <div class="hw-block">
-                <div class="hw-title">🖥 Мой ПК (говно)</div>
+                <div class="hw-title">Мой ПК (говно)</div>
                 <div class="hw-desc">
                     <strong>Проц:</strong> Core i3-3240<br>
                     <strong>Видюха:</strong> Nvidia GTX750<br>
@@ -434,7 +434,7 @@
             </div>
 
             <div class="hw-block">
-                <div class="hw-title">💻 Мой ноутбук (говно)</div>
+                <div class="hw-title">Мой ноутбук (говно)</div>
                 <div class="hw-desc">
                     <strong>Название:</strong> Asus X553S<br>
                     <strong>Процессор:</strong> Intel Pentium N3700<br>
@@ -444,12 +444,12 @@
             </div>
 
             <div class="hw-block">
-                <div class="hw-title">🍓 Микро-ПК</div>
+                <div class="hw-title">Микро-ПК</div>
                 <div class="hw-desc">В роли подобия ПК выступает <strong>Raspberry Pi 4</strong>.</div>
             </div>
 
             <div class="hw-block">
-                <div class="hw-title">🎮 Приставки</div>
+                <div class="hw-title">Приставки</div>
                 <div class="hw-desc">
                     ▸ <strong>Ноунейм приставка за 500 руб</strong> — разобрана на запчасти, хз где она сейчас, вроде где-то дома<br>
                     ▸ <strong>Xbox One S</strong> — иногда играю во всякую хуету
@@ -459,26 +459,26 @@
 
         <!-- Соцсети -->
         <div class="section" id="socials">
-            <div class="section-label">✈️ Мои соцсети</div>
+            <div class="section-label">Мои соцсети</div>
             <div class="link-list">
                 <a href="https://t.me/YaFemboyTech" target="_blank" class="link-item">
-                    <span class="name">✈️ Telegram</span>
+                    <span class="name">Telegram</span>
                     <span class="url">t.me/YaFemboyTech</span>
                 </a>
                 <a href="https://github.com/leefshitz2" target="_blank" class="link-item">
-                    <span class="name">💻 GitHub</span>
+                    <span class="name">GitHub</span>
                     <span class="url">github.com/leefshitz2</span>
                 </a>
                 <a href="https://4pda.to/forum/index.php?showuser=11299573" target="_blank" class="link-item">
-                    <span class="name">📝 4PDA</span>
+                    <span class="name">4PDA</span>
                     <span class="url">4pda.to/forum/showuser=11299573</span>
                 </a>
                 <div class="link-item-static">
-                    <span class="name">💬 Discord</span>
+                    <span class="name">Discord</span>
                     <span class="url">computershikcats123</span>
                 </div>
                 <a href="https://smartsworld.ru/users/computershikcats.38667/" target="_blank" class="link-item">
-                    <span class="name">📱 SmartsWorld</span>
+                    <span class="name">SmartsWorld</span>
                     <span class="url">smartsworld.ru/...</span>
                 </a>
             </div>
@@ -486,10 +486,10 @@
 
         <!-- Каналы и чаты -->
         <div class="section" id="channels">
-            <div class="section-label">🐳 Мои каналы и чаты</div>
+            <div class="section-label">Мои каналы и чаты</div>
             <div class="link-list">
                 <div class="link-item-static">
-                    <span class="name">этот😱</span>
+                    <span class="name">этот</span>
                     <span class="url">channel</span>
                 </div>
                 <a href="https://t.me/computershikstickers" target="_blank" class="link-item">
@@ -525,11 +525,11 @@
 
         <!-- Проекты -->
         <div class="section" id="projects">
-            <div class="section-label">🚀 Мои проекты</div>
+            <div class="section-label">Мои проекты</div>
             <div class="link-list">
                 <a href="https://t.me/Femboy_OS" target="_blank" class="link-item">
                     <span class="name">FemboyOS</span>
-                    <span class="url">ОС на Arch + wine app + дизайн</span>
+                    <span class="url">ОС на базе Arch с нативным запуском виндовых приложений</span>
                 </a>
                 <a href="https://t.me/phonebot_channel" target="_blank" class="link-item">
                     <span class="name">PhoneBot канал</span>
@@ -576,7 +576,7 @@
 
         <!-- Телефоны основа -->
         <div class="section" id="phones-main">
-            <div class="section-label">📱 Мои телефоны (основа и второй)</div>
+            <div class="section-label">Мои телефоны (основа и второй)</div>
             <div class="phone-list">
                 <div class="phone-item">
                     Xiaomi Mi 8 6/64
@@ -591,7 +591,7 @@
 
         <!-- Другие телефоны -->
         <div class="section" id="phones-others">
-            <div class="section-label">📱 Другие телефоны</div>
+            <div class="section-label">Другие телефоны</div>
             <div class="phone-list">
                 <div class="phone-item">Redmi Note 11 6/128 <span class="status">crDroid 12.11 (А16) · продал</span></div>
                 <div class="phone-item">Redmi Note 9 Pro 6/128 белый <span class="status">с зелёной крышкой</span></div>
@@ -601,11 +601,11 @@
                 <div class="phone-item">Samsung Galaxy J5 (2015)</div>
                 <div class="phone-item">Sony Xperia Z <span class="status">тач работает не полностью</span></div>
                 <div class="phone-item">Samsung Galaxy A04 <span class="status">рефаб/убитый, временно кирпич</span></div>
-                <div class="phone-item">Samsung Galaxy A10 <span class="status">ностальгия по 2025 🥺</span></div>
+                <div class="phone-item">Samsung Galaxy A10 <span class="status">ностальгия по 2025</span></div>
                 <div class="phone-item">Samsung Galaxy S2 <span class="status">не работает MicroUSB</span></div>
                 <div class="phone-item">Samsung Galaxy S3 <span class="status">без кнопки питания</span></div>
                 <div class="phone-item">Samsung GT-3322 <span class="status">первый телефон в жизни</span></div>
-                <div class="phone-item">LG G2 <span class="status">основа в 2024 💀💀💀</span></div>
+                <div class="phone-item">LG G2 <span class="status">основа в 2024</span></div>
                 <div class="phone-item">LG G3</div>
                 <div class="phone-item">Apple iPod Touch 5 <span class="status">обошёл iCloud</span></div>
                 <div class="phone-item">Samsung Galaxy A6 <span class="status">с чехлом, полностью рабочий</span></div>
@@ -615,8 +615,8 @@
                 <div class="phone-item">Samsung Galaxy A12 <span class="status">версия на MTK</span></div>
                 <div class="phone-item">Doogee X96 <span class="status">TWRP забросил</span></div>
                 <div class="phone-item">Samsung Galaxy S6 Edge <span class="status">Verizon корпус, мать заменена</span></div>
-                <div class="phone-item">Infinix Smart 8 <span class="status">экрану пїзда</span></div>
-                <div class="phone-item">Samsung Galaxy Mega 5.8 Duos <span class="status">не рабочий, основа в 2023 💀</span></div>
+                <div class="phone-item">Infinix Smart 8 <span class="status">экрану пизда</span></div>
+                <div class="phone-item">Samsung Galaxy Mega 5.8 Duos <span class="status">не рабочий, основа в 2023</span></div>
                 <div class="phone-item">LG L Bello</div>
                 <div class="phone-item">Apple iPhone 7 plus <span class="status">iOS 15, обошёл iCloud</span></div>
                 <div class="phone-item">Meizu M1 Note</div>
